@@ -15,9 +15,9 @@ var myApp= angular.module('myApp', ['ngRoute'])
 myApp.controller('myCtrl',function($scope){
 
 	$scope.check='Angular is registered';
-  $scope.sendEmailAddress=function(){
-    console.log('clicked',socket.id);
-    socket.emit('sendEmailAddress','Recieving this means sockets are working');
+  $scope.sendEmailAddress=function(emailAddress){
+    console.log('clicked',emailAddress);
+    socket.emit('sendEmailAddress',emailAddress);
   }
 });
 
