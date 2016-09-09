@@ -6,7 +6,6 @@
   "main": "server.js",
   "dependencies": {
     "angular-router": "0.0.2",
-    "bluebird": "^3.4.6",
     "bootstrap": "^3.3.7",
     "express": "^4.14.0",
     "mongodb": "^2.2.9",
@@ -18,3 +17,4 @@
     "back-end": "nodemon server.js"
   }
 }
+

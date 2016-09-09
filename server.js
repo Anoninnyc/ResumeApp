@@ -4,6 +4,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var mongoose= require('mongoose');
 var Email= require('./models.js');
+var path= require('path');
 mongoose.Promise = require('bluebird');
 //assert.equal(query.exec().constructor, require('bluebird'));
 
@@ -15,6 +16,8 @@ app.use(express.static(__dirname + '/client/source'));
 var MongoClient = require('mongodb').MongoClient
 var URL = 'mongodb://localhost:27017/mydatabase'
 
+
+const pathToStaticDir = path.resolve(__dirname, '.', 'client/public');
 
 
 mongoose.connect(URL);
@@ -31,7 +34,7 @@ io.on('connection', function(socket){
             if (err)
                 console.log(err);
 
-io.emit('chat message', `email added ${msg}`);
+io.emit('loggedToDB', `email added ${msg}`);
            
         });
 
@@ -39,6 +42,16 @@ io.emit('chat message', `email added ${msg}`);
 
   });
 });
+
+
+app.get('*', (req, res) => {
+ 
+  const pathToIndex = path.join(pathToStaticDir, 'index.html');
+  res.status(200).sendFile(pathToIndex);
+});
+
+
+
 
 // Cant use app here b/c it interferes w/ sockets.
 http.listen(3000, "127.0.0.1");
@@ -57,3 +70,4 @@ http.listen(3000, "127.0.0.1");
 //     })
 //   })
 // })
+
