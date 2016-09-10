@@ -6,16 +6,21 @@ myApp.controller('myCtrl', function($scope) {
   $scope.check = 'Angular is registered';
   $scope.stories = [];
   $scope.error=null;
+  $scope.loading=false;
 
   $scope.sendEmailAddress = function(emailAddress) {
 
     socket.emit('sendEmailAddress', emailAddress);
 
+   
+      $scope.loading=true;
+      $scope.error=null;
+    
+
     socket.once('loggedToDB', function(msg) {
       console.log(msg)
-
-
       $scope.$apply(function() {
+        $scope.loading=false;
         $scope.stories=msg;
         $scope.error="Email has been added, Congrats!"
       })
@@ -23,6 +28,7 @@ myApp.controller('myCtrl', function($scope) {
 
     socket.once('emailExtant', function(msg) {
       $scope.$apply(function() {
+        $scope.loading=false;
         $scope.error= "Not Added, This email is already in our DB"
         $scope.stories = [];
       })
@@ -30,6 +36,7 @@ myApp.controller('myCtrl', function($scope) {
 
     socket.once('invalidEmail', function(msg) {
       $scope.$apply(function() {
+        $scope.loading=false;
         $scope.error= "Please enter a valid Email Address. Do it now!"
       })
     });
