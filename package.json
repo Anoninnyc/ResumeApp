@@ -11,10 +11,14 @@
     "mongodb": "^2.2.9",
     "mongoose": "^4.6.0",
     "nodemon": "^1.10.2",
+    "request": "^2.74.0",
     "socket.io": "^1.4.8"
   },
   "scripts": {
     "back-end": "nodemon server.js"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
   }
 }
-
