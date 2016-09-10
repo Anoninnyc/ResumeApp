@@ -21,11 +21,17 @@
 
 
 <body  ng-cloak ng-app="myApp" ng-controller="myCtrl">
+<style>
 
+  ul.nav a:hover { background-color: white !important; }
+  ul.nav a:focus { background-color: grey !important; }
+
+
+
+</style>
 
 <script>
-      var socket = io();
-
+  var socket = io();
 </script>
 
 <script src="/app.js"></script>
@@ -35,13 +41,11 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Welcome to the Angular App!</a>
+      <a class="navbar-brand">Welcome to The Angular App!</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/">Home</a></li>
-      <li><a href="/bSB">Button</a></li>
-      <li><a href="#">DummyInfo</a></li>
-      <li><a href="#">DummyInfo2</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/bSB">Register Interest</a></li>
     </ul>
   </div>
 </nav>

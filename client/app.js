@@ -1,46 +1,48 @@
+var myApp = angular.module('myApp', ['ngRoute'])
 
 
-var myApp= angular.module('myApp', ['ngRoute'])
+myApp.controller('myCtrl', function($scope) {
+  $scope.repeatables = ["Send something, please!"];
+  $scope.check = 'Angular is registered';
 
+  $scope.sendEmailAddress = function(emailAddress) {
 
-// myApp.service('consolelogRN',function(){
+    socket.emit('sendEmailAddress', emailAddress);
 
-//   this.gen=fucntion(){
-//     return Math.round(Math.random()*10);
-//   }
+    socket.once('loggedToDB', function(msg) {
 
-// })
+      $scope.$apply(function() {
+        $scope.repeatables = ["Email has been Added", "congrats!"];
+      })
+    })
 
+    socket.once('emailExtant', function(msg) {
+      $scope.$apply(function() {
+        $scope.repeatables = ["Not Added", "This email is already in our DB"];
+      })
+    });
 
+    socket.once('invalidEmail', function(msg) {
+      $scope.$apply(function() {
+        $scope.repeatables = ["Please enter a valid Email Address", "Do it now!"];
+      })
+    });
 
-myApp.controller('myCtrl',function($scope){
+  };
 
-	$scope.check='Angular is registered';
-  $scope.sendEmailAddress=function(emailAddress){
-    console.log('clicked',emailAddress);
-    socket.emit('sendEmailAddress',emailAddress);
-     socket.on('loggedToDB', function(msg){
-        console.log(msg);
-      });
-
-  }
-  
-});
-
-
-
+})
 
 
 myApp.config(function($routeProvider, $locationProvider) {
-            $routeProvider.
-            when('/', {
-               templateUrl: '/source/views/start.html',
-               controller: 'myCtrl'
-            }).
-           when('/bSB', {
-               templateUrl: '/source/views/bookstrapButton.html',
-               controller: 'myCtrl'
-            })
+  $routeProvider.
+  when('/', {
+    templateUrl: '/source/views/start.html',
+    controller: 'myCtrl'
+  }).
+  when('/bSB', {
+    templateUrl: '/source/views/bookstrapButton.html',
+    controller: 'myCtrl'
+  })
 
-           $locationProvider.html5Mode(true);
-           })
+  $locationProvider.html5Mode(true);
+})
