@@ -19,26 +19,28 @@ myApp.controller('myCtrl', function($scope) {
 
     socket.once('loggedToDB', function(msg) {
       console.log(msg)
-      $scope.$apply(function() {
+ 
         $scope.loading=false;
         $scope.stories=msg;
         $scope.error="Email has been added, Congrats!"
-      })
+  
+      $scope.$apply();
     })
 
     socket.once('emailExtant', function(msg) {
-      $scope.$apply(function() {
+      
         $scope.loading=false;
         $scope.error= "Not Added, This email is already in our DB"
         $scope.stories = [];
-      })
+      $scope.$apply();
     });
 
     socket.once('invalidEmail', function(msg) {
-      $scope.$apply(function() {
+    
         $scope.loading=false;
         $scope.error= "Please enter a valid Email Address. Do it now!"
-      })
+      
+     $scope.$apply();
     });
 
   };
