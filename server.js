@@ -32,7 +32,7 @@ io.on('connection', function(socket) {
 
 
 
-    if (reg.test(msg.address)) {
+    if (reg.test(msg.address) && msg.name && msg.company) {
 
       var email = new Email();
       email.address = msg.address;
@@ -71,7 +71,6 @@ io.on('connection', function(socket) {
               }).then((entry, err) => {
                 const companyInfo = !entry ? entry : [entry.company, entry.name];
                 const storyInfo = [];
-
                 request("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty", (error, response, body)=> {
                   const topStories = JSON.parse(response.body).slice(0, 5);
 
@@ -92,9 +91,13 @@ io.on('connection', function(socket) {
             });
           }
         })
-    } else {
+    } else if (!reg.test(msg.address)) {
       io.emit('invalidEmail');
-    }
+    } else if (!msg.name){
+       io.emit('invalidName')
+    } else if (!msg.company){
+       io.emit('invalidCompany')
+    } 
 
   });
 });

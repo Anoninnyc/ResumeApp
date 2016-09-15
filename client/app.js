@@ -38,7 +38,22 @@ myApp.controller('myCtrl', function($scope) {
     socket.once('invalidEmail', msg=> {
     
         $scope.loading=false;
-        $scope.error= "<h3>Please enter a valid Email Address. Do it now!</h3>"
+        $scope.error= "<h3>Please enter a valid Email Address.</h3>"
+        $scope.$apply();
+    });
+
+
+    socket.once('invalidName', msg=> {
+    
+        $scope.loading=false;
+        $scope.error= "<h3>Please enter a valid name</h3>"
+        $scope.$apply();
+    });
+
+     socket.once('invalidCompany', msg=> {
+    
+        $scope.loading=false;
+        $scope.error= "<h3>Please enter a valid company name</h3>"
         $scope.$apply();
     });
 
@@ -81,3 +96,5 @@ myApp.directive('helloWorld', function() {
     }
   };
 });
+
+
