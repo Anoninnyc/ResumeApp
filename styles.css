@@ -1,9 +1,0 @@
- /*nav*/
-
-  ul.nav a:hover {
-    background-color: white !important;
-  }
-  
-  ul.nav a:focus {
-    background-color: grey !important;
-  }

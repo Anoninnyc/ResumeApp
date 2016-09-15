@@ -8,39 +8,38 @@ myApp.controller('myCtrl', function($scope) {
   $scope.error=null;
   $scope.loading=false;
 
-  $scope.sendEmailAddress = function(emailAddress) {
+  $scope.sendEmailAddress = (address, name, company)=> {
 
-    socket.emit('sendEmailAddress', emailAddress);
-
+    socket.emit('sendEmailAddress', {address, name, company});
+ 
    
       $scope.loading=true;
       $scope.error=null;
     
 
-    socket.once('loggedToDB', function(msg) {
-      console.log(msg)
- 
+    socket.once('loggedToDB', msg=> {
+        const info=msg.companyInfo;
+        const addOn= info? ` It looks like ${info[1]} from ${info[0]} has also registered interest!`: "";
+
         $scope.loading=false;
-        $scope.stories=msg;
-        $scope.error="Email has been added, Congrats!"
-  
-      $scope.$apply();
+        $scope.stories=msg.storyInfo
+        $scope.error=`<h3>Email has been added, Congrats!${addOn}</h3>`
+        $scope.$apply();
     })
 
-    socket.once('emailExtant', function(msg) {
+    socket.once('emailExtant', msg=> {
       
         $scope.loading=false;
-        $scope.error= "Not Added, This email is already in our DB"
+        $scope.error= "It looks like you've already send your info"
         $scope.stories = [];
-      $scope.$apply();
+        $scope.$apply();
     });
 
-    socket.once('invalidEmail', function(msg) {
+    socket.once('invalidEmail', msg=> {
     
         $scope.loading=false;
-        $scope.error= "Please enter a valid Email Address. Do it now!"
-      
-     $scope.$apply();
+        $scope.error= "<h3>Please enter a valid Email Address. Do it now!</h3>"
+        $scope.$apply();
     });
 
   };
@@ -54,7 +53,7 @@ myApp.config(function($routeProvider, $locationProvider) {
     templateUrl: '/source/views/start.html',
     controller: 'myCtrl'
   }).
-  when('/bSB', {
+  when('/interested', {
     templateUrl: '/source/views/bookstrapButton.html',
     controller: 'myCtrl'
   })

@@ -29,43 +29,69 @@ io.on('connection', function(socket) {
   socket.on('sendEmailAddress', function(msg) {
     console.log(msg, socket.id);
 
-    if (reg.test(msg)) {
+
+
+
+    if (reg.test(msg.address)) {
 
       var email = new Email();
-      email.address = msg;
+      email.address = msg.address;
+      email.name = msg.name;
+      email.company = msg.company
+
+
+
 
       Email.findOne({
-        'address': msg
-      }, 'address').then(email => {
-        console.log('here it is', email);
-        return email !== null;
-      }).then(exists => {
-        console.log(exists, 'exists??')
-        if (exists) {
-          console.log('its there already!')
-          io.emit('emailExtant', `emailExtant`)
-        } else {
-          email.save(function(err) {
-            if (err)
-              console.log(err);
-            var storyInfo=[]
+          $or: [{
+            "address": msg.address
+          }, {
+            "name": msg.name
+          }]
+        }, 'address')
+        .then(email => {
+          console.log('here it is', email);
+          return email !== null;
+        }).then(exists => {
+          console.log(exists, 'exists??')
+          if (exists) {
+            console.log('its there already!')
+            io.emit('emailExtant', `emailExtant`)
+          } else {
+            const recentId = email.id;
+            email.save(function(err, email) {
+              const recentCompany = email.company;
+              if (err)
+                console.log(err);
+              Email.findOne({
+                "_id": {
+                  '$ne': recentId
+                },
+                company: recentCompany
+              }).then((entry, err) => {
+                const companyInfo = !entry ? entry : [entry.company, entry.name];
+                const storyInfo = [];
 
-            request("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty", function(error, response, body) {
-              var topStories = JSON.parse(response.body).slice(0, 5);
+                request("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty", (error, response, body)=> {
+                  const topStories = JSON.parse(response.body).slice(0, 5);
 
-              topStories.forEach(storyId => {
-                request(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`, function(error, res, body) {
-                  var body=JSON.parse(res.body);
-                  storyInfo.push([body.by,body.score,body.title,body.url]);
-                  if (storyInfo.length===5){
-                  io.emit('loggedToDB', storyInfo);
-                }
+                  topStories.forEach(storyId => {
+                    request(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`, (error, res, body)=> {
+                      var body = JSON.parse(res.body);
+                      storyInfo.push([body.by, body.score, body.title, body.url]);
+                      if (storyInfo.length === 5) {
+                        io.emit('loggedToDB', {
+                          storyInfo,
+                          companyInfo
+                        });
+                      }
+                    })
+                  })
                 })
-              })
+              });
             });
-          });
-        }
-      })
+          }
+        })
     } else {
       io.emit('invalidEmail');
     }

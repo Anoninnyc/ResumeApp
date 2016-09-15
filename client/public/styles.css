@@ -7,3 +7,27 @@
   ul.nav a:focus {
     background-color: grey !important;
   }
+ 	.form-control {
+    width: 50%;
+ 
+   }
+
+
+body { 
+  background: url('./nightskyline.gif') no-repeat center center ; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+div#sendInfo {
+    position: relative;
+    left: 30%;
+    text-align: 0;
+}
+
+h2.ng-binding {
+    color: darkblue;
+}

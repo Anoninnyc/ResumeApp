@@ -1,19 +1,23 @@
 
+<div id="sendInfo">
+<h1> Interested in learning more?</h1>
 
-<h3> You clicked the button!</h3>
+<input placeholder="Enter your email Address to Learn more" class="form-control" ng-model="address" type='text'/>
+<input placeholder="Enter your name here" class="form-control" ng-model="name" type='text'/>
+<input placeholder="Enter your company name here" class="form-control" ng-model="company" type='text'/>
+<button id ="action" class="btn btn-secondary" ng-click="sendEmailAddress(address, name, company)">Click to send email address</button><br/>
 
-<input placeholder="Enter your email Address to Learn more" class="form-control" ng-model="emailAddress" type='text'/>
-<button class="btn btn-secondary" ng-click="sendEmailAddress(emailAddress)">Click to send email address</button><br/>
-{{error}}
-
+<span ng-bind-html="error"></span><br/>
 <span ng-bind-html="loading?'<h1>loading</h1>':null"></span>
-<span ng-bind-html="stories.length>0? '<h1>Stories</h1>' : null"></span>
+<span ng-bind-html="stories.length>0? '<h2>Tech Stories</h2>' : null"></span>
+<input type="text" class="form-control" ng-model="color" placeholder="Enter a color" />
+<!-- <hello-world/>
+ -->
+ <div ng-repeat="story in stories">
+<a ng-href='{{story[3]}}'><h2>{{story[2]}}</h2></a>  
+<h3>By:{{story[0]}}</h3>
 
-<div ng-repeat="story in stories">
-<h2>{{story[2]}}</h2>  <a ng-href='{{story[3]}}'><h1>{{story[0]}}</h1></a>
 </div>
 
-<input type="text" class="form-control" ng-model="color" placeholder="Enter a color" />
-<hello-world/>
-
 <div id='news'></div>
+</div>
