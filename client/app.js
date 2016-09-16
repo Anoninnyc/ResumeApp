@@ -71,7 +71,10 @@ myApp.config(function($routeProvider, $locationProvider) {
   when('/interested', {
     templateUrl: '/source/views/bookstrapButton.html',
     controller: 'myCtrl'
-  })
+  }).
+  otherwise({
+    redirectTo:"/"
+    })
 
   $locationProvider.html5Mode(true);
 })
