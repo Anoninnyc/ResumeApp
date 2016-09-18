@@ -1,14 +1,15 @@
 var express = require('express');
 var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var http = require('http')
+var server = http.createServer(app);
+var socketIO  = require('socket.io')
 var mongoose = require('mongoose');
 var Email = require('./db/models.js');
 var path = require('path');
 var request = require("request");
 var MongoClient = require('mongodb').MongoClient
 mongoose.Promise = require('bluebird');
-
+const io = socketIO.listen(server);
 
 
 // db Connection
@@ -112,4 +113,6 @@ app.get('*', (req, res) => {
 
 
 // Cant use app here b/c it interferes w/ sockets.
-http.listen(3000, "127.0.0.1");
+server.listen(process.env.PORT || 3000, () => {
+  console.log('Listening on port');
+});
