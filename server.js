@@ -12,7 +12,7 @@ mongoose.Promise = require('bluebird');
 
 
 // db Connection
-var URL = "mongodb://example:example@ds053312.mongolab.com:53312/todolist"//'mongodb://localhost:27017/mydatabase'
+var URL = 'mongodb://localhost:27017/mydatabase';
 const pathToStaticDir = path.resolve(__dirname, '.', 'client/public');
 mongoose.connect(URL);
 
