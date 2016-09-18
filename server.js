@@ -12,7 +12,9 @@ mongoose.Promise = require('bluebird');
 
 
 // db Connection
-var URL = "mongodb://heroku_sv2fwrvp:fir4oj2rvlj8ooh2qdb5i9tv1@ds033056.mlab.com:33056/heroku_sv2fwrvp";
+var URL = "mongodb://heroku_sv2fwrvp:fir4oj2rvlj8ooh2qdb5i9tv1@ds033056.mlab.com:33056/heroku_sv2fwrvp"
+//
+//'mongodb://localhost:27017/mydatabase';
 const pathToStaticDir = path.resolve(__dirname, '.', 'client/public');
 mongoose.connect(URL);
 
