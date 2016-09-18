@@ -13,8 +13,7 @@
 <span ng-bind-html="loading?'<h1>loading</h1>':null"></span>
 <span ng-bind-html="stories.length>0? '<h2>Tech Stories</h2>' : null"></span>
 <input type="text" class="form-control" ng-model="color" placeholder="Enter a color" />
-<!-- <hello-world/>
- -->
+
  <div ng-repeat="story in stories">
 <a ng-href='{{story[3]}}'><h2>{{story[2]}}</h2></a>  
 <h3>By:{{story[0]}}</h3>

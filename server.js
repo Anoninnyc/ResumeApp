@@ -14,7 +14,7 @@ mongoose.Promise = require('bluebird');
 // db Connection
 var URL = 'mongodb://localhost:27017/mydatabase'
 const pathToStaticDir = path.resolve(__dirname, '.', 'client/public');
-//mongoose.connect(URL);
+mongoose.connect(URL);
 
 //MiddleWare
 app.use(express.static(__dirname + '/client'));
