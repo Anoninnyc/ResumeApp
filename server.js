@@ -13,8 +13,9 @@ const io = socketIO.listen(server);
 
 
 // db Connection
-var URL = "mongodb://heroku_sv2fwrvp:fir4oj2rvlj8ooh2qdb5i9tv1@ds033056.mlab.com:33056/heroku_sv2fwrvp"
-//
+var URL = "mongodb://heroku_tql53bj6:n7irdj440qghcr48jcp0aolip2@ds035766.mlab.com:35766/heroku_tql53bj6"
+
+//old WAN "mongodb://heroku_sv2fwrvp:fir4oj2rvlj8ooh2qdb5i9tv1@ds033056.mlab.com:33056/heroku_sv2fwrvp"
 //'mongodb://localhost:27017/mydatabase';
 const pathToStaticDir = path.resolve(__dirname, '.', 'client/public');
 mongoose.connect(URL);
