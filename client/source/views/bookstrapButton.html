@@ -13,11 +13,11 @@
 <span ng-bind-html="loading?'<h1>loading</h1>':null"></span>
 <span ng-bind-html="stories.length>0? '<h2>Tech Stories</h2>' : null"></span>
 
- <div ng-repeat="story in stories">
-<a ng-href='{{story[3]}}'><h2>{{story[2]}}</h2></a>  
+ <ol ng-repeat="story in stories">
+<li><a ng-href='{{story[3]}}'><h2>{{story[2]}}</h2></a></li>
 <h3>By:{{story[0]}}</h3>
 
-</div>
+</ol>
 
 <div id='news'></div>
 </div>
