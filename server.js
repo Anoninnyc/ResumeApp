@@ -31,7 +31,7 @@ var reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-
 
 
 
-let storyInfo = [];
+var storyInfo = [];
 
 
 cron.schedule('*/1 * * * *', function() {
