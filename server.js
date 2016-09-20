@@ -1,3 +1,4 @@
+require('dotenv').config();
 var express = require('express');
 var app = express();
 var http = require('http')
@@ -13,7 +14,7 @@ const io = socketIO.listen(server);
 
 
 // db Connection
-var URL = "mongodb://heroku_tql53bj6:n7irdj440qghcr48jcp0aolip2@ds035766.mlab.com:35766/heroku_tql53bj6"
+var URL = process.env.URL;
 
 //old WAN "mongodb://heroku_sv2fwrvp:fir4oj2rvlj8ooh2qdb5i9tv1@ds033056.mlab.com:33056/heroku_sv2fwrvp"
 //'mongodb://localhost:27017/mydatabase';
@@ -24,7 +25,6 @@ mongoose.connect(URL);
 app.use(express.static(__dirname + '/client'));
 app.use(express.static(__dirname + '/client/public'));
 app.use(express.static(__dirname + '/client/source'));
-console.log('plieeeees');
 // Regex checker
 var reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
 
