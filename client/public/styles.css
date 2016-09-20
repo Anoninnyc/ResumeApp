@@ -31,3 +31,12 @@ div#sendInfo {
 h2.ng-binding {
     color: darkblue;
 }
+
+
+div#sendInfo {
+    display: inline-block;
+}
+
+h1 {
+    display: inline;
+}
