@@ -40,3 +40,7 @@ div#sendInfo {
 h1 {
     display: inline;
 }
+
+div#res {
+ text-align: center;
+}
