@@ -4,9 +4,9 @@
     background-color: white !important;
   }
   
-  ul.nav a:focus {
+/*  ul.nav a:focus {
     background-color: grey !important;
-  }
+  }*/
  	.form-control {
     width: 50%;
  
@@ -14,7 +14,7 @@
 
 
 body { 
-  background: url('./nightskyline.gif') no-repeat center center ; 
+  background: url('./nightskyline.gif') no-repeat center center; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

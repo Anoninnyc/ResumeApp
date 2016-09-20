@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var http = require('http')
 var server = http.createServer(app);
-var socketIO  = require('socket.io')
+var socketIO = require('socket.io')
 var mongoose = require('mongoose');
 var Email = require('./db/models.js');
 var path = require('path');
@@ -11,6 +11,7 @@ var request = require("request");
 var MongoClient = require('mongodb').MongoClient
 mongoose.Promise = require('bluebird');
 const io = socketIO.listen(server);
+const cron = require('node-cron');
 
 
 // db Connection
@@ -27,6 +28,31 @@ app.use(express.static(__dirname + '/client/public'));
 app.use(express.static(__dirname + '/client/source'));
 // Regex checker
 var reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
+
+
+
+let storyInfo = [];
+
+
+cron.schedule('*/1 * * * *', function() {
+  console.log('Running a task every one minute');
+  request("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty", (error, response, body) => {
+    storyInfo=[];
+    const topStories = JSON.parse(response.body).slice(0, 5);
+          console.log('got past first request!')
+    topStories.forEach(storyId => {
+      request(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`, (error, res, body) => {
+        var body = JSON.parse(res.body);
+       
+          console.log('cronPushed')
+        storyInfo.push([body.by, body.score, body.title, body.url]);
+      
+      })
+    })
+  })
+});
+
+
 
 //sockets
 io.on('connection', function(socket) {
@@ -74,34 +100,45 @@ io.on('connection', function(socket) {
                 company: recentCompany
               }).then((entry, err) => {
                 const companyInfo = !entry ? entry : [entry.company, entry.name];
-                const storyInfo = [];
-                request("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty", (error, response, body)=> {
-                  const topStories = JSON.parse(response.body).slice(0, 5);
+                  console.log('thisshouldbehitalso!!!', storyInfo.length);
 
-                  topStories.forEach(storyId => {
-                    request(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`, (error, res, body)=> {
-                      var body = JSON.parse(res.body);
-                      storyInfo.push([body.by, body.score, body.title, body.url]);
-                      if (storyInfo.length === 5) {
-                        io.emit('loggedToDB', {
-                          storyInfo,
-                          companyInfo
-                        });
-                      }
+                if (storyInfo.length === 5) {
+                  console.log('whatwewant!');
+                  io.emit('loggedToDB', {
+                    storyInfo,
+                    companyInfo
+                  });
+                } else {
+                  request("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty", (error, response, body) => {
+                    const topStories = JSON.parse(response.body).slice(0, 5);
+                    storyInfo=[];
+
+                    topStories.forEach(storyId => {
+                      request(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`, (error, res, body) => {
+                        var body = JSON.parse(res.body);
+                        storyInfo.push([body.by, body.score, body.title, body.url]);
+
+                        if (storyInfo.length === 5) {
+                          io.emit('loggedToDB', {
+                            storyInfo,
+                            companyInfo
+                          });
+                        }
+                      })
                     })
                   })
-                })
+                }
               });
             });
           }
         })
     } else if (!reg.test(msg.address)) {
       io.emit('invalidEmail');
-    } else if (!msg.name){
-       io.emit('invalidName')
-    } else if (!msg.company){
-       io.emit('invalidCompany')
-    } 
+    } else if (!msg.name) {
+      io.emit('invalidName')
+    } else if (!msg.company) {
+      io.emit('invalidCompany')
+    }
 
   });
 });
