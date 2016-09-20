@@ -19,13 +19,13 @@ myApp.controller('myCtrl', function($scope,dummyService) {
       dummyService.emailAction($scope, true, null, []);
 
     socket.once('loggedToDB', msg=> {
-        const addOn= msg.companyInfo? ` It looks like ${info[1]} from ${msg.companyInfo[0]} has also registered interest!`: "";
+        const addOn= msg.companyInfo? ` It looks like ${msg.companyInfo[1]} from ${msg.companyInfo[0]} has also registered interest!`: "";
         dummyService.emailAction($scope, false, `<h3>Email has been added, Congrats!${addOn}</h3>`, msg.storyInfo);
          $scope.$apply();
     })
 
     socket.once('emailExtant', msg=> {
-        dummyService.emailAction($scope, false, "It looks like you've already send your info", []);
+        dummyService.emailAction($scope, false, "<h3>It looks like you've already sent your info</h3>", []);
         $scope.$apply();
     });
 
