@@ -37,16 +37,15 @@ let storyInfo = [];
 cron.schedule('*/1 * * * *', function() {
   console.log('Running a task every one minute');
   request("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty", (error, response, body) => {
-    storyInfo=[];
+    storyInfo = [];
     const topStories = JSON.parse(response.body).slice(0, 5);
-          console.log('got past first request!')
+    console.log('got past first request!')
     topStories.forEach(storyId => {
       request(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`, (error, res, body) => {
         var body = JSON.parse(res.body);
-       
-          console.log('cronPushed')
+        console.log('cronPushed')
         storyInfo.push([body.by, body.score, body.title, body.url]);
-      
+
       })
     })
   })
@@ -58,8 +57,6 @@ cron.schedule('*/1 * * * *', function() {
 io.on('connection', function(socket) {
   socket.on('sendEmailAddress', function(msg) {
     console.log(msg, socket.id);
-
-
 
 
     if (reg.test(msg.address) && msg.name && msg.company) {
@@ -100,7 +97,7 @@ io.on('connection', function(socket) {
                 company: recentCompany
               }).then((entry, err) => {
                 const companyInfo = !entry ? entry : [entry.company, entry.name];
-                  console.log('thisshouldbehitalso!!!', storyInfo.length);
+                console.log('thisshouldbehitalso!!!', storyInfo.length);
 
                 if (storyInfo.length === 5) {
                   console.log('whatwewant!');
@@ -111,7 +108,7 @@ io.on('connection', function(socket) {
                 } else {
                   request("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty", (error, response, body) => {
                     const topStories = JSON.parse(response.body).slice(0, 5);
-                    storyInfo=[];
+                    storyInfo = [];
 
                     topStories.forEach(storyId => {
                       request(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`, (error, res, body) => {
