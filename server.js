@@ -34,7 +34,7 @@ var reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-
 var storyInfo = [];
 
 
-cron.schedule('*/1 * * * *', function() {
+cron.schedule('*/10 * * * *', function() {
   console.log('Running a task every one minute');
   request("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty", (error, response, body) => {
     storyInfo = [];

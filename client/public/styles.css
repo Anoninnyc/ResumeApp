@@ -44,3 +44,7 @@ h1 {
 div#res {
  text-align: center;
 }
+
+input.form-control.ng-pristine.ng-valid.ng-touched {
+    width: 100%;
+}
