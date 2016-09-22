@@ -9,21 +9,16 @@ grunt.initConfig({
     }
   },
   shell: {
-	  multiple: {
-	    command: ['git add .','grunt shell:greet','webpack','git push salty master -f'].join('&&')
-	  },
-    greet: {
+    addAndDeploy: {
       command: (mess)=> ['git add .','git commit -m' + mess, 'webpack','git push salty master -f'].join('&&')
     }
   },
 });
 
-//'git commit -m "Grunt Automated Commit" '
 
 	grunt.loadNpmTasks('grunt-shell');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
 
-	grunt.registerTask('push', ['shell:multiple'])
+	grunt.registerTask('push', ['shell:addAndDeploy'])
 
   //grunt shell:addAndCommit:"test commit"
 
