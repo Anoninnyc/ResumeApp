@@ -44,7 +44,8 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var myApp = angular.module('myApp', ['ngRoute', 'ngSanitize'])
+	
+	myApp = angular.module('myApp', ['ngRoute', 'ngSanitize'])
 
 
 	// Directives

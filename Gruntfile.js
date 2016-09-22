@@ -1,10 +1,5 @@
 module.exports = function(grunt) {
 
-
-
-
-
-
 grunt.initConfig({
    uglify: {
     my_target: {
@@ -14,8 +9,8 @@ grunt.initConfig({
     }
   },
   shell: {
-	  prodServer: {
-	    command: 'git push salty master -f'
+	  multiple: {
+	    command: ['git add .','git commit -m "Grunt Automated Commit" ','webpack','git push salty master -f'].join('&&')
 	  }
   },
 });
@@ -23,18 +18,15 @@ grunt.initConfig({
 
 
 	grunt.loadNpmTasks('grunt-shell');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    //grunt.loadNpmTasks('grunt-contrib-watch');
-
-
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
 	grunt.registerTask('push',['shell'])
 
+  
 
-	grunt.registerTask('default',['speak', 'talk'])
-	// runs on 'Grunt'
+	grunt.registerTask('testGrunt',()=>{
+    console.log('testing grunt!')
+  })
 
-	
-		//Grunt plugin!!!!
 
 }
