@@ -126,6 +126,10 @@
 	myApp.config(function($routeProvider, $locationProvider) {
 	  $routeProvider.
 	  when('/', {
+	    templateUrl: '/source/views/home.html',
+	    controller: 'myCtrl'
+	  }).
+	  when('/resume', {
 	    templateUrl: '/source/views/start.html',
 	    controller: 'myCtrl'
 	  }).
