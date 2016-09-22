@@ -8,7 +8,7 @@ require('./source/controllers/mainController.js');
 require('./source/services/services.js');
 require('./source/config.js');
 
-app.directive('navBar', function() {
+myApp.directive('navBar', function() {
   return {
       restrict: 'AE',
       replace: 'true',
