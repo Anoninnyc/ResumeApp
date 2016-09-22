@@ -13,12 +13,12 @@ grunt.initConfig({
 	    command: ['git add .','grunt shell:greet','webpack','git push salty master -f'].join('&&')
 	  },
     greet: {
-      command: ()=> 'git commit -m "Grunt Automated Commit" '
+      command: (mess)=> ['git add .','git commit -m' + mess, 'webpack','git push salty master -f'].join('&&')
     }
   },
 });
 
-
+//'git commit -m "Grunt Automated Commit" '
 
 	grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-uglify');
