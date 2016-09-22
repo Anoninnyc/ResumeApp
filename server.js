@@ -57,7 +57,7 @@ cron.schedule('*/10 * * * *', function() {
 //sockets
 io.on('connection', function(socket) {
   socket.on('sendEmailAddress', function(msg) {
-    console.log(msg, socket.id);
+    console.log(msg, socket.id,msg.address, reg.test(msg.address));
 
 
     if (reg.test(msg.address) && msg.name && msg.company) {
