@@ -4,7 +4,7 @@ grunt.initConfig({
    uglify: {
     my_target: {
       files: {
-        'client/minApp.js': ['client/app.js'],
+        'client/minApp.js': ['client/bundle.js'],
       }
     }
   },
@@ -20,7 +20,8 @@ grunt.initConfig({
 	grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-	grunt.registerTask('push',['shell'])
+	grunt.registerTask('push',['shell:multiple'])
+
 
   
 
