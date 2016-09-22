@@ -2,7 +2,7 @@ myApp.controller('myCtrl', function($scope,dummyService) {
   $scope.repeatables = ["Send something, please!"];
   $scope.check = 'Angular is registered';
 
-  dummyService.emailAction($scope, false, null, []);
+  dummyService.emailAction($scope, false, null, [],true);
 
   $scope.sendEmailAddress = (address, name, company)=> {
       socket.emit('sendEmailAddress', {address, name, company});

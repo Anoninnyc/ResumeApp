@@ -4,9 +4,9 @@
 <div id="sendInfo">
 <h1> Interested in learning more?</h1>
 
-<input placeholder="Enter your email Address to Learn more" class="form-control" ng-model="address" type='text'/>
-<input placeholder="Enter your name here" class="form-control" ng-model="name" type='text'/>
-<input placeholder="Enter your company name here" class="form-control" ng-model="company" type='text'/>
+<input id="emailAddress" placeholder="Enter your email Address to Learn more" class="form-control" ng-model="address" type='text'/>
+<input id="emailName" placeholder="Enter your name here" class="form-control" ng-model="name" type='text'/>
+<input id="emailCompany" placeholder="Enter your company name here" class="form-control" ng-model="company" type='text'/>
 <button id ="action" class="btn btn-secondary" ng-click="sendEmailAddress(address, name, company)">Click to send email address</button><br/>
 
 <span ng-bind-html="error"></span><br/>

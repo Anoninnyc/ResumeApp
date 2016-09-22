@@ -8,6 +8,10 @@ myApp.config(function($routeProvider, $locationProvider) {
     templateUrl: '/source/views/start.html',
     controller: 'myCtrl'
   }).
+  when('/techUsed', {
+    templateUrl: '/source/views/techUsed.html',
+    controller: 'myCtrl'
+  }).
   when('/interested', {
     templateUrl: '/source/views/bookstrapButton.html',
     controller: 'myCtrl'
