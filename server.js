@@ -23,25 +23,26 @@ const pathToStaticDir = path.resolve(__dirname, '.', 'client/public');
 mongoose.connect(URL);
 ////
 //MiddleWare
+
 app.use(express.static(__dirname + '/client'));
-app.use(express.static(__dirname + '/client/public'));
-app.use(express.static(__dirname + '/client/source'));
+
 // Regex checker
-var reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
+const reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
 
 
 
-var storyInfo = [];
+let storyInfo = [];
+const tSURL="https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty";
 
 
 cron.schedule('*/10 * * * *', function() {
   console.log('Running a task every one minute');
-  request("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty", (error, response, body) => {
+  request(tSURL, (error, response) => {
     storyInfo = [];
     const topStories = JSON.parse(response.body).slice(0, 5);
     console.log('got past first request!')
     topStories.forEach(storyId => {
-      request(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`, (error, res, body) => {
+      request(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`, (error, res) => {
         var body = JSON.parse(res.body);
         console.log('cronPushed')
         storyInfo.push([body.by, body.score, body.title, body.url]);
@@ -106,12 +107,12 @@ io.on('connection', function(socket) {
                     companyInfo
                   });
                 } else {
-                  request("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty", (error, response, body) => {
+                  request(tSURL, (error, response) => {
                     const topStories = JSON.parse(response.body).slice(0, 5);
                     storyInfo = [];
 
                     topStories.forEach(storyId => {
-                      request(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`, (error, res, body) => {
+                      request(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`, (error, res) => {
                         var body = JSON.parse(res.body);
                         storyInfo.push([body.by, body.score, body.title, body.url]);
 
