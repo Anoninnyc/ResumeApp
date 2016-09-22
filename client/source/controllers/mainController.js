@@ -6,14 +6,14 @@ myApp.controller('myCtrl', function($scope,dummyService) {
 
   $scope.$watch('address', function (newValue, oldValue, scope) {
 
-    if (oldValue.length>4 && !scoped.flagged){
+    if (oldValue.length>4 && !$scope.flagged){
       $scope.flagged=true;
       $("#emailName").css({display:"inline"});
     }
   }, true);
 
   $scope.$watch('name', function (newValue, oldValue, scope) {
-    if (oldValue.length>3  && !scoped.flagged){
+    if (oldValue.length>3  && !$scope.flagged){
       $scope.flagged=true;
       $("#emailCompany").css({display:"inline"});
     }
