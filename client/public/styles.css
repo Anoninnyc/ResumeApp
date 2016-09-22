@@ -43,13 +43,12 @@ h1 {
 
 div#res {
  text-align: center;
+ opacity: 0.75;
 }
 
-input.form-control.ng-pristine.ng-valid.ng-touched {
+input {
     width: 100%;
 }
-
-
-#blocker{
-  
+#ifHolder {
+  background-image:url('https://cdn.playbuzz.com/cdn/6a5fa9ad-76ba-45df-b2c3-f7e2848f6b37/42451516-0315-4f40-aa1c-a47d7159dda3.gif');
 }
