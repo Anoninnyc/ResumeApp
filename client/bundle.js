@@ -70,6 +70,12 @@
 	  $scope.repeatables = ["Send something, please!"];
 	  $scope.check = 'Angular is registered';
 
+
+	  $scope.$watch('address', function (newValue, oldValue, scope) {
+	    console.log(newValue, oldValue, scope);
+	  }, true);
+
+
 	  dummyService.emailAction($scope, false, null, []);
 
 	  $scope.sendEmailAddress = (address, name, company)=> {
