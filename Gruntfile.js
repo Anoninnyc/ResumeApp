@@ -10,7 +10,7 @@ grunt.initConfig({
   },
   shell: {
     addAndDeploy: {
-      command: mess=> ['git add .','git commit -m' + mess, 'webpack','git push salty master -f'].join('&&')
+      command: mess=> ['webpack', 'git add .','git commit -m' + mess,'git push salty master -f'].join('&&')
     }
   },
 });
