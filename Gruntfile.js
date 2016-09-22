@@ -22,10 +22,6 @@ grunt.initConfig({
 
 
 
-
-
-
-
 	grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     //grunt.loadNpmTasks('grunt-contrib-watch');

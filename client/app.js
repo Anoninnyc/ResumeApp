@@ -6,7 +6,6 @@ myApp.service('dummyService', function(){
   }
 })
 
-//
 
 myApp.controller('myCtrl', function($scope,dummyService) {
   $scope.repeatables = ["Send something, please!"];
