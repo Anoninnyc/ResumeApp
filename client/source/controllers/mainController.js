@@ -37,21 +37,18 @@ myApp.controller('myCtrl', function($scope,dummyService) {
     });
 
     socket.once('invalidEmail', msg=> {
-      console.log('invalid email!');
         dummyService.emailAction($scope, false, "<h3>Please enter a valid Email Address.</h3>", []);
         $scope.$apply();
     });
 
 
     socket.once('invalidName', msg=> {
-      console.log('IN is being hit');
 
         dummyService.emailAction($scope, false, "<h3>Please enter a valid name.</h3>", []);
         $scope.$apply();
     });
 
      socket.once('invalidCompany', msg=> {
-        console.log('IC is being hit');
          dummyService.emailAction($scope, false, "<h3>Please enter a valid company name</h3>", []);
         $scope.$apply();
     });
