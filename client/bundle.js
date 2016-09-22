@@ -75,16 +75,16 @@
 
 	  $scope.$watch('address', function (newValue, oldValue, scope) {
 
-	    if (oldValue.length>4 && !$scope.flagged){
-	      $scope.flagged=true;
+	    if (oldValue.length===4){
 	      $("#emailName").css({display:"inline"});
+	      $scope.$apply()
 	    }
 	  }, true);
 
 	  $scope.$watch('name', function (newValue, oldValue, scope) {
-	    if (oldValue.length>3  && !$scope.flaggedName){
-	      $scope.flaggedName=true;
+	    if (oldValue.length===3){
 	      $("#emailCompany").css({display:"inline"});
+	      $scope.$apply()
 	    }
 	  }, true);
 
@@ -96,7 +96,7 @@
 	      dummyService.emailAction($scope, true, null, []);
 
 	    socket.once('loggedToDB', msg=> {
-	      console.log('reccccc')
+	      console.log('reccccc');
 	        const addOn= msg.companyInfo? ` It looks like ${msg.companyInfo[1]} from ${msg.companyInfo[0]} has also registered interest!`: "";
 	        dummyService.emailAction($scope, false, `<h3>Email has been added, Congrats!${addOn}</h3>`, msg.storyInfo, true);
 	         $scope.flagged=false;
