@@ -10,11 +10,10 @@ grunt.initConfig({
   },
   shell: {
 	  multiple: {
-	    command: ['git add .','git commit -m "Grunt Automated Commit" ','webpack','git push salty master -f'].join('&&')
+	    command: ['git add .','grunt shell:greet','webpack','git push salty master -f'].join('&&')
 	  },
-    addAndCommit: message=>{
-      //['git add .',`git commit -m ${message}`].join('&&')
-      console.log(`${message}`)
+    greet: {
+      command: ()=> 'git commit -m "Grunt Automated Commit" '
     }
   },
 });
@@ -27,9 +26,6 @@ grunt.initConfig({
 	grunt.registerTask('push', ['shell:multiple'])
 
   //grunt shell:addAndCommit:"test commit"
-
-
-  
 
 	grunt.registerTask('testGrunt',()=>{
     console.log('testing grunt!')
