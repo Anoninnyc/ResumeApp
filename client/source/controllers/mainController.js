@@ -1,4 +1,4 @@
-var controller= myApp.controller('myCtrl', function($scope,dummyService) {
+myApp.controller('myCtrl', function($scope,dummyService) {
   $scope.repeatables = ["Send something, please!"];
   $scope.check = 'Angular is registered';
 
