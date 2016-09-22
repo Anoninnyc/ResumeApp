@@ -113,7 +113,8 @@
 
 	    socket.once('invalidName', msg=> {
 	      console.log('IN is being hit');
-	        dummyService.emailAction($scope, false, "<h3>Please enter a valid Email Address.</h3>", []);
+
+	        dummyService.emailAction($scope, false, "<h3>Please enter a valid name.</h3>", []);
 	        $scope.$apply();
 	    });
 
