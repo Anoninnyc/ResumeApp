@@ -20,13 +20,14 @@
 </head>
 <script type="text/javascript">
 console.log('this is loading');
-$(document).ready(function(){
-  console.log('loading when doc is ready');
+window.addEventListener('load',function(){
+  console.log('1st loaded!');
+})
+document.addEventListener('DOMContentLoaded',function(){
+  console.log('2nd loaded!');
 })
 
-$("iframe").on('load',function(){
-  console.log('iframe loaded');
-});
+
 
 </script>
 
