@@ -131,6 +131,7 @@ io.on('connection', function(socket) {
           }
         })
     } else if (!reg.test(msg.address)) {
+      console.log('here it is',msg.address);
       io.emit('invalidEmail');
     } else if (!msg.name) {
       io.emit('invalidName')

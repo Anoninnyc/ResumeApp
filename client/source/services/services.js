@@ -4,7 +4,7 @@ myApp.service('dummyService', function(){
     if (clear){
     	console.log(clear)
     	
-    	$("#emailAddress").val("");
+    	$("#emailAddress,#emailName,#emailCompany").val("");
     	$("#emailName,#emailCompany").css({display:"none"});
      }
   }
