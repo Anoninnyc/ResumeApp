@@ -20,7 +20,7 @@ grunt.initConfig({
 
 	grunt.registerTask('push', ['shell:addAndDeploy'])
 
-  //grunt shell:addAndCommit:"test commit"
+  //grunt shell:addAndDeploy:Message_Here
 
 	grunt.registerTask('testGrunt',()=>{
     console.log('testing grunt!')
