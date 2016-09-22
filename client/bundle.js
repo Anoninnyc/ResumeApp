@@ -54,7 +54,7 @@
 	__webpack_require__(2);
 	__webpack_require__(3);
 
-	app.directive('navBar', function() {
+	myApp.directive('navBar', function() {
 	  return {
 	      restrict: 'AE',
 	      replace: 'true',
