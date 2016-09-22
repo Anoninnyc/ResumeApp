@@ -70,7 +70,7 @@
 	  $scope.repeatables = ["Send something, please!"];
 	  $scope.check = 'Angular is registered';
 
-	  dummyService.emailAction($scope, false, null, []);
+	  dummyService.emailAction($scope, false, null, [],true);
 
 	  $scope.sendEmailAddress = (address, name, company)=> {
 	      socket.emit('sendEmailAddress', {address, name, company});
@@ -114,8 +114,12 @@
 /***/ function(module, exports) {
 
 	myApp.service('dummyService', function(){
-	  this.emailAction= (scope, loading , error, stories)=>{
+	  this.emailAction= (scope, loading , error, stories, clear)=>{
 	    [scope.loading, scope.error, scope.stories]=[loading, error, stories];
+	    if (!clear){
+	    	$("##emailAddress").val("");
+	    }
+
 	  }
 	})
 
@@ -131,6 +135,10 @@
 	  }).
 	  when('/resume', {
 	    templateUrl: '/source/views/start.html',
+	    controller: 'myCtrl'
+	  }).
+	  when('/techUsed', {
+	    templateUrl: '/source/views/techUsed.html',
 	    controller: 'myCtrl'
 	  }).
 	  when('/interested', {
