@@ -12,7 +12,7 @@ app.directive('navBar', function() {
   return {
       restrict: 'AE',
       replace: 'true',
-      template: '<nav class="navbar navbar-default">
+      template: `<nav class="navbar navbar-default">
       <div class="container-fluid"><div class="navbar-header">
       <a class="navbar-brand">Krishan M Aryas Resume</a>
     </div>
@@ -21,6 +21,6 @@ app.directive('navBar', function() {
       <li><a href="/interested">Register Interest</a></li>
     </ul>
   </div>
-</nav>'
+</nav>`
   };
 });
