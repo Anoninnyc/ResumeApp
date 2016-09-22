@@ -24,7 +24,7 @@ $(document).ready(function(){
   console.log('loading when doc is ready');
 })
 
-$("iframe").load(function(){
+$("iframe").on('load',function(){
   console.log('iframe loaded');
 });
 
