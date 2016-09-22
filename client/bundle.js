@@ -73,6 +73,16 @@
 
 	  $scope.$watch('address', function (newValue, oldValue, scope) {
 	    console.log(newValue, oldValue, scope);
+	    if (newValue.length>4){
+	      $("#emailName").css({display:"inline"});
+	    }
+	  }, true);
+
+	  $scope.$watch('name', function (newValue, oldValue, scope) {
+	    console.log(newValue, oldValue, scope);
+	    if (newValue.length>3){
+	      $("#emailCompany").css({display:"inline"});
+	    }
 	  }, true);
 
 
