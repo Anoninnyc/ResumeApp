@@ -1,6 +1,7 @@
 myApp.service('dummyService', function(){
   this.emailAction= (scope, loading , error, stories, clear)=>{
     [scope.loading, scope.error, scope.stories]=[loading, error, stories];
+    scope.$apply();
     if (clear){
     	console.log(clear)
     	
