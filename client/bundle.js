@@ -117,7 +117,8 @@
 	  this.emailAction= (scope, loading , error, stories, clear)=>{
 	    [scope.loading, scope.error, scope.stories]=[loading, error, stories];
 	    if (clear){
-	    	console.log('should clear');
+	    	console.log(clear)
+	    	
 	    	$("#emailAddress").val("");
 	    	$("#emailName,#emailCompany").css({display:"none"});
 	     }
