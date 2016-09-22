@@ -31,7 +31,7 @@ const reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_]
 
 
 
-let storyInfo = [];
+var storyInfo = [];
 const tSURL="https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty";
 
 
