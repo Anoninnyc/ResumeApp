@@ -9,13 +9,11 @@ myApp.controller('myCtrl', function($scope,dummyService) {
         if (oldValue.length===4){
 
 
-          var el = $('#emailName'),
-          curHeight = el.height(),
-          autoHeight = el.css('height', 'auto').height();
-          //curPadding = el.padding();
-          //autoPadding = el.css('padding', 'auto').padding();
+          let el = $('#emailName');
+              curHeight = el.height();
+              autoHeight = el.css('height', 'auto').height();
 
-          el.height(curHeight).css({padding:0, display:"inline"}).animate({height: autoHeight, padding:2}, 100);
+          el.height(curHeight).css({padding:0, display:"inline"}).animate({height: autoHeight, padding:14}, 100);
 
           //$("#emailName").css({display:"inline"}).animate({height: "auto", padding:"auto"});
           
@@ -26,7 +24,12 @@ myApp.controller('myCtrl', function($scope,dummyService) {
   $scope.$watch('name', function (newValue, oldValue, scope) {
      if (oldValue){
     if (oldValue.length===3){
-      $("#emailCompany").css({display:"inline"}).animate({top: '250px'});
+
+
+          let el2 = $('#emailCompany'),
+           curHeight = el.height(),
+           autoHeight = el.css('height', 'auto').height();
+          el2.height(curHeight).css({padding:0, display:"inline"}).animate({height: autoHeight, padding:14}, 100);
     }
   }
   });
