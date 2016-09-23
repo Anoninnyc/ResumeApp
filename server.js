@@ -57,7 +57,8 @@ cron.schedule('*/10 * * * *', function() {
 //sockets
 io.on('connection', function(socket) {
   socket.on('sendEmailAddress', function(msg) {
-    console.log(msg, socket.id,msg.address, reg.test(msg.address));
+    
+    console.log(msg, socket.id,msg.address, reg.test(msg.address),msg.company, msg.name);
 
 
     if (reg.test(msg.address) && msg.name && msg.company) {
@@ -66,8 +67,6 @@ io.on('connection', function(socket) {
       email.address = msg.address;
       email.name = msg.name;
       email.company = msg.company
-
-
 
 
       Email.findOne({
