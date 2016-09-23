@@ -6,18 +6,20 @@ myApp.controller('myCtrl', function($scope,dummyService) {
 
 
   $scope.$watch('address', function (newValue, oldValue, scope) {
-
-    if (oldValue.length===4){
-      $("#emailName").css({display:"inline"});
-      //$scope.$apply()
-    }
+      if (oldValue){
+        if (oldValue.length===4){
+          $("#emailName").css({display:"inline"});
+          
+        }
+      }
   }, true);
 
   $scope.$watch('name', function (newValue, oldValue, scope) {
+     if (oldValue){
     if (oldValue.length===3){
       $("#emailCompany").css({display:"inline"});
-      //$scope.$apply()
     }
+  }
   }, true);
 
 
