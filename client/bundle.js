@@ -147,6 +147,14 @@
 	})
 
 
+
+
+	myApp.run(function ($rootScope) {
+	    $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
+	        console.log(current.$$route.originalPath);
+	    });
+	});
+
 /***/ },
 /* 2 */
 /***/ function(module, exports) {
