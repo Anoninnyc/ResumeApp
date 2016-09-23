@@ -7,7 +7,7 @@ myApp.controller('myCtrl', function($scope,dummyService) {
   $scope.$watch('address', function (newValue, oldValue, scope) {
       if (oldValue){
         if (oldValue.length===4){
-          $("#emailName").css({display:"inline"});
+          $("#emailName").css({display:"inline"}).animate({top: '250px'});
           
         }
       }
@@ -16,7 +16,7 @@ myApp.controller('myCtrl', function($scope,dummyService) {
   $scope.$watch('name', function (newValue, oldValue, scope) {
      if (oldValue){
     if (oldValue.length===3){
-      $("#emailCompany").css({display:"inline"});
+      $("#emailCompany").css({display:"inline"}).animate({top: '250px'});
     }
   }
   });
