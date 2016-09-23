@@ -3,6 +3,7 @@ myApp.controller('myCtrl', function($scope,dummyService) {
   $scope.check = 'Angular is registered';
   $scope.flagAddress=false;
   $scope.flagName=false;
+  $scope.contactMessage="Interested in learning more?"
 
 
 
@@ -14,12 +15,10 @@ myApp.controller('myCtrl', function($scope,dummyService) {
 
 
           let el = $('#emailName');
-              curHeight = el.height();
-              autoHeight = el.css('height', 'auto').height();
+          curHeight = el.height();
+          autoHeight = el.css('height', 'auto').height();
 
           el.height(curHeight).css({padding:0, display:"inline"}).animate({height: autoHeight, padding:14}, 100);
-
-          //$("#emailName").css({display:"inline"}).animate({height: "auto", padding:"auto"});
           
         }
       }
@@ -49,7 +48,7 @@ myApp.controller('myCtrl', function($scope,dummyService) {
      
         const addOn= msg.companyInfo? ` It looks like ${msg.companyInfo[1]} from ${msg.companyInfo[0]} has also registered interest!`: "";
         dummyService.emailAction($scope, false, `<h3>Email has been added, Congrats!${addOn}</h3>`, msg.storyInfo, true);
-         [$scope.name,$scope.company]=["",""];
+         [$scope.name,$scope.company,$scope.contactMessage]=["","","Wanna Send Again?"];
          $scope.$apply();
     })
 
