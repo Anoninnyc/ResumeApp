@@ -1,12 +1,16 @@
 myApp.controller('myCtrl', function($scope,dummyService) {
   $scope.repeatables = ["Send something, please!"];
   $scope.check = 'Angular is registered';
+  $scope.flagAddress=false;
+  $scope.flagName=false;
 
 
 
   $scope.$watch('address', function (newValue, oldValue, scope) {
       if (oldValue){
-        if (oldValue.length===4){
+        if (oldValue.length===4 && !$scope.flagAddress){
+          $scope.flagAddress=true;
+
 
 
           let el = $('#emailName');
@@ -23,11 +27,12 @@ myApp.controller('myCtrl', function($scope,dummyService) {
 
   $scope.$watch('name', function (newValue, oldValue, scope) {
      if (oldValue){
-    if (oldValue.length===3){
+    if (oldValue.length===3 && !$scope.flagName){
+      $scope.flagName=true;
 
 
           let el2 = $('#emailCompany'),
-           curHeight = el2.height(),
+          curHeight = el2.height(),
            autoHeight = el2.css('height', 'auto').height();
           el2.height(curHeight).css({padding:0, display:"inline"}).animate({height: autoHeight, padding:14}, 100);
     }
@@ -42,7 +47,7 @@ myApp.controller('myCtrl', function($scope,dummyService) {
       dummyService.emailAction($scope, true, null, []);
 
     socket.once('loggedToDB', msg=> {
-      console.log('reccccc');
+     
         const addOn= msg.companyInfo? ` It looks like ${msg.companyInfo[1]} from ${msg.companyInfo[0]} has also registered interest!`: "";
         dummyService.emailAction($scope, false, `<h3>Email has been added, Congrats!${addOn}</h3>`, msg.storyInfo, true);
          [$scope.name,$scope.company]=["",""];
