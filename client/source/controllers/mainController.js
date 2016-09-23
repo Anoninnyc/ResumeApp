@@ -1,8 +1,7 @@
 myApp.controller('myCtrl', function($scope,dummyService) {
   $scope.repeatables = ["Send something, please!"];
   $scope.check = 'Angular is registered';
-  $scope.flagged= false;
-  $scope.flaggedName= false;
+
 
 
   $scope.$watch('address', function (newValue, oldValue, scope) {
@@ -12,7 +11,7 @@ myApp.controller('myCtrl', function($scope,dummyService) {
           
         }
       }
-  }, true);
+  });
 
   $scope.$watch('name', function (newValue, oldValue, scope) {
      if (oldValue){
@@ -20,7 +19,7 @@ myApp.controller('myCtrl', function($scope,dummyService) {
       $("#emailCompany").css({display:"inline"});
     }
   }
-  }, true);
+  });
 
 
   dummyService.emailAction($scope, false, null, []);
@@ -33,8 +32,7 @@ myApp.controller('myCtrl', function($scope,dummyService) {
       console.log('reccccc');
         const addOn= msg.companyInfo? ` It looks like ${msg.companyInfo[1]} from ${msg.companyInfo[0]} has also registered interest!`: "";
         dummyService.emailAction($scope, false, `<h3>Email has been added, Congrats!${addOn}</h3>`, msg.storyInfo, true);
-         $scope.flagged=false;
-         $scope.flaggedName=false;
+         [$scope.name,$scope.company]=["",""];
          $scope.$apply();
     })
 
