@@ -70,6 +70,6 @@ input {
   display: block;
 }
 
-#emailName {
-   
+.form-control {
+  width: 55%;
 }
