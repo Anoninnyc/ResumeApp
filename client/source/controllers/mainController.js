@@ -30,7 +30,6 @@ myApp.controller('myCtrl', function($scope,dummyService) {
     if (oldValue.length===3 && !$scope.flagName){
       $scope.flagName=true;
 
-
           let el2 = $('#emailCompany'),
           curHeight = el2.height(),
            autoHeight = el2.css('height', 'auto').height();

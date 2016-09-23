@@ -98,7 +98,6 @@
 	    if (oldValue.length===3 && !$scope.flagName){
 	      $scope.flagName=true;
 
-
 	          let el2 = $('#emailCompany'),
 	          curHeight = el2.height(),
 	           autoHeight = el2.css('height', 'auto').height();
@@ -161,7 +160,7 @@
 	    	console.log(clear)
 	    	
 	    	$("#emailAddress,#emailName,#emailCompany").val("");
-	    	$("#emailName,#emailCompany").css({display:"none", padding:0, height:0});
+	    	//$("#emailName,#emailCompany").css({display:"none", padding:0, height:0});
 	     }
 	  }
 	})
