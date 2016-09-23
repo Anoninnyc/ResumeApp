@@ -81,7 +81,8 @@ myApp.controller('myCtrl', function($scope,dummyService) {
 
 myApp.run(function ($rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
-        $rootScope.currRoute=current.$$route.originalPath;
+        const map={"/interested":"Contact","/techUsed":"Technologies Used","/resume":"Krishan M. Arya's Resume","/":"Welcome!"}
+        $rootScope.currRoute=map[current.$$route.originalPath];
         console.log(current.$$route.originalPath)
     });
 });
