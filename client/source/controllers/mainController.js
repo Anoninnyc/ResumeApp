@@ -7,7 +7,7 @@ myApp.controller('myCtrl', function($scope,dummyService) {
   $scope.$watch('address', function (newValue, oldValue, scope) {
       if (oldValue){
         if (oldValue.length===4){
-          $("#emailName").css({display:"inline"}).animate({top: '250px'});
+          $("#emailName").css({display:"inline"}).animate({height: "100px"});
           
         }
       }
