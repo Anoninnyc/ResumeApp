@@ -147,11 +147,10 @@
 	})
 
 
-
-
 	myApp.run(function ($rootScope) {
 	    $rootScope.$on('$routeChangeSuccess', function (e, current, pre) {
-	        console.log(current.$$route.originalPath);
+	        $rootScope.currRoute=current.$$route.originalPath;
+	        console.log(current.$$route.originalPath)
 	    });
 	});
 
