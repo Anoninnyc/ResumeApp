@@ -9,14 +9,14 @@ myApp.controller('myCtrl', function($scope,dummyService) {
 
     if (oldValue.length===4){
       $("#emailName").css({display:"inline"});
-      $scope.$apply()
+      //$scope.$apply()
     }
   }, true);
 
   $scope.$watch('name', function (newValue, oldValue, scope) {
     if (oldValue.length===3){
       $("#emailCompany").css({display:"inline"});
-      $scope.$apply()
+      //$scope.$apply()
     }
   }, true);
 
