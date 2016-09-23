@@ -12,7 +12,10 @@ myApp.controller('myCtrl', function($scope,dummyService) {
           var el = $('#emailName'),
           curHeight = el.height(),
           autoHeight = el.css('height', 'auto').height();
-          el.height(curHeight).css({display:"inline"}).animate({height: autoHeight}, 1000);
+          curPadding = el.padding(),
+          autoPadding = el.css('padding', 'auto').padding();
+
+          el.height(curHeight).css({display:"inline"}).animate({height: autoHeight, padding:autoPadding}, 100);
 
           //$("#emailName").css({display:"inline"}).animate({height: "auto", padding:"auto"});
           
