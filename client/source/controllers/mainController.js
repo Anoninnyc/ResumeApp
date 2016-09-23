@@ -27,8 +27,8 @@ myApp.controller('myCtrl', function($scope,dummyService) {
 
 
           let el2 = $('#emailCompany'),
-           curHeight = el.height(),
-           autoHeight = el.css('height', 'auto').height();
+           curHeight = el2.height(),
+           autoHeight = el2.css('height', 'auto').height();
           el2.height(curHeight).css({padding:0, display:"inline"}).animate({height: autoHeight, padding:14}, 100);
     }
   }
