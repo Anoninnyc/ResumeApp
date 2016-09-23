@@ -75,7 +75,14 @@
 	  $scope.$watch('address', function (newValue, oldValue, scope) {
 	      if (oldValue){
 	        if (oldValue.length===4){
-	          $("#emailName").css({display:"inline"}).animate({height: "auto", padding:"auto"});
+
+
+	          var el = $('#emailName'),
+	          curHeight = el.height(),
+	          autoHeight = el.css('height', 'auto').height();
+	          el.height(curHeight).css({display:"inline"}).animate({height: autoHeight}, 1000);
+
+	          //$("#emailName").css({display:"inline"}).animate({height: "auto", padding:"auto"});
 	          
 	        }
 	      }
