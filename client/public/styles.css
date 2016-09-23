@@ -56,12 +56,20 @@ input {
 
 #emailName{
   display:none;
+   height: 0;
+   padding: 0;
 }
 
 #emailCompany{
   display:none;
+  height: 0;
+  padding: 0;
 }
 
 .btn {
   display: block;
+}
+
+#emailName {
+   
 }
