@@ -13,8 +13,8 @@
 window.moveIt=setInterval(
 function(){
 	$(".tech").each(function(){
-	  let width = window.innerWidth* Math.random();
-	  let height = window.innerHeight* Math.random();
+	  let width = window.innerWidth* Math.random()/0.8;
+	  let height = window.innerHeight* Math.random()/0.8;
 	  $(this).animate({left:`${width}px`,top:`${height}px`});
  })
 }
