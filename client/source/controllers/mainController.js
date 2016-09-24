@@ -47,6 +47,28 @@ myApp.controller('myCtrl', function($scope, dummyService) {
     }
   });
 
+
+  $scope.$watch('company', function(newValue, oldValue, scope) {
+    if (oldValue) {
+      if (oldValue.length === 3) {
+      $("#action").css({opacity:1});
+      }
+    }
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
 
   dummyService.emailAction($scope, false, null, []);
@@ -55,13 +77,13 @@ myApp.controller('myCtrl', function($scope, dummyService) {
 
     if (!reg.test(address)){
       dummyService.emailAction($scope, false, "<h3>Please enter a valid Email Address.</h3>", []);
-      $scope.$apply();
+      //$scope.$apply();
     } else if (!name.length) {
       dummyService.emailAction($scope, false, "<h3>Please enter a valid name.</h3>", []);
-      $scope.$apply();
+      //$scope.$apply();
     } else if (!company.length){
       dummyService.emailAction($scope, false, "<h3>Please enter a valid company name</h3>", []);
-      $scope.$apply();
+     // $scope.$apply();
     } else {
 
     socket.emit('sendEmailAddress', {
@@ -90,11 +112,11 @@ myApp.controller('myCtrl', function($scope, dummyService) {
 
 myApp.run(function($rootScope) {
   $rootScope.$on('$routeChangeSuccess', (e, current) => {
-    moveIt?clearInterval(moveIt):null;
+    moveIt!==undefined?clearInterval(moveIt):null;
     const map = {
-      "/interested": "Contact",
+      "/contact": "Contact Me",
       "/techUsed": "Technologies Used",
-      "/resume": "Krishan M. Arya's Resume",
+      "/resume": "My Resume",
       "/": "Welcome!"
     }
     $rootScope.currRoute = map[current.$$route.originalPath];

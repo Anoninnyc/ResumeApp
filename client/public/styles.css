@@ -23,9 +23,9 @@ body {
 
 
 div#sendInfo {
-    position: relative;
-    left: 30%;
-    text-align: 0;
+  position: relative;
+  left: 30%;
+  text-align: 0;
 }
 
 h2.ng-binding {
@@ -34,11 +34,11 @@ h2.ng-binding {
 
 
 div#sendInfo {
-    display: inline-block;
+  display: inline-block;
 }
 
 h1 {
-    display: inline;
+  display: inline;
 }
 
 div#res {
@@ -85,4 +85,9 @@ img.tech {
 
 img.tech:hover {
  opacity:1;
+}
+
+
+button#action {
+  opacity: 0.6;
 }

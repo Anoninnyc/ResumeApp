@@ -6,7 +6,7 @@ myApp.service('dummyService', function(){
     	console.log(clear)
     	
     	$("#emailAddress,#emailName,#emailCompany").val("");
-    	//$("#emailName,#emailCompany").css({display:"none", padding:0, height:0});
+    	//$("#action").css({opacity:1});
      }
   }
 })
