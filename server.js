@@ -27,7 +27,6 @@ mongoose.connect(URL);
 app.use(express.static(__dirname + '/client'));
 
 // Regex checker
-const reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
 
 
 
@@ -58,11 +57,6 @@ cron.schedule('*/10 * * * *', function() {
 io.on('connection', function(socket) {
   socket.on('sendEmailAddress', function(msg) {
     
-    console.log(msg, socket.id,msg.address, reg.test(msg.address),msg.company, msg.name);
-
-
-    if (reg.test(msg.address) && msg.name && msg.company) {
-
       var email = new Email();
       email.address = msg.address;
       email.name = msg.name;
@@ -129,15 +123,6 @@ io.on('connection', function(socket) {
             });
           }
         })
-    } else if (!reg.test(msg.address)) {
-      console.log('here it is',msg.address);
-      io.emit('invalidEmail');
-    } else if (!msg.name) {
-      io.emit('invalidName')
-    } else if (!msg.company) {
-      io.emit('invalidCompany')
-    }
-
   });
 });
 

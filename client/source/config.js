@@ -5,15 +5,15 @@ myApp.config(function($routeProvider, $locationProvider) {
     controller: 'myCtrl'
   }).
   when('/resume', {
-    templateUrl: '/source/views/start.html',
+    templateUrl: '/source/views/resume.html',
     controller: 'myCtrl'
   }).
   when('/techUsed', {
     templateUrl: '/source/views/techUsed.html',
     controller: 'myCtrl'
   }).
-  when('/interested', {
-    templateUrl: '/source/views/bookstrapButton.html',
+  when('/contact', {
+    templateUrl: '/source/views/contact.html',
     controller: 'myCtrl'
   }).
   otherwise({
