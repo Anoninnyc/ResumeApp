@@ -8,7 +8,7 @@
   <input id="emailAddress" placeholder="Enter your email Address to Learn more" class="form-control" ng-model="address" type='text' />
   <input id="emailName" placeholder="Enter your name here" class="form-control" ng-model="name" type='text' />
   <input id="emailCompany" placeholder="Enter your company name here" class="form-control" ng-model="company" type='text' />
-  <button id="action" class="btn btn-secondary" ng-click="sendEmailAddress(address, name, company)">Click to send email address</button>
+  <button id="action" class="btn btn-secondary" ng-click="sendEmailAddress(address, name, company)">Send</button>
   <br/>
   <span ng-bind-html="error"></span>
   <br/>
@@ -16,8 +16,8 @@
   <span ng-bind-html="stories.length>0? '<h2>Tech Stories</h2>' : null"></span>
 
   <div ng-repeat="story in stories">
-    <li><a ng-href='{{story[3]}}'><h2>{{story[2]}}</h2></a></li>
-    <h3>By:{{story[0]}}</h3>
+    <li><a ng-href='{{story[3]}}'><h3>{{story[2]}}</h3></a></li>
+    <p>By:{{story[0]}}</p>
 
   </div>
 
