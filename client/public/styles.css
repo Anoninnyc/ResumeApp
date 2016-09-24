@@ -78,4 +78,5 @@ input {
 img.tech {
   width: 200;
   position: absolute;
+  opacity: 0.5;
 }

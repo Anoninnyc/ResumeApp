@@ -2,17 +2,21 @@
 
 Insert Images Here... 
 
-<img class = "tech" src=".././public/assets/express.png"></img>
-<img class = "tech" src=".././public/assets/angularjs.png"></img>
-<img class = "tech" src=".././public/assets/grunt.png"></img>
-<img  class = "tech" src=".././public/assets/jQuery.gif"></img>
-<img class = "tech" src=".././public/assets/mongodb.png"></img>
-<img class = "tech" src=".././public/assets/mongoose.png"></img>
-<img class = "tech" src=".././public/assets/sockets.gif"></img>
-<img  class = "tech" src=".././public/assets/webpack.png"></img>
+<a href= "https://expressjs.com/"><img class = "tech" src=".././public/assets/express.png"></img></a>
+<a href= "https://angularjs.org/"><img class = "tech" src=".././public/assets/angularjs.png"></img></a>
+<a href= "https://github.com/gruntjs/grunt"><img class = "tech" src=".././public/assets/grunt.png"></img></a>
+<a href= "https://jquery.com/"><img  class = "tech" src=".././public/assets/jQuery.gif"></img></a>
+<a href= "https://www.mongodb.com/"><img class = "tech" src=".././public/assets/mongodb.png"></img></a>
+<a href= "http://mongoosejs.com/"><img class = "tech" src=".././public/assets/mongoose.png"></img></a>
+<a href= "http://socket.io/"><img class = "tech" src=".././public/assets/sockets.gif"></img></a>
+<a href= "https://webpack.github.io/"><img  class = "tech" src=".././public/assets/webpack.png"></img></a>
 <script>
 
-var moveIt=setInterval(
+$(".tech").on('hover',function(){
+	$(this).css({opacity:1});
+})
+
+window.moveIt=setInterval(
 function(){
 	$(".tech").each(function(){
 	  let width = window.innerWidth* Math.random();
