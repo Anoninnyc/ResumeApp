@@ -5,9 +5,9 @@
 <div id="sendInfo">
   <h1> {{contactMessage}}</h1>
 
-  <input id="emailAddress" placeholder="Enter your email Address to Learn more" class="form-control" ng-model="address" type='text' />
-  <input id="emailName" placeholder="Enter your name here" class="form-control" ng-model="name" type='text' />
-  <input id="emailCompany" placeholder="Enter your company name here" class="form-control" ng-model="company" type='text' />
+  <input id="emailAddress" placeholder="Your Email Address" class="form-control" ng-model="address" type='text' />
+  <input id="emailName" placeholder="Your Name" class="form-control" ng-model="name" type='text' />
+  <input id="emailCompany" placeholder="Your Company Name" class="form-control" ng-model="company" type='text' />
   <button id="action" class="btn btn-secondary" ng-click="sendEmailAddress(address, name, company)">Send</button>
   <br/>
   <span ng-bind-html="error"></span>
