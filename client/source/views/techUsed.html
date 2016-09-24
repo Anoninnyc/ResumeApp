@@ -15,8 +15,10 @@ Insert Images Here...
 setInterval(
 function(){
 	$(".tech").each(function(){
-	$(this).animate({left:"100px"});
-})
+	  let width = window.innerWidth* Math.random();
+	  let height = window.innerHeight* Math.random();
+	  $(this).animate({left:`${width}px`,top:`${height}px`});
+ })
 }
 ,1000)
 	
