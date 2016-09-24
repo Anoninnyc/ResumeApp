@@ -80,3 +80,7 @@ img.tech {
   position: absolute;
   opacity: 0.5;
 }
+
+img.tech:hover {
+ opacity:1;
+}
