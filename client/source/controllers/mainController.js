@@ -90,6 +90,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
 
 myApp.run(function($rootScope) {
   $rootScope.$on('$routeChangeSuccess', (e, current) => {
+    clearInterval(moveIt);
     const map = {
       "/interested": "Contact",
       "/techUsed": "Technologies Used",
