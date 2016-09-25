@@ -125,6 +125,7 @@ myApp.run(function($rootScope) {
             $rootScope.$apply();
             if (i===2000){
             $rootScope.counting=2;
+            $(".tech").css({display:"inline"})
             $rootScope.$apply();
             }
           }, i)
