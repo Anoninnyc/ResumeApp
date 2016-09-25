@@ -181,6 +181,7 @@
 	  $rootScope.count=3;
 
 	  $rootScope.countdown=function(){
+	    console.log("coutingDOWN!!!")
 	     if ($rootScope.count>1){
 	       $rootScope.count--;
 	     } else if ($rootScope.count===1) {
@@ -192,12 +193,13 @@
 	  };
 
 	  $rootScope.$on('$routeChangeSuccess', (e, current) => {
+	    if (current.$$route.originalPath==="/techUsed"){
 	    $rootScope.count=3;
 
 	for (var i=500;i<2001;i+=500){
 	  (function(i){ setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},i)}(i));
 	}
-
+	}
 
 
 
