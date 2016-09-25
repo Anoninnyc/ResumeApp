@@ -92,3 +92,7 @@ img.tech:hover {
 button#action {
   opacity: 0.6;
 }
+
+#countdown {
+  margin:auto;
+}

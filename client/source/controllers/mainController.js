@@ -118,7 +118,7 @@ myApp.run(function($rootScope) {
      } else if ($rootScope.count===1) {
       $rootScope.count="GO!";
      } else {
-      $rootScope.count=null;
+      $rootScope.count="TEST";
      }
   
   };
