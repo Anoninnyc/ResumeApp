@@ -180,15 +180,21 @@
 	  };
 
 	  $rootScope.$on('$routeChangeSuccess', (e, current) => {
+	   
 	    let path = current.$$route.originalPath;
-	    if (path === "/techUsed" &&  $rootScope.count === null) {
+	    if (path === "/techUsed" && $rootScope.counting!==1) {
 	      $rootScope.count = 3;
+	      $rootScope.counting=1;
 
 	      for (var i = 500; i < 2001; i += 500) {
 	        (function(i) {
 	          setTimeout(function() {
 	            $rootScope.countdown();
 	            $rootScope.$apply();
+	            if (i===2000){
+	            $rootScope.counting=2;
+	            $rootScope.$apply();
+	            }
 	          }, i)
 	        }(i));
 	      }
