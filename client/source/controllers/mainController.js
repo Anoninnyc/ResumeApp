@@ -122,9 +122,12 @@ myApp.run(function($rootScope) {
     $rootScope.countdown();
     $rootScope.countdown();
 
-    setTimeout(function(){$rootScope.countdown(); $rootScope.$apply},500);
-    setTimeout(function(){$rootScope.countdown(); $rootScope.$apply},1000);
-    setTimeout(function(){$rootScope.countdown(); $rootScope.$apply},1500);
+    setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},500);
+    $rootScope.$apply()
+    setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},1000);
+    $rootScope.$apply()
+    setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},1500);
+    $rootScope.$apply()
 
 
     moveIt!==undefined?clearInterval(moveIt):null;
