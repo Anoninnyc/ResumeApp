@@ -180,7 +180,7 @@
 	  };
 
 	   $rootScope.$on("$routeChangeStart", (e, current)=>{
-	    console.log(e.$$route.originalPath,current.$$route.originalPath);
+	    console.log('e',e,'current',current);
 	   })
 
 
