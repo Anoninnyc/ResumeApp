@@ -81,6 +81,7 @@ img.tech {
   opacity: 0.5;
   left: 764px;
   top: 541px;
+  display:hidden;
 }
 
 img.tech:hover {
