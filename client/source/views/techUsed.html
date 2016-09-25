@@ -1,4 +1,5 @@
 
+<h1>{{count}}</h1>
 <a href= "https://expressjs.com/"><img class = "tech" src=".././public/assets/express.png"></img></a>
 <a href= "https://angularjs.org/"><img class = "tech" src=".././public/assets/angularjs.png"></img></a>
 <a href= "https://github.com/gruntjs/grunt"><img class = "tech" src=".././public/assets/grunt.png"></img></a>
@@ -14,6 +15,7 @@ setTimeout(function(){$(".tech").css({display:"inline"})},2000);
 
 window.moveIt=setInterval(
 function(){
+	{{countdown()}}
 	$(".tech").each(function(){
 	  let width = window.innerWidth* Math.random()/0.8;
 	  let height = window.innerHeight* Math.random()/0.8;

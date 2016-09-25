@@ -4,8 +4,12 @@ myApp.controller('myCtrl', function($scope, dummyService) {
   $scope.flagAddress = false;
   $scope.flagName = false;
   $scope.contactMessage = "Interested in learning more?"
+  $rootScope.count=3;
 
-
+  $rootScope.countdown=function(){
+     $rootScope.count--;
+     //$scope.apply();
+  };
 
   $scope.$watch('address', function(newValue, oldValue, scope) {
     if (oldValue) {
@@ -52,7 +56,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
     if (oldValue) {
       if (oldValue.length === 3) {
       $("#action").css({opacity:1});
-      }
+     }
     }
   });
 
@@ -112,6 +116,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
 
 myApp.run(function($rootScope) {
   $rootScope.$on('$routeChangeSuccess', (e, current) => {
+    $rootScope.countdown();
     moveIt!==undefined?clearInterval(moveIt):null;
     const map = {
       "/contact": "Contact Me",
