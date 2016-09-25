@@ -94,5 +94,8 @@ button#action {
 }
 
 #countdown {
-  margin:auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 100px;
 }
