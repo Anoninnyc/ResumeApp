@@ -98,6 +98,12 @@ myApp.controller('myCtrl', function($scope, dummyService) {
 
 myApp.run(function($rootScope) {
   $rootScope.count = 3;
+   const map = {
+      "/contact": "Contact Me",
+      "/techUsed": "Technologies Used",
+      "/resume": "My Resume",
+      "/": "Welcome!"
+    };
 
   $rootScope.countdown = function() {
     console.log("coutingDOWN!!!")
@@ -113,6 +119,7 @@ myApp.run(function($rootScope) {
 
    $rootScope.$on("$routeChangeStart", (e, current)=>{
     console.log(e,current.$$route.originalPath);
+    $rootScope.currRoute=map[current.$$route.originalPath];
    })
 
 
@@ -138,12 +145,7 @@ myApp.run(function($rootScope) {
     }
 
     moveIt !== undefined ? clearInterval(moveIt) : null;
-    const map = {
-      "/contact": "Contact Me",
-      "/techUsed": "Technologies Used",
-      "/resume": "My Resume",
-      "/": "Welcome!"
-    };
+   
 
     $rootScope.currRoute = map[path];
     console.log(path)
