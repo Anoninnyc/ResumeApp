@@ -118,7 +118,13 @@ myApp.run(function($rootScope) {
   };
 
   $rootScope.$on('$routeChangeSuccess', (e, current) => {
-    $rootScope.countdown();
+    $rootScope.count=3;
+
+    setTimeout(function(){$rootScope.countdown()},500);
+    setTimeout(function(){$rootScope.countdown()},1000);
+    setTimeout(function(){$rootScope.countdown()},1500);
+
+
     moveIt!==undefined?clearInterval(moveIt):null;
     const map = {
       "/contact": "Contact Me",
