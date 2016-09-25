@@ -120,9 +120,9 @@ myApp.run(function($rootScope) {
   $rootScope.$on('$routeChangeSuccess', (e, current) => {
     $rootScope.count=3;
 
-    setTimeout(function(){$rootScope.countdown()},500);
-    setTimeout(function(){$rootScope.countdown()},1000);
-    setTimeout(function(){$rootScope.countdown()},1500);
+    setTimeout(function(){$rootScope.countdown(); $rootscope.$apply},500);
+    setTimeout(function(){$rootScope.countdown(); $rootscope.$apply},1000);
+    setTimeout(function(){$rootScope.countdown(); $rootscope.$apply},1500);
 
 
     moveIt!==undefined?clearInterval(moveIt):null;
