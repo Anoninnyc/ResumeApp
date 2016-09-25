@@ -187,6 +187,8 @@
 
 	  $rootScope.$on('$routeChangeSuccess', (e, current) => {
 	    $rootScope.count=3;
+	    $rootScope.countdown();
+	    $rootScope.countdown();
 
 	    setTimeout(function(){$rootScope.countdown(); $rootScope.$apply},500);
 	    setTimeout(function(){$rootScope.countdown(); $rootScope.$apply},1000);
