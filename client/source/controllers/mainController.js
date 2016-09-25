@@ -99,8 +99,8 @@ myApp.controller('myCtrl', function($scope, dummyService) {
 myApp.run(function($rootScope) {
   $rootScope.count = 3;
    const map = {
-      "/contact": "Contact Me",
-      "/techUsed": "Technologies Used",
+      "/contact": "Contact Page",
+      "/techUsed": "Tech Used",
       "/resume": "My Resume",
       "/": "Welcome!"
     };
