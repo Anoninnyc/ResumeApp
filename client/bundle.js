@@ -181,7 +181,7 @@
 
 	  $rootScope.$on('$routeChangeSuccess', (e, current) => {
 	    let path = current.$$route.originalPath;
-	    if (path === "/techUsed") {
+	    if (path === "/techUsed" &&  $rootScope.count === null) {
 	      $rootScope.count = 3;
 
 	      for (var i = 500; i < 2001; i += 500) {
