@@ -113,7 +113,7 @@ myApp.run(function($rootScope) {
 
    $rootScope.$on("$routeChangeStart", (e, current)=>{
     console.log(e,current);
-   }
+   })
 
 
   $rootScope.$on('$routeChangeSuccess', (e, current) => {
