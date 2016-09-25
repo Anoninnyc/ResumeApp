@@ -7,20 +7,9 @@
 /*  ul.nav a:focus {
     background-color: grey !important;
   }*/
- 	.form-control {
-    width: 50%;
- 
-   }
-
-
-body { 
-  background: url('./nightskyline.gif') no-repeat center center; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+.form-control {
+  width: 50%;
 }
-
 
 div#sendInfo {
   position: relative;
@@ -98,4 +87,19 @@ button#action {
   left: 50%;
   top: 50%;
   font-size: 100px;
+}
+
+div#res {
+    text-align: center;
+    opacity: 0.75;
+    position: absolute;
+    left: 25%;
+}
+
+body {
+    background: url(./nightskyline.gif) center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
