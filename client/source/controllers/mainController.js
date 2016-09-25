@@ -111,8 +111,12 @@ myApp.run(function($rootScope) {
 
   };
 
+   $rootScope.$on("$routeChangeStart", (e, current)=>{
+    console.log(e,current);
+   }
+
+
   $rootScope.$on('$routeChangeSuccess', (e, current) => {
-   
     let path = current.$$route.originalPath;
     if (path === "/techUsed" && $rootScope.counting!==1) {
       $rootScope.count = 3;
