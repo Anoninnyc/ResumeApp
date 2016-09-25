@@ -188,12 +188,12 @@
 	  $rootScope.$on('$routeChangeSuccess', (e, current) => {
 	    $rootScope.count=3;
 
-	    setTimeout(function(){$rootScope.countdown();},500);
-	    $rootScope.$apply()
-	    setTimeout(function(){$rootScope.countdown(); },1000);
-	    $rootScope.$apply()
-	    setTimeout(function(){$rootScope.countdown();},1500);
-	    $rootScope.$apply()
+	    setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},500);
+	    //$rootScope.$apply()
+	    setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},1000);
+	    //$rootScope.$apply()
+	    setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},1500);
+	    //$rootScope.$apply()
 
 
 	    moveIt!==undefined?clearInterval(moveIt):null;
