@@ -120,12 +120,17 @@ myApp.run(function($rootScope) {
   $rootScope.$on('$routeChangeSuccess', (e, current) => {
     $rootScope.count=3;
 
-    setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},500);
-    //$rootScope.$apply()
-    setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},1000);
-    //$rootScope.$apply()
-    setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},1500);
-    //$rootScope.$apply()
+for (var i=500;i<1501;i+=500){
+  (function(){ setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},i)}());
+ 
+
+}
+    // setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},500);
+    // //$rootScope.$apply()
+    // setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},1000);
+    // //$rootScope.$apply()
+    // setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},1500);
+    // //$rootScope.$apply()
 
 
     moveIt!==undefined?clearInterval(moveIt):null;
