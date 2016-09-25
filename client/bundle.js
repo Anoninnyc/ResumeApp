@@ -183,6 +183,8 @@
 	  $rootScope.countdown=function(){
 	     if ($rootScope.count>1){
 	       $rootScope.count--;
+	     } else if ($rootScope.count===1) {
+	      $rootScope.count="GO!";
 	     } else {
 	      $rootScope.count=null;
 	     }
@@ -192,7 +194,7 @@
 	  $rootScope.$on('$routeChangeSuccess', (e, current) => {
 	    $rootScope.count=3;
 
-	for (var i=500;i<1501;i+=500){
+	for (var i=500;i<2001;i+=500){
 	  (function(i){ setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},i)}(i));
 	}
 
