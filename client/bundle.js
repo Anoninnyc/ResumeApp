@@ -123,19 +123,6 @@
 	    }
 	  });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	  const reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
 
 	  dummyService.emailAction($scope, false, null, []);
@@ -178,42 +165,50 @@
 
 
 	myApp.run(function($rootScope) {
-	  $rootScope.count=3;
+	  $rootScope.count = 3;
 
-	  $rootScope.countdown=function(){
+	  $rootScope.countdown = function() {
 	    console.log("coutingDOWN!!!")
-	     if ($rootScope.count>1){
-	       $rootScope.count--;
-	     } else if ($rootScope.count===1) {
-	      $rootScope.count="GO!";
-	     } else {
-	      $rootScope.count="TEST";
-	     }
-	  
+	    if ($rootScope.count > 1) {
+	      $rootScope.count--;
+	    } else if ($rootScope.count === 1) {
+	      $rootScope.count = "GO!";
+	    } else {
+	      $rootScope.count = null;
+	    }
+
 	  };
 
 	  $rootScope.$on('$routeChangeSuccess', (e, current) => {
-	    if (current.$$route.originalPath==="/techUsed"){
-	    $rootScope.count=3;
+	    let path = current.$$route.originalPath;
+	    if (path === "/techUsed") {
+	      $rootScope.count = 3;
 
-	for (var i=500;i<2001;i+=500){
-	  (function(i){ setTimeout(function(){$rootScope.countdown(); $rootScope.$apply()},i)}(i));
-	}
-	}
+	      for (var i = 500; i < 2001; i += 500) {
+	        (function(i) {
+	          setTimeout(function() {
+	            $rootScope.countdown();
+	            $rootScope.$apply();
+	          }, i)
+	        }(i));
+	      }
+	    }
 
-
-
-	    moveIt!==undefined?clearInterval(moveIt):null;
+	    moveIt !== undefined ? clearInterval(moveIt) : null;
 	    const map = {
 	      "/contact": "Contact Me",
 	      "/techUsed": "Technologies Used",
 	      "/resume": "My Resume",
 	      "/": "Welcome!"
-	    }
-	    $rootScope.currRoute = map[current.$$route.originalPath];
-	    console.log(current.$$route.originalPath)
+	    };
+
+	    $rootScope.currRoute = map[path];
+	    console.log(path)
 	  });
 	});
+
+
+
 
 
 /***/ },
