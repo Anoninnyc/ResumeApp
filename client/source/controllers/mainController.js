@@ -25,6 +25,9 @@ myApp.controller('myCtrl', function($scope, dummyService) {
 
       }
     }
+    if (!newValue.length){
+       document.getElementById("action").disabled = true;
+    }
   });
 
   $scope.$watch('name', function(newValue, oldValue, scope) {
@@ -44,6 +47,9 @@ myApp.controller('myCtrl', function($scope, dummyService) {
         }, 100);
       }
     }
+    if (!newValue.length){
+       document.getElementById("action").disabled = true;
+    }
   });
 
 
@@ -53,6 +59,9 @@ myApp.controller('myCtrl', function($scope, dummyService) {
       $("#action").css({opacity:1});
       document.getElementById("action").disabled = false;
      }
+    }
+    if (!newValue.length){
+       document.getElementById("action").disabled = true;
     }
   });
 

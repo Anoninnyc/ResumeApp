@@ -93,6 +93,9 @@
 
 	      }
 	    }
+	    if (!newValue.length){
+	       document.getElementById("action").disabled = true;
+	    }
 	  });
 
 	  $scope.$watch('name', function(newValue, oldValue, scope) {
@@ -112,6 +115,9 @@
 	        }, 100);
 	      }
 	    }
+	    if (!newValue.length){
+	       document.getElementById("action").disabled = true;
+	    }
 	  });
 
 
@@ -121,6 +127,9 @@
 	      $("#action").css({opacity:1});
 	      document.getElementById("action").disabled = false;
 	     }
+	    }
+	    if (!newValue.length){
+	       document.getElementById("action").disabled = true;
 	    }
 	  });
 
