@@ -2,8 +2,8 @@ require('dotenv').config();
 var express = require('express');
 var app = express();
 var http = require('http')
-var server = http.createServer(app);
-var socketIO = require('socket.io')
+var server = http.createServer(app)
+var socketIO = require('socket.io').listen(5000);
 var mongoose = require('mongoose');
 var Email = require('./db/models.js');
 var path = require('path');
