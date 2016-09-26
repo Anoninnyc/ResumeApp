@@ -20,7 +20,8 @@
     "socket.io": "^1.4.8"
   },
   "scripts": {
-    "back-end": "nodemon server.js"
+    "back-end": "nodemon server.js",
+    "back-end-test" : "nodemon tests/test.js"
   },
   "devDependencies": {
     "bower": "^1.7.9",
