@@ -27,7 +27,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
     }
     if (!newValue.length){
        document.getElementById("action").disabled = true;
-       $("#action").css({opacity:1});
+       $("#action").css({opacity:0.5});
     }
   });
 
@@ -51,7 +51,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
     }
     if (!newValue.length){
        document.getElementById("action").disabled = true;
-       $("#action").css({opacity:1});
+       $("#action").css({opacity:0.5});
     }
   });
 
@@ -66,7 +66,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
     }
     if (!newValue.length){
        document.getElementById("action").disabled = true;
-       $("#action").css({opacity:1});
+       $("#action").css({opacity:0.5});
     }
   });
 
