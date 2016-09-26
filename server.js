@@ -10,7 +10,6 @@ var path = require('path');
 var request = require("request");
 var MongoClient = require('mongodb').MongoClient
 mongoose.Promise = require('bluebird');
-const io = socketIO.listen(server);
 const cron = require('node-cron');
 
 
@@ -54,7 +53,7 @@ cron.schedule('*/10 * * * *', function() {
 
 
 //sockets
-io.on('connection', function(socket) {
+socketIO.sockets.on('connection', function(socket) {
   socket.on('sendEmailAddress', function(msg) {
     
       var email = new Email();
@@ -77,7 +76,7 @@ io.on('connection', function(socket) {
           console.log(exists, 'exists??')
           if (exists) {
             console.log('its there already!')
-            io.emit('emailExtant', `emailExtant`)
+            socketIO.sockets.emit('emailExtant', `emailExtant`)
           } else {
             const recentId = email.id;
             email.save(function(err, email) {
@@ -95,7 +94,7 @@ io.on('connection', function(socket) {
 
                 if (storyInfo.length === 5) {
                   console.log('whatwewant!');
-                  io.emit('loggedToDB', {
+                  socketIO.sockets('loggedToDB', {
                     storyInfo,
                     companyInfo
                   });
@@ -110,7 +109,7 @@ io.on('connection', function(socket) {
                         storyInfo.push([body.by, body.score, body.title, body.url]);
 
                         if (storyInfo.length === 5) {
-                          io.emit('loggedToDB', {
+                          socketIO.sockets('loggedToDB', {
                             storyInfo,
                             companyInfo
                           });
