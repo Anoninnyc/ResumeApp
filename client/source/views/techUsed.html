@@ -36,7 +36,7 @@ const images=[["https://expressjs.com/","express.png"],["https://angularjs.org/"
 [ "http://socket.io/","sockets.gif"],["https://webpack.github.io/","webpack.png"]];
 
 images.forEach(img=>{
-  $("#images").append(`<div><a href=${img[0]}><img class = "tech" src=".././public/assets/${img[1]}"></img></a></div>`)
+  $("#images").append(`<a href=${img[0]}></a>`).append(`<img class = "tech" src=".././public/assets/${img[1]}></img>`)
 });
 
 
