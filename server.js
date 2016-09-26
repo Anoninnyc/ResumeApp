@@ -15,7 +15,21 @@ const cron = require('node-cron');
 
 
 // db Connection
-var URL = process.env.URL;
+
+var URL = process.env.URL || 'mongodb://localhost:27017/mydatabase';
+
+
+MongoClient.connect(process.env.URL, function (err, db) {
+    if (err) {
+        URL='mongodb://localhost:27017/mydatabase';
+    } else {
+        URL=process.env.URL;
+    }
+    db.close();
+});
+
+
+
 
 //old WAN "mongodb://heroku_sv2fwrvp:fir4oj2rvlj8ooh2qdb5i9tv1@ds033056.mlab.com:33056/heroku_sv2fwrvp"
 //'mongodb://localhost:27017/mydatabase';
