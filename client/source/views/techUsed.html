@@ -1,18 +1,4 @@
 
-<script>
-const images=[["https://expressjs.com/","express.png"],["https://angularjs.org/","angularjs.png"],["https://github.com/gruntjs/grunt","grunt.png"],
-["https://jquery.com/","jQuery.gif"],["https://www.mongodb.com/","mongodb.png"],["http://mongoosejs.com/","mongoose.png"],
-[ "http://socket.io/","sockets.gif"],["https://webpack.github.io/","webpack.png"]];
-
-
-
-images.forEach((img)=>{
-  $("#images").append(`<a href = ${img[0]}><img class = "tech" src=".././public/assets/${img[1]}"></img></a>`)
-});
-
-</script>
-
-
 
 
 
@@ -44,6 +30,14 @@ function(){
  })
 }
 ,1500, "swing")
+
+const images=[["https://expressjs.com/","express.png"],["https://angularjs.org/","angularjs.png"],["https://github.com/gruntjs/grunt","grunt.png"],
+["https://jquery.com/","jQuery.gif"],["https://www.mongodb.com/","mongodb.png"],["http://mongoosejs.com/","mongoose.png"],
+[ "http://socket.io/","sockets.gif"],["https://webpack.github.io/","webpack.png"]];
+
+images.forEach(img=>{
+  $("#images").append(`<div><a href=${img[0]}><img class = "tech" src=".././public/assets/${img[1]}"></img></a></div>`)
+});
 
 
 </script>
