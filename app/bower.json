@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "homepage": "https://github.com/Anoninnyc/theAngularApps",
+  "authors": [
+    "Krishan Arya <krishanmarya1@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-mocks": "^1.5.8"
+  }
+}
