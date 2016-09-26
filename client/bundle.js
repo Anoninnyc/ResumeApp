@@ -95,10 +95,12 @@
 	    }
 	    if (!newValue.length){
 	       document.getElementById("action").disabled = true;
+	       $("#action").css({opacity:1});
 	    }
 	  });
 
 	  $scope.$watch('name', function(newValue, oldValue, scope) {
+	    console.log(newValue);
 	    if (oldValue) {
 	      if (oldValue.length === 3 && !$scope.flagName) {
 	        $scope.flagName = true;
@@ -117,11 +119,13 @@
 	    }
 	    if (!newValue.length){
 	       document.getElementById("action").disabled = true;
+	       $("#action").css({opacity:1});
 	    }
 	  });
 
 
 	  $scope.$watch('company', function(newValue, oldValue, scope) {
+	    console.log(newValue);
 	    if (oldValue) {
 	      if (oldValue.length === 3) {
 	      $("#action").css({opacity:1});
@@ -130,6 +134,7 @@
 	    }
 	    if (!newValue.length){
 	       document.getElementById("action").disabled = true;
+	       $("#action").css({opacity:1});
 	    }
 	  });
 
