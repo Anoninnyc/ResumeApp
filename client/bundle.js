@@ -119,7 +119,7 @@
 	    if (oldValue) {
 	      if (oldValue.length === 3) {
 	      $("#action").css({opacity:1});
-	      document.getElementById("myBtn").disabled = false;
+	      document.getElementById("#action").disabled = false;
 	     }
 	    }
 	  });
