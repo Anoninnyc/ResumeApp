@@ -9,6 +9,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
   $scope.$watch('address', function(newValue, oldValue, scope) {
     if (oldValue) {
       if (oldValue.length === 4 && !$scope.flagAddress) {
+         $("#action").css({opacity:1});
         $scope.flagAddress = true;
 
         let el = $('#emailName'),
@@ -36,6 +37,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
     console.log(newValue);
     if (oldValue) {
       if (oldValue.length === 3 && !$scope.flagName) {
+         $("#action").css({opacity:1});
         $scope.flagName = true;
 
         let el2 = $('#emailCompany'),
