@@ -159,8 +159,9 @@
 	      dummyService.emailAction($scope, false, "<h3>It looks like you've already sent your info</h3>", []);
 	      $scope.$apply();
 	    });
-
 	  };
+
+
 	 }
 	})
 
@@ -173,7 +174,7 @@
 	      "/resume": "My Resume",
 	      "/": "Welcome!"
 	    };
-	    
+
 
 	  $rootScope.countdown = function() {
 	    console.log("coutingDOWN!!!")

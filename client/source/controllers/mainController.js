@@ -91,8 +91,9 @@ myApp.controller('myCtrl', function($scope, dummyService) {
       dummyService.emailAction($scope, false, "<h3>It looks like you've already sent your info</h3>", []);
       $scope.$apply();
     });
-
   };
+
+
  }
 })
 
@@ -105,7 +106,7 @@ myApp.run(function($rootScope) {
       "/resume": "My Resume",
       "/": "Welcome!"
     };
-    
+
 
   $rootScope.countdown = function() {
     console.log("coutingDOWN!!!")
