@@ -58,7 +58,6 @@ myApp.controller('myCtrl', function($scope, dummyService) {
   const reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
 
   dummyService.emailAction($scope, false, null, []);
-
   $scope.sendEmailAddress = (address, name, company) => {
 
     if (!reg.test(address)){
@@ -77,6 +76,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
       name,
       company
     });
+
     dummyService.emailAction($scope, true, null, []);
 
     socket.once('loggedToDB', msg => {
@@ -91,6 +91,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
       dummyService.emailAction($scope, false, "<h3>It looks like you've already sent your info</h3>", []);
       $scope.$apply();
     });
+
   };
  }
 })
@@ -104,6 +105,7 @@ myApp.run(function($rootScope) {
       "/resume": "My Resume",
       "/": "Welcome!"
     };
+    
 
   $rootScope.countdown = function() {
     console.log("coutingDOWN!!!")
