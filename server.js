@@ -2,14 +2,15 @@ require('dotenv').config();
 var express = require('express');
 var app = express();
 var http = require('http')
-var server = http.createServer(app)
-var socketIO = require('socket.io').listen(5000);
+var server = http.createServer(app);
+var socketIO = require('socket.io')
 var mongoose = require('mongoose');
 var Email = require('./db/models.js');
 var path = require('path');
 var request = require("request");
 var MongoClient = require('mongodb').MongoClient
 mongoose.Promise = require('bluebird');
+const io = socketIO.listen(server);
 const cron = require('node-cron');
 
 
@@ -53,7 +54,7 @@ cron.schedule('*/10 * * * *', function() {
 
 
 //sockets
-socketIO.sockets.on('connection', function(socket) {
+io.on('connection', function(socket) {
   socket.on('sendEmailAddress', function(msg) {
     
       var email = new Email();
@@ -76,7 +77,7 @@ socketIO.sockets.on('connection', function(socket) {
           console.log(exists, 'exists??')
           if (exists) {
             console.log('its there already!')
-            socketIO.sockets.emit('emailExtant', `emailExtant`)
+            io.emit('emailExtant', `emailExtant`)
           } else {
             const recentId = email.id;
             email.save(function(err, email) {
@@ -94,7 +95,7 @@ socketIO.sockets.on('connection', function(socket) {
 
                 if (storyInfo.length === 5) {
                   console.log('whatwewant!');
-                  socketIO.sockets('loggedToDB', {
+                  io.emit('loggedToDB', {
                     storyInfo,
                     companyInfo
                   });
@@ -109,7 +110,7 @@ socketIO.sockets.on('connection', function(socket) {
                         storyInfo.push([body.by, body.score, body.title, body.url]);
 
                         if (storyInfo.length === 5) {
-                          socketIO.sockets('loggedToDB', {
+                          io.emit('loggedToDB', {
                             storyInfo,
                             companyInfo
                           });
