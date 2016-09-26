@@ -1,5 +1,26 @@
 
-<h1 id="countdown">{{count}}</h1>
+<script>
+const images=[["https://expressjs.com/","express.png"],["https://angularjs.org/","angularjs.png"],["https://github.com/gruntjs/grunt","grunt.png"],
+["https://jquery.com/","jQuery.gif"],["https://www.mongodb.com/","mongodb.png"],["http://mongoosejs.com/","mongoose.png"],
+[ "http://socket.io/","sockets.gif"],["https://webpack.github.io/","webpack.png"]];
+
+
+
+images.forEach((img)=>{
+  $("#images").append(`<a href = ${img[0]}><img class = "tech" src=".././public/assets/${img[1]}"></img></a>`)
+});
+
+</script>
+
+
+
+
+
+
+
+<div id="images">
+
+<!-- <h1 id="countdown">{{count}}</h1>
 <a href= "https://expressjs.com/"><img class = "tech" src=".././public/assets/express.png"></img></a>
 <a href= "https://angularjs.org/"><img class = "tech" src=".././public/assets/angularjs.png"></img></a>
 <a href= "https://github.com/gruntjs/grunt"><img class = "tech" src=".././public/assets/grunt.png"></img></a>
@@ -7,7 +28,9 @@
 <a href= "https://www.mongodb.com/"><img class = "tech" src=".././public/assets/mongodb.png"></img></a>
 <a href= "http://mongoosejs.com/"><img class = "tech" src=".././public/assets/mongoose.png"></img></a>
 <a href= "http://socket.io/"><img class = "tech" src=".././public/assets/sockets.gif"></img></a>
-<a href= "https://webpack.github.io/"><img  class = "tech" src=".././public/assets/webpack.png"></img></a>
+<a href= "https://webpack.github.io/"><img  class = "tech" src=".././public/assets/webpack.png"></img></a> -->
+
+</div>
 
 <script>
 
