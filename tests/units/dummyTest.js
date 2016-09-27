@@ -42,49 +42,70 @@ describe('myCtrl Controller', function() {
 		//this.timeout(1000);
 		const salty = [Math.random()].concat([Math.random()]).join("");
 		$scope.sendEmailAddress(salty+'@gmail.com',salty,salty);
-		setTimeout(()=>{expect($scope.error).to.equal('<h3>Email has been added, Congrats!</h3>'); done()},500);
+		setTimeout(()=>{expect($scope.error).to.equal('<h3>Email has been added, Congrats!</h3>'); done();},5000);
 
 	})
 
 	it('Should throw an error when attempting to log an extant address',function(done){
 		const salty = [Math.random()].concat([Math.random()]).join("");
 		$scope.sendEmailAddress('bob@gmail.com',salty,salty);
-		setTimeout(()=>{expect($scope.error).to.equal('<h3>It looks like you\'ve already sent your info</h3>'); done()},500);
+		setTimeout(()=>{expect($scope.error).to.equal('<h3>It looks like you\'ve already sent your info</h3>'); done()},1000);
 	})
 
-	it('Should throw an error when attempting to log an extant name',function(done){
+	// it('Should throw an error when attempting to log an extant name',function(done){
 
-		const salty = [Math.random()].concat([Math.random()]).join("");
-		$scope.sendEmailAddress(salty+'@gmail.com',"bob",salty);
-		setTimeout(()=>{expect($scope.error).to.equal('<h3>It looks like you\'ve already sent your info</h3>'); done()},500);
+	// 	const salty = [Math.random()].concat([Math.random()]).join("");
+	// 	$scope.sendEmailAddress(salty+'@gmail.com',"bob",salty);
+	// 	setTimeout(()=>{expect($scope.error).to.equal('<h3>It looks like you\'ve already sent your info</h3>'); done()},1000);
 		
-	});
+	// });
 
-	it('Should acknowledge if colleagues have sent email addresses',function(done){
+	// it('Should acknowledge if colleagues have sent email addresses',function(done){
 
-		const salty = [Math.random()].concat([Math.random()]).join("");
-		$scope.sendEmailAddress(salty+'@gmail.com',salty,"google");
-		setTimeout(()=>{expect($scope.error.split(" ").indexOf("google")).to.be.above(-1); done()},500);
+	// 	const salty = [Math.random()].concat([Math.random()]).join("");
+	// 	$scope.sendEmailAddress(salty+'@gmail.com',salty,"google");
+	// 	setTimeout(()=>{expect($scope.error.split(" ").indexOf("google")).to.be.above(-1); done()},1000);
 		
-	});
+	// });
 
 })
 
 
-describe('navBar', function() {
+// describe('contactList', function() {
+
+// beforeEach(function(){
+// 	  module('myApp');
+// 	});
+
+// beforeEach(inject(function($compile, $rootScope, $controller) {
 
 
-});
+//     $scope = $rootScope.$new();
+
+//     createController = function () {
+//       return $controller('myCtrl', {
+//         $scope: $scope
+//         });
+//   	   };
+
+//   	   createController();
+
+//     var input = $compile('<input type="number" ng-model="model" not-zero />')($scope);
+
+//     ngModel = input.controller('ngModel');
+
+//   }));
 
 
 
-describe('contactList', function() {
+// 	it('Should release llll', function() {
+// 		console.log(ngModel,$scope);
+// 	});
+
+// });
 
 
-});
+// describe('successfull entry into database', function() {
 
 
-describe('successfull entry into database', function() {
-
-
-});
+// });

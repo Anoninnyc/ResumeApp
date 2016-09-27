@@ -70,6 +70,8 @@ cron.schedule('*/10 * * * *', function() {
 //sockets
 io.on('connection', function(socket) {
   socket.on('sendEmailAddress', function(msg) {
+
+    console.log('the fucking message', msg);
     
       var email = new Email();
       email.address = msg.address;
