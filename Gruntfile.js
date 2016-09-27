@@ -12,7 +12,7 @@ module.exports = function(grunt) {
     },
     mocha: {
       all: {
-        src: ['specrunner.html']
+        src: ['specrunner.html'],
       },
       options: {
         run: true
