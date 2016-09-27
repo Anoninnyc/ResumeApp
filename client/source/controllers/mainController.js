@@ -26,11 +26,11 @@ myApp.controller('myCtrl', function($scope, dummyService) {
 
       }
     }
-    if (!newValue.length){
-       document.getElementById("action").disabled = true;
-       $("#action").css({opacity:0.5});
-       //$scope.apply();
-    }
+    // if (!newValue.length){
+    //    document.getElementById("action").disabled = true;
+    //    $("#action").css({opacity:0.5});
+    //    //$scope.apply();
+    // }
   });
 
   $scope.$watch('name', function(newValue, oldValue, scope) {
@@ -52,27 +52,27 @@ myApp.controller('myCtrl', function($scope, dummyService) {
         }, 100);
       }
     }
-    if (!newValue.length){
-       document.getElementById("action").disabled = true;
-       $("#action").css({opacity:0.5});
-       //$scope.apply();
-    }
+    // if (!newValue.length){
+    //    document.getElementById("action").disabled = true;
+    //    $("#action").css({opacity:0.5});
+    //    //$scope.apply();
+    // }
   });
 
 
   $scope.$watch('company', function(newValue, oldValue, scope) {
-    console.log(newValue);
+    //console.log(newValue);
     if (oldValue) {
       if (oldValue.length === 3) {
       $("#action").css({opacity:1});
       document.getElementById("action").disabled = false;
      }
     }
-    if (!newValue.length){
-       document.getElementById("action").disabled = true;
-       $("#action").css({opacity:0.5});
-       $scope.apply();
-    }
+    // if (!newValue.length){
+    //    document.getElementById("action").disabled = true;
+    //    $("#action").css({opacity:0.5});
+    //    $scope.apply();
+    // }
   });
 
   const reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i

@@ -21,13 +21,14 @@
   },
   "scripts": {
     "back-end": "nodemon server.js",
-    "back-end-test" : "nodemon tests/test.js"
+    "back-end-test": "nodemon tests/test.js"
   },
   "devDependencies": {
     "bower": "^1.7.9",
     "chai": "^3.5.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-mocha": "^1.0.2",
     "grunt-shell": "^1.3.1",
     "jasmine": "^2.5.2",
     "karma": "^1.3.0",
