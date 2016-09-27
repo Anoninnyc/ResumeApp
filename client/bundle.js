@@ -97,7 +97,7 @@
 	    if (!newValue.length){
 	       document.getElementById("action").disabled = true;
 	       $("#action").css({opacity:0.5});
-	       $scope.apply();
+	       //$scope.apply();
 	    }
 	  });
 
@@ -123,7 +123,7 @@
 	    if (!newValue.length){
 	       document.getElementById("action").disabled = true;
 	       $("#action").css({opacity:0.5});
-	       $scope.apply();
+	       //$scope.apply();
 	    }
 	  });
 
