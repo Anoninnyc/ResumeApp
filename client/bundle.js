@@ -102,7 +102,7 @@
 	  });
 
 	  $scope.$watch('name', function(newValue, oldValue, scope) {
-	    console.log(newValue);
+	    //console.log(newValue);
 	    if (oldValue) {
 	      if (oldValue.length === 3 && !$scope.flagName) {
 	         $("#action").css({opacity:1});
@@ -256,7 +256,7 @@
 	    [scope.loading, scope.error, scope.stories]=[loading, error, stories];
 
 	    if (clear){
-	    	console.log(clear)
+	    	//console.log(clear)
 	    	
 	    	$("#emailAddress,#emailName,#emailCompany").val("");
 	    	//$("#action").css({opacity:1});

@@ -11,11 +11,12 @@ module.exports = function(grunt) {
       }
     },
     mocha: {
-      all: {
-        src: ['specrunner.html'],
+      test: {
+        src: ['tests/testrunner.html'],
       },
       options: {
-        run: true
+        run: true,
+        timeout: 20000,
       }
     },
     shell: {
@@ -28,7 +29,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-mocha')
   grunt.loadNpmTasks('grunt-shell')
 
-  grunt.registerTask('push', ['shell:addAndDeploy'])
+ 
   grunt.registerTask('test', ['mocha'])
 
 

@@ -3,7 +3,7 @@ myApp.service('dummyService', function(){
     [scope.loading, scope.error, scope.stories]=[loading, error, stories];
 
     if (clear){
-    	console.log(clear)
+    	//console.log(clear)
     	
     	$("#emailAddress,#emailName,#emailCompany").val("");
     	//$("#action").css({opacity:1});

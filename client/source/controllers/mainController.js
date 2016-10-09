@@ -1,5 +1,4 @@
 myApp.controller('myCtrl', function($scope, dummyService) {
-  $scope.repeatables = ["Send something, please!"];
   $scope.check = 'Angular is registered';
   $scope.flagAddress = false;
   $scope.flagName = false;
@@ -34,7 +33,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
   });
 
   $scope.$watch('name', function(newValue, oldValue, scope) {
-    console.log(newValue);
+    //console.log(newValue);
     if (oldValue) {
       if (oldValue.length === 3 && !$scope.flagName) {
          $("#action").css({opacity:1});

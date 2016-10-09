@@ -1,0 +1,83 @@
+
+<html>
+  <head>
+    <title>Mocha Tests</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+  
+    <script>
+    mocha.setup('bdd')
+    mocha.reporter('html');
+    
+    </script>
+
+    <!-- load code you want to test here -->
+      <script type="text/javascript">var expect= chai.expect;
+</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.js"></script>
+<script src= "https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-mocks.js"></script>
+<script type="text/javascript" src="../client/bundle.js"></script>
+<script type="text/javascript">
+var socket = io.connect('https://krishanmarya.herokuapp.com',{
+  transports: ['websocket'],
+  'force new connection': true
+})
+</script>
+
+    <!-- load your test files here -->
+
+ <script type="text/javascript" src="dummyTest.js"></script>
+
+
+
+    <script>
+
+if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+      mocha.run();
+    }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+
+<!-- <html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+</head>
+<body>
+  <div id="mocha"></div>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script src="../node_modules/chai/chai.js"></script>
+
+  <script>
+    mocha.setup('bdd')
+    mocha.reporter('html');
+  </script>
+
+  <! Tests -->
+ <!--  <script></script>
+
+  <script>
+    // Only tests run in real browser, injected script run if options.run == true
+    if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+      mocha.run();
+    }
+  </script>
+</body>
+</html> --> 
