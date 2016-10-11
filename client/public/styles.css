@@ -102,3 +102,8 @@ body {
     -o-background-size: cover;
     background-size: cover;
 }
+
+
+div#Home {
+    text-align: center;
+}
