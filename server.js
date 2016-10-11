@@ -19,7 +19,7 @@ const cron = require('node-cron');
 var URL = process.env.URL || 'mongodb://localhost:27017/mydatabase';
 
 
-MongoClient.connect(process.env.URL, function (err, db) {
+MongoClient.connect(URL, function (err, db) {
     if (err) {
         URL='mongodb://localhost:27017/mydatabase';
     } else {
@@ -29,10 +29,6 @@ MongoClient.connect(process.env.URL, function (err, db) {
 });
 
 
-
-
-//old WAN "mongodb://heroku_sv2fwrvp:fir4oj2rvlj8ooh2qdb5i9tv1@ds033056.mlab.com:33056/heroku_sv2fwrvp"
-//'mongodb://localhost:27017/mydatabase';
 const pathToStaticDir = path.resolve(__dirname, '.', 'client/public');
 mongoose.connect(URL);
 ////
@@ -70,8 +66,6 @@ cron.schedule('*/10 * * * *', function() {
 //sockets
 io.on('connection', function(socket) {
   socket.on('sendEmailAddress', function(msg) {
-
-    console.log('the fucking message', msg);
     
       var email = new Email();
       email.address = msg.address;
@@ -134,14 +128,12 @@ io.on('connection', function(socket) {
   });
 });
 
-// routes
 app.get('*', (req, res) => {
   const pathToIndex = path.join(pathToStaticDir, 'index.html');
   res.status(200).sendFile(pathToIndex);
 });
 
 
-// Cant use app here b/c it interferes w/ sockets.
 server.listen(process.env.PORT || 3000, () => {
   console.log('Listening on port');
 });

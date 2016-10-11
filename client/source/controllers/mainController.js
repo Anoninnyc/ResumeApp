@@ -18,20 +18,14 @@ myApp.controller('myCtrl', function($scope, dummyService) {
         autoHeight = el.css('height', 'auto').height();
 
         el.height(curHeight).css({
-          padding: 0,//
+          padding: 0,
           display: "inline"
         }).animate({
           height: autoHeight,
           padding: 14
         }, 100);
-// /
       }
     }
-    // if (!newValue.length){
-    //    document.getElementById("action").disabled = true;
-    //    $("#action").css({opacity:0.5});
-    //    //$scope.apply();
-    // }
   });
 
   $scope.$watch('name', function(newValue, oldValue, scope) {
@@ -53,27 +47,16 @@ myApp.controller('myCtrl', function($scope, dummyService) {
         }, 100);
       }
     }
-    // if (!newValue.length){
-    //    document.getElementById("action").disabled = true;
-    //    $("#action").css({opacity:0.5});
-    //    //$scope.apply();
-    // }
   });
 
 
   $scope.$watch('company', function(newValue, oldValue, scope) {
-    //console.log(newValue);
     if (oldValue) {
       if (oldValue.length === 3) {
       $("#action").css({opacity:1});
       document.getElementById("action").disabled = false;
      }
     }
-    // if (!newValue.length){
-    //    document.getElementById("action").disabled = true;
-    //    $("#action").css({opacity:0.5});
-    //    $scope.apply();
-    // }
   });
 
 
@@ -82,13 +65,10 @@ myApp.controller('myCtrl', function($scope, dummyService) {
 
     if (!utils.reg.test(address)){
       dummyService.emailAction($scope, false, "<h3>Please enter a valid Email Address.</h3>", []);
-      //$scope.$apply();
     } else if (!name.length) {
       dummyService.emailAction($scope, false, "<h3>Please enter a valid name.</h3>", []);
-      //$scope.$apply();
     } else if (!company.length){
       dummyService.emailAction($scope, false, "<h3>Please enter a valid company name</h3>", []);
-     // $scope.$apply();
     } else {
 
     socket.emit('sendEmailAddress', {
@@ -112,8 +92,6 @@ myApp.controller('myCtrl', function($scope, dummyService) {
       $scope.$apply();
     });
   };
-
-
  }
 })
 
