@@ -151,5 +151,6 @@ server.listen(process.env.PORT || 3000, () => {
 function toDateTime(secs) {
   var t = new Date(1970, 0, 1); 
   t.setSeconds(secs);
-  return t;
+  var string=t.toISOString()
+  return string.slice(0,string.indexOf("T"))
 }
