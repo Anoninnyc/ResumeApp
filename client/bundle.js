@@ -233,8 +233,9 @@
 	        }(i));
 	      }
 	    }
-
-	    moveIt !== undefined ? clearInterval(moveIt) : null;
+	    if (moveIt!==undefined){
+	      clearInterval(moveIt);
+	    }
 	   
 
 	    $rootScope.currRoute = map[path];
