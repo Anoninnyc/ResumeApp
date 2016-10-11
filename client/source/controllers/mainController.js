@@ -18,7 +18,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
         autoHeight = el.css('height', 'auto').height();
 
         el.height(curHeight).css({
-          padding: 0,
+          padding: 0,//
           display: "inline"
         }).animate({
           height: autoHeight,
