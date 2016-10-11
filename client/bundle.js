@@ -51,8 +51,8 @@
 	// Directives
 
 	__webpack_require__(1);
-	__webpack_require__(2);
 	__webpack_require__(3);
+	__webpack_require__(4);
 
 	myApp.directive('navBar', function() {
 	  return {
@@ -64,7 +64,9 @@
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
+
+	var utils = __webpack_require__(2);
 
 	myApp.controller('myCtrl', function($scope, dummyService) {
 	  $scope.check = 'Angular is registered';
@@ -142,12 +144,11 @@
 	    // }
 	  });
 
-	  const reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
 
 	  dummyService.emailAction($scope, false, null, []);
 	  $scope.sendEmailAddress = (address, name, company) => {
 
-	    if (!reg.test(address)){
+	    if (!utils.reg.test(address)){
 	      dummyService.emailAction($scope, false, "<h3>Please enter a valid Email Address.</h3>", []);
 	      //$scope.$apply();
 	    } else if (!name.length) {
@@ -247,8 +248,28 @@
 
 
 
+
 /***/ },
 /* 2 */
+/***/ function(module, exports) {
+
+	
+	var toDateTime= function(secs) {
+		var t = new Date(1970, 0, 1); // Epoch
+		t.setSeconds(secs);
+		return t;
+	}
+
+	var reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
+
+
+	module.exports={
+		toDateTime:toDateTime,
+		reg:reg
+	}
+
+/***/ },
+/* 3 */
 /***/ function(module, exports) {
 
 	myApp.service('dummyService', function(){
@@ -262,7 +283,7 @@
 	})
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports) {
 
 	myApp.config(function($routeProvider, $locationProvider) {

@@ -1,3 +1,5 @@
+var utils = require("../utils");
+
 myApp.controller('myCtrl', function($scope, dummyService) {
   $scope.check = 'Angular is registered';
   $scope.flagAddress = false;
@@ -74,12 +76,11 @@ myApp.controller('myCtrl', function($scope, dummyService) {
     // }
   });
 
-  const reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
 
   dummyService.emailAction($scope, false, null, []);
   $scope.sendEmailAddress = (address, name, company) => {
 
-    if (!reg.test(address)){
+    if (!utils.reg.test(address)){
       dummyService.emailAction($scope, false, "<h3>Please enter a valid Email Address.</h3>", []);
       //$scope.$apply();
     } else if (!name.length) {
@@ -174,6 +175,7 @@ myApp.run(function($rootScope) {
     console.log(path)
   });
 });
+
 
 
 
