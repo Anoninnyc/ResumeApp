@@ -26,6 +26,7 @@
   "devDependencies": {
     "bower": "^1.7.9",
     "chai": "^3.5.0",
+    "es6-loader": "^0.2.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-mocha": "^1.0.2",

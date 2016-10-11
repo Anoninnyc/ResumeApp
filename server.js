@@ -58,7 +58,7 @@ cron.schedule('*/10 * * * *', function() {
       request(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`, (error, res) => {
         var body = JSON.parse(res.body);
         console.log('cronPushed')
-        storyInfo.push([body.by, body.score, body.title, body.url, body.time]);
+        storyInfo.push([body.by, body.score, body.title, body.url, toDateTime(body.time)]);
 
       })
     })
@@ -116,7 +116,7 @@ io.on('connection', function(socket) {
                     topStories.forEach(storyId => {
                       request(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`, (error, res) => {
                         var body = JSON.parse(res.body);
-                        storyInfo.push([body.by, body.score, body.title, body.url, body.time]);
+                        storyInfo.push([body.by, body.score, body.title, body.url, toDateTime(body.time)]);
                         if (storyInfo.length === 5) {
                           io.emit('loggedToDB', {
                             storyInfo,
@@ -145,3 +145,11 @@ app.get('*', (req, res) => {
 server.listen(process.env.PORT || 3000, () => {
   console.log('Listening on port');
 });
+
+
+
+function toDateTime(secs) {
+  var t = new Date(1970, 0, 1); 
+  t.setSeconds(secs);
+  return t;
+}

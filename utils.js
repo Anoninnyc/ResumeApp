@@ -11,4 +11,4 @@ var reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-
 module.exports={
 	toDateTime:toDateTime,
 	reg:reg
-}//
+}
