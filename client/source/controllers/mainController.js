@@ -24,7 +24,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
           height: autoHeight,
           padding: 14
         }, 100);
-
+// /
       }
     }
     // if (!newValue.length){
