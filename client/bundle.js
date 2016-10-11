@@ -64,7 +64,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var utils = __webpack_require__(2);
-
+	//
 	myApp.controller('myCtrl', function($scope, dummyService) {
 	  $scope.check = 'Angular is registered';
 	  $scope.flagAddress = false;
