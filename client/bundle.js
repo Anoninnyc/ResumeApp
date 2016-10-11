@@ -147,7 +147,7 @@
 	    socket.once('loggedToDB', msg => {
 	      console.log("this is msg", msg);
 	      const addOn = msg.companyInfo ? ` It looks like ${msg.companyInfo[1]} from ${msg.companyInfo[0]} has also registered interest!` : "";
-	      dummyService.emailAction($scope, false, `<h3>Email has been added, Congrats!${addOn}</h3>`, msg.storyInfo, true);
+	      dummyService.emailAction($scope, false, `<h3>Email has been added- Thanks!${addOn}</h3>`, msg.storyInfo, true);
 	      [$scope.name, $scope.company, $scope.contactMessage] = ["", "", "Wanna Send Again?"];
 	      $scope.$apply();
 	    })
