@@ -58,7 +58,7 @@ cron.schedule('*/10 * * * *', function() {
       request(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`, (error, res) => {
         var body = JSON.parse(res.body);
         console.log('cronPushed')
-        storyInfo.push([body.by, body.score, body.title, body.url]);
+        storyInfo.push([body.by, body.score, body.title, body.url, body.time]);
 
       })
     })
@@ -116,7 +116,7 @@ io.on('connection', function(socket) {
                     topStories.forEach(storyId => {
                       request(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`, (error, res) => {
                         var body = JSON.parse(res.body);
-                        storyInfo.push([body.by, body.score, body.title, body.url]);
+                        storyInfo.push([body.by, body.score, body.title, body.url, body.time]);
                         if (storyInfo.length === 5) {
                           io.emit('loggedToDB', {
                             storyInfo,

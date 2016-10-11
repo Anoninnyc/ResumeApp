@@ -13,7 +13,7 @@
   <span ng-bind-html="stories.length>0? '<h2>Tech Stories</h2>' : null"></span>
 
   <div ng-repeat="story in stories">
-    <li><a ng-href='{{story[3]}}'><h3>{{story[2]}}</h3></a></li>
+    <a ng-href='{{story[3]}}'><h3>{{story[2]}}</h3></a>
     <p>By:{{story[0]}}</p>
 
   </div>

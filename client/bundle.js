@@ -67,7 +67,6 @@
 /***/ function(module, exports) {
 
 	myApp.controller('myCtrl', function($scope, dummyService) {
-	  $scope.repeatables = ["Send something, please!"];
 	  $scope.check = 'Angular is registered';
 	  $scope.flagAddress = false;
 	  $scope.flagName = false;
