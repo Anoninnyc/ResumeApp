@@ -1,5 +1,5 @@
 var utils = require("../utils");
-//
+////git push salty
 myApp.controller('myCtrl', function($scope, dummyService) {
   $scope.check = 'Angular is registered';
   $scope.flagAddress = false;

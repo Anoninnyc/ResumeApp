@@ -4,15 +4,14 @@
 //var module= angular.module;
 
 describe('myCtrl Controller', function() {
-  describe('#indexOf()', function(){
-	beforeEach(function(){
-	  module('myApp');
-	});
 
 
-	beforeEach(inject(function ($rootScope, $controller) {
-	  
-  	  $scope=$rootScope.$new();
+
+
+ beforeEach(angular.mock.module('myApp'));
+
+	 beforeEach(inject(function ($rootScope, $controller) {
+	   $scope=$rootScope.$new();
   	  
   	  createController = function () {
       return $controller('myCtrl', {
@@ -22,28 +21,50 @@ describe('myCtrl Controller', function() {
 
   	   createController();
 
-  	  }))
-	
-	it('Should have sendEmailAddress method', function() {
-	  expect($scope.sendEmailAddress).to.be.a('function');
-	 
-	});
+	})
 
-	// it('Should throw errors when invalid contact info is provided',function(){
-	//    $scope.sendEmailAddress('notValidEmail','test','test');
-	//    expect($scope.error).to.equal("<h3>Please enter a valid Email Address.</h3>");
-	//    $scope.sendEmailAddress('notValidEmail@gmail.com','','test');
-	//    expect($scope.error).to.equal("<h3>Please enter a valid name.</h3>");
-	//    $scope.sendEmailAddress('notValidEmail@gmail.com','test','');
-	//    expect($scope.error).to.equal("<h3>Please enter a valid company name</h3>");
-	// })
+)
 
-	// it('Should succesfully log a new email address',function(done){
-	// 	//this.timeout(1000);
-	// 	const salty = [Math.random()].concat([Math.random()]).join("");
-	// 	$scope.sendEmailAddress(salty+'@gmail.com',salty,salty);
-	// 	setTimeout(()=>{expect($scope.error).to.equal('<h3>Email has been added, Congrats!</h3>'); done() },500);
-	// })
+  	 
+
+it('Should have sendEmailAddress method', function() {
+
+  expect($scope.sendEmailAddress).toBeDefined();
+   
+
+});
+
+
+
+	it('Should throw errors when invalid contact info is provided',function(){
+		 expect($scope.sendEmailAddress).toBeDefined();
+	   $scope.sendEmailAddress('notValidEmail','test','test');
+	   expect($scope.error).toEqual("<h3>Please enter a valid Email Address.</h3>");
+	   $scope.sendEmailAddress('notValidEmail@gmail.com','','test');
+	   expect($scope.error).toEqual("<h3>Please enter a valid name.</h3>");
+	   $scope.sendEmailAddress('notValidEmail@gmail.com','test','');
+	   expect($scope.error).toEqual("<h3>Please enter a valid company name</h3>");
+	})
+
+	it('Should succesfully log a new email address',function(done){
+		//this.timeout(1000);
+
+		socket = io.connect('https://krishanmarya.herokuapp.com',{
+		transports: ['websocket'],
+		'force new connection': true
+		})
+		socket.emit('sendEmailAddress', {
+	      salty+"test@gmail.com",
+	      name,
+	      company
+        });
+		const salty = [Math.random()].concat([Math.random()]).join("");
+		$scope.sendEmailAddress(salty+'@gmail.com',salty,salty);
+		setTimeout(()=>{console.log($scope.error)}, 1500);
+
+		setTimeout(()=>{expect($scope.error).toEqual('<h3>Email has been added, Congrats!</h3>'); done() },1500);
+
+	})
 
 	// it('Should throw an error when attempting to log an extant address',function(done){
 	// 	const salty = [Math.random()].concat([Math.random()]).join("");
@@ -67,19 +88,20 @@ describe('myCtrl Controller', function() {
 		
 	// });
 })
-})
-
-
-
-describe('should test clicking on the nav buttons', function() {
-
-});
 
 
 
 
 
-describe('successfull entry into database', function() {
+// describe('should test clicking on the nav buttons', function() {
+
+// });
 
 
-});
+
+
+
+// describe('successfull entry into database', function() {
+
+
+// });
