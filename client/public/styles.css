@@ -115,3 +115,7 @@ div#Home {
   -moz-transform:rotate(360deg);
   -o-transform:rotate(360deg);
 }
+
+textarea {
+    resize: none;
+}
