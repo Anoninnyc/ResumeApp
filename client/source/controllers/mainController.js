@@ -1,5 +1,5 @@
 var utils = require("../utils");
-////git push salty
+
 myApp.controller('myCtrl', function($scope, dummyService) {
 
 const scopeProps = {
@@ -7,10 +7,10 @@ const scopeProps = {
   flagCompany: false,
   flagAddress: false,
   flagName: false,
-  contactMessage: "Interested in learning more?"
+  contactMessage: "Interested in learning more?",
 };
 
-Object.assign($scope, scopeProps)
+Object.assign($scope, scopeProps);
 
 
 $scope.$watchGroup(['address', 'name', 'company'], function(newValues, oldValues, scope) {
@@ -28,15 +28,11 @@ $scope.$watchGroup(['address', 'name', 'company'], function(newValues, oldValues
     dummyService.watchAction($scope,"flagCompany","comment");
     document.getElementById("action").disabled = false;
   }
-
-
 });
 
-//
+
   dummyService.emailAction($scope, false, null, []);
   $scope.sendEmailAddress = (address, name, company, comment) => {
-
-    console.log("$scope.comment", comment);
 
     if (!utils.reg.test(address)){
       dummyService.emailAction($scope, false, "<h3>Please enter a valid Email Address.</h3>", []);
@@ -46,17 +42,10 @@ $scope.$watchGroup(['address', 'name', 'company'], function(newValues, oldValues
       dummyService.emailAction($scope, false, "<h3>Please enter a valid company name</h3>", []);
     } else {
 
-    socket.emit('sendEmailAddress', {
-      address,
-      name,
-      company,
-      comment,
-    });
-
+    socket.emit('sendEmailAddress', {address,name,company,comment,});
     dummyService.emailAction($scope, true, null, []);
 
     socket.once('loggedToDB', msg => {
-      console.log("this is msg", msg);
       const addOn = msg.companyInfo ? `\nIt looks like ${msg.companyInfo[1]} from ${msg.companyInfo[0]} has also registered interest!` : "";
       dummyService.emailAction($scope, false, `<h3>Email has been added- Thanks!${addOn}</h3>`, msg.storyInfo, true);
       [$scope.name, $scope.company, $scope.contactMessage] = ["", "", "Wanna Send Again?"];
@@ -69,6 +58,7 @@ $scope.$watchGroup(['address', 'name', 'company'], function(newValues, oldValues
       dummyService.emailAction($scope, false, "<h3>It looks like you've already sent your info</h3>", []);
       $scope.$apply();
     });
+
   };
  }
 })
@@ -107,7 +97,7 @@ myApp.run(function($rootScope) {
     if (path === "/techUsed" && $rootScope.counting!==1) {
       $rootScope.count = 3;
       $rootScope.counting=1;
-
+      
       for (var i = 500; i < 2001; i += 500) {
         (function(i) {
           setTimeout(function() {

@@ -1,6 +1,6 @@
 
-const toDateTime= secs=> {
-	const t = new Date(1970, 0, 1); // Epoch
+const toDateTime= secs => {
+	const t = new Date(1970, 0, 1); 
 	t.setSeconds(secs);
 	return t;
 }

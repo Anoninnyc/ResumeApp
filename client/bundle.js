@@ -64,7 +64,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var utils = __webpack_require__(2);
-	////git push salty
+
 	myApp.controller('myCtrl', function($scope, dummyService) {
 
 	const scopeProps = {
@@ -72,10 +72,10 @@
 	  flagCompany: false,
 	  flagAddress: false,
 	  flagName: false,
-	  contactMessage: "Interested in learning more?"
+	  contactMessage: "Interested in learning more?",
 	};
 
-	Object.assign($scope, scopeProps)
+	Object.assign($scope, scopeProps);
 
 
 	$scope.$watchGroup(['address', 'name', 'company'], function(newValues, oldValues, scope) {
@@ -93,15 +93,11 @@
 	    dummyService.watchAction($scope,"flagCompany","comment");
 	    document.getElementById("action").disabled = false;
 	  }
-
-
 	});
 
-	//
+
 	  dummyService.emailAction($scope, false, null, []);
 	  $scope.sendEmailAddress = (address, name, company, comment) => {
-
-	    console.log("$scope.comment", comment);
 
 	    if (!utils.reg.test(address)){
 	      dummyService.emailAction($scope, false, "<h3>Please enter a valid Email Address.</h3>", []);
@@ -111,17 +107,10 @@
 	      dummyService.emailAction($scope, false, "<h3>Please enter a valid company name</h3>", []);
 	    } else {
 
-	    socket.emit('sendEmailAddress', {
-	      address,
-	      name,
-	      company,
-	      comment,
-	    });
-
+	    socket.emit('sendEmailAddress', {address,name,company,comment,});
 	    dummyService.emailAction($scope, true, null, []);
 
 	    socket.once('loggedToDB', msg => {
-	      console.log("this is msg", msg);
 	      const addOn = msg.companyInfo ? `\nIt looks like ${msg.companyInfo[1]} from ${msg.companyInfo[0]} has also registered interest!` : "";
 	      dummyService.emailAction($scope, false, `<h3>Email has been added- Thanks!${addOn}</h3>`, msg.storyInfo, true);
 	      [$scope.name, $scope.company, $scope.contactMessage] = ["", "", "Wanna Send Again?"];
@@ -134,6 +123,7 @@
 	      dummyService.emailAction($scope, false, "<h3>It looks like you've already sent your info</h3>", []);
 	      $scope.$apply();
 	    });
+
 	  };
 	 }
 	})
@@ -172,7 +162,7 @@
 	    if (path === "/techUsed" && $rootScope.counting!==1) {
 	      $rootScope.count = 3;
 	      $rootScope.counting=1;
-
+	      
 	      for (var i = 500; i < 2001; i += 500) {
 	        (function(i) {
 	          setTimeout(function() {
@@ -226,7 +216,7 @@
 /***/ function(module, exports) {
 
 	myApp.service('dummyService', function(){
-		
+
 	  this.emailAction= (scope, loading , error, stories, clear)=>{
 	    [scope.loading, scope.error, scope.stories]=[loading, error, stories];
 
@@ -238,7 +228,6 @@
 	  this.watchAction = (scope, watchVar, elem)=>{
 	     $("#action").css({opacity:1});
 	        scope[watchVar] = true;
-
 	        let el = $(`#${elem}`),
 	        curHeight = el.height(),
 	        autoHeight = el.css('height', 'auto').height();

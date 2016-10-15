@@ -1,57 +1,57 @@
-
 <html>
-<head>
-<title>Krishan</title>	
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<base href="/">
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/public/styles.css">
-<link rel="shortcut icon" type="image/png" href="https://bit.ly/2cCaTmM"/>
+  <head>
+    <title>Krishan</title>
 
-<script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
-<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
-<script src = "https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.js"></script>
-<script src= "https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/styles.css">
+    <link rel="shortcut icon" type="image/png" href="https://bit.ly/2cCaTmM" />
 
-
-</head>
-<script>
-var socket = io();
-</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.8/angular-sanitize.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 
 
-<body scroll="no" ng-cloak ng-app="myApp" ng-controller="myCtrl">
+  </head>
+  <script>
+    var socket = io();
+
+  </script>
 
 
-
-<script src="/bundle.js"></script>
+  <body scroll="no" ng-cloak ng-app="myApp" ng-controller="myCtrl">
 
 
 
-
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand">{{currRoute}}</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="/">Home</a></li>
-      <li><a href="/resume">Resume</a></li>
-      <li><a href="/contact">Contact</a></li>
-     <li><a href="/techUsed">Stack Used</a></li>
-    </ul>
-  </div>
-</nav>
-
-
-<div ng-view></div>
+    <script src="/bundle.js"></script>
 
 
 
-</body>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">{{currRoute}}</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/resume">Resume</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/techUsed">Stack Used</a></li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <div ng-view></div>
+
+
+
+  </body>
+
 </html>
-
-

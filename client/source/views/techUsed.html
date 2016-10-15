@@ -1,33 +1,41 @@
-
-
 <div id="images">
 
-<h1 id="countdown">{{count}}</h1>
-<a href= "https://expressjs.com/"><img class = "tech" src=".././public/assets/express.png"></img></a>
-<a href= "https://angularjs.org/"><img class = "tech" src=".././public/assets/angularjs.png"></img></a>
-<a href= "https://github.com/gruntjs/grunt"><img class = "tech" src=".././public/assets/grunt.png"></img></a>
-<a href= "https://jquery.com/"><img  class = "tech" src=".././public/assets/jQuery.gif"></img></a>
-<a href= "https://www.mongodb.com/"><img class = "tech" src=".././public/assets/mongodb.png"></img></a>
-<a href= "http://mongoosejs.com/"><img class = "tech" src=".././public/assets/mongoose.png"></img></a>
-<a href= "http://socket.io/"><img class = "tech" src=".././public/assets/sockets.gif"></img></a>
-<a href= "https://webpack.github.io/"><img  class = "tech" src=".././public/assets/webpack.png"></img></a>
-<a href= "http://getbootstrap.com/"><img  class = "tech" src=".././public/assets/bootstrap.png"></img></a>
-<a href= "http://jasmine.github.io/"><img  class = "tech" src=".././public/assets/jasmine.png"></img></a>
-
-
+  <h1 id="countdown">{{count}}</h1>
+  <a href="https://expressjs.com/"><img class="tech" src=".././public/assets/express.png"></img>
+  </a>
+  <a href="https://angularjs.org/"><img class="tech" src=".././public/assets/angularjs.png"></img>
+  </a>
+  <a href="https://github.com/gruntjs/grunt"><img class="tech" src=".././public/assets/grunt.png"></img>
+  </a>
+  <a href="https://jquery.com/"><img class="tech" src=".././public/assets/jQuery.gif"></img>
+  </a>
+  <a href="https://www.mongodb.com/"><img class="tech" src=".././public/assets/mongodb.png"></img>
+  </a>
+  <a href="http://mongoosejs.com/"><img class="tech" src=".././public/assets/mongoose.png"></img>
+  </a>
+  <a href="http://socket.io/"><img class="tech" src=".././public/assets/sockets.gif"></img>
+  </a>
+  <a href="https://webpack.github.io/"><img class="tech" src=".././public/assets/webpack.png"></img>
+  </a>
+  <a href="http://getbootstrap.com/"><img class="tech" src=".././public/assets/bootstrap.png"></img>
+  </a>
+  <a href="http://jasmine.github.io/"><img class="tech" src=".././public/assets/jasmine.png"></img>
+  </a>
 
 </div>
 
 <script>
-
-window.moveIt=setInterval(
-function(){
-	$(".tech").each(function(){
-	  let width = window.innerWidth* Math.random()*0.7;
-	  let height = window.innerHeight* Math.random()*0.7;
-	  $(this).animate({left:`${width}px`,top:`${height}px`});
- })
-}
-,1500, "swing")
+  window.moveIt = setInterval(
+    function() {
+      $(".tech").each(function() {
+        let width = window.innerWidth * Math.random() * 0.7;
+        let height = window.innerHeight * Math.random() * 0.7;
+        $(this).animate({
+          left: `${width}px`,
+          top: `${height}px`
+        });
+      })
+    }, 1500, "swing")
 
 </script>
+
