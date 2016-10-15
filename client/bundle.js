@@ -76,46 +76,16 @@
 	  $scope.$watch('address', function(newValue, oldValue, scope) {
 	    if (oldValue) {
 	      if (oldValue.length === 4 && !$scope.flagAddress) {
-	        console.log("BEEN UPDATED!!!")
-	       dummyService.watchAction($scope,"flagAddress","emailName")
-
-	        //  $("#action").css({opacity:1});
-	        // $scope.flagAddress = true;
-
-	        // let el = $('#emailName'),
-	        // curHeight = el.height(),
-	        // autoHeight = el.css('height', 'auto').height();
-
-	        // el.height(curHeight).css({
-	        //   padding: 0,
-	        //   display: "inline"
-	        // }).animate({
-	        //   height: autoHeight,
-	        //   padding: 14
-	        // }, 100);
-
+	       dummyService.watchAction($scope,"flagAddress","emailName");
 
 	      }
 	    }
 	  });
 	//
 	  $scope.$watch('name', function(newValue, oldValue, scope) {
-	    //console.log(newValue);
 	    if (oldValue) {
 	      if (oldValue.length === 3 && !$scope.flagName) {
-	         $("#action").css({opacity:1});
-	        $scope.flagName = true;
-
-	        let el2 = $('#emailCompany'),
-	          curHeight = el2.height(),
-	          autoHeight = el2.css('height', 'auto').height();
-	        el2.height(curHeight).css({
-	          padding: 0,
-	          display: "inline"
-	        }).animate({
-	          height: autoHeight,
-	          padding: 14
-	        }, 100);
+	        dummyService.watchAction($scope,"flagName","emailCompany");
 	      }
 	    }
 	  });
@@ -124,19 +94,7 @@
 	    //console.log(newValue);
 	    if (oldValue) {
 	      if (oldValue.length === 3 && !$scope.flagCompany) {
-	         $("#action").css({opacity:1});
-	        $scope.flagCompany = true;
-
-	        let el2 = $('#comment'),
-	          curHeight = el2.height(),
-	          autoHeight = el2.css('height', 'auto').height();
-	        el2.height(curHeight).css({
-	          padding: 0,
-	          display: "inline"
-	        }).animate({
-	          height: autoHeight,
-	          padding: 14
-	        }, 100);
+	        dummyService.watchAction($scope, "flagCompany", "comment");
 	      }
 	    }
 	  });
