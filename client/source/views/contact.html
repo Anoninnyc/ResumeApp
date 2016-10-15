@@ -1,31 +1,31 @@
-
 <div id="sendInfo">
-  <h1> {{contactMessage}}</h1>
+  <h1 id="contactMessage"> {{contactMessage}}</h1>
   <div id="content">
-  <input id="emailAddress" placeholder="Your Email Address" class="form-control" ng-model="address" type='text' />
-  <input id="emailName" placeholder="Your Name" class="form-control" ng-model="name" type='text' />
-  <input id="emailCompany" placeholder="Your Company Name" class="form-control" ng-model="company" type='text' />
-  <textarea id="comment" rows="5" placeholder="Comment (Optional)" class="form-control" ng-model="comment"></textarea>
+    <input id="emailAddress" placeholder="Your Email Address" class="form-control" ng-model="address" type='text' />
+    <input id="emailName" placeholder="Your Name" class="form-control" ng-model="name" type='text' />
+    <input id="emailCompany" placeholder="Your Company Name" class="form-control" ng-model="company" type='text' />
+    <textarea id="comment" rows="5" placeholder="Comment (Optional)" class="form-control" ng-model="comment"></textarea>
 
-  <button id="action" class="btn btn-secondary" ng-click="sendEmailAddress(address, name, company, comment)">Send</button>
-  <br/>
-  <span ng-bind-html="error"></span>
-  <br/>
-  <span ng-bind-html="loading?'<h1>loading</h1>':null"></span>
-  <span ng-bind-html="stories.length>0? '<h2>Tech Stories</h2>' : null"></span>
+    <button id="action" class="btn btn-secondary" ng-click="sendEmailAddress(address, name, company, comment)">Send</button>
+    <br/>
+    <span ng-bind-html="error"></span>
+    <br/>
+    <span ng-bind-html="loading?'<h1>loading</h1>':null"></span>
+    <span ng-bind-html="stories.length>0? '<h2>Tech Stories</h2>' : null"></span>
 
-  <div ng-repeat="story in stories">
-    <a ng-href='{{story[3]}}'><h3>{{story[2]}}</h3></a>
-    <p>By:{{story[0]}}</p>
-    <p>Published:{{story[4]}}</p>
+    <div ng-repeat="story in stories">
+      <a ng-href='{{story[3]}}'><h3>{{story[2]}}</h3></a>
+      <p>By:{{story[0]}}</p>
+      <p>Published:{{story[4]}}</p>
 
+    </div>
+    
+    <div id='news'></div>
   </div>
-
-  <div id='news'></div>
-</div>
 </div>
 
 
 <script>
- document.getElementById("action").disabled = true;
+  document.getElementById("action").disabled = true;
+
 </script>
