@@ -2,7 +2,7 @@ var utils = require("../utils");
 ////git push salty
 myApp.controller('myCtrl', function($scope, dummyService) {
 
-  const scopeProps={
+const scopeProps = {
   check: 'Angular is registered',
   flagCompany: false,
   flagAddress: false,
@@ -10,35 +10,8 @@ myApp.controller('myCtrl', function($scope, dummyService) {
   contactMessage: "Interested in learning more?"
 };
 
- Object.assign($scope, scopeProps)
+Object.assign($scope, scopeProps)
 
-
-  // $scope.$watch('address', (newValue, oldValue, scope)=> {
-  //   if (oldValue) {
-
-  //     if (oldValue.length === 4 && !$scope.flagAddress) {
-  //      dummyService.watchAction($scope,"flagAddress","emailName");
-  //     }
-  //   }
-  // });
-
-  $scope.$watch('name', (newValue, oldValue, scope)=> {
-    if (oldValue) {
-      if (oldValue.length === 3 && !$scope.flagName) {
-        dummyService.watchAction($scope,"flagName","emailCompany");
-      }
-    }
-  });
-
-  $scope.$watch('company', (newValue, oldValue, scope)=> {
-    if (oldValue) {
-      if (oldValue.length === 3 && !$scope.flagCompany) {
-        dummyService.watchAction($scope, "flagCompany", "comment");
-        document.getElementById("action").disabled = false;
-
-      }
-    }
-  });
 
 $scope.$watchGroup(['address', 'name', 'company'], function(newValues, oldValues, scope) {
 
@@ -48,6 +21,13 @@ $scope.$watchGroup(['address', 'name', 'company'], function(newValues, oldValues
   if (address.length === 4 && !$scope.flagAddress) {
     dummyService.watchAction($scope,"flagAddress","emailName");
   }
+  if (name.length === 3 && !$scope.flagName) {
+    dummyService.watchAction($scope,"flagName","emailCompany");
+  }
+  if (company.length === 3 && !$scope.flagName) {
+    dummyService.watchAction($scope,"flagName","emailCompany");
+  }
+
 
 });
 
