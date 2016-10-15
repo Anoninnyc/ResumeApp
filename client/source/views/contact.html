@@ -5,11 +5,7 @@
   <input id="emailAddress" placeholder="Your Email Address" class="form-control" ng-model="address" type='text' />
   <input id="emailName" placeholder="Your Name" class="form-control" ng-model="name" type='text' />
   <input id="emailCompany" placeholder="Your Company Name" class="form-control" ng-model="company" type='text' />
-
-  <div id="comment" class="form-group">
-    <label for="comment">Your Comment:</label>
-    <textarea class="form-control" rows="5" id="comment"></textarea>
-  </div>
+  <textarea class="form-control" rows="5" id="comment"></textarea>
 
 
   <button id="action" class="btn btn-secondary" ng-click="sendEmailAddress(address, name, company)">Send</button>
