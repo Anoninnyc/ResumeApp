@@ -158,8 +158,8 @@
 
 
 	  dummyService.emailAction($scope, false, null, []);
-	  $scope.sendEmailAddress = (address, name, company) => {
-	    
+	  $scope.sendEmailAddress = (address, name, company, comment) => {
+
 	    console.log("$scope.comment", $scope.comment, comment);
 
 	    if (!utils.reg.test(address)){
