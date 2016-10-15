@@ -2,13 +2,13 @@ var utils = require("../utils");
 ////git push salty
 myApp.controller('myCtrl', function($scope, dummyService) {
 
-  const scopeProps={check:'Angular is registered',flagCompany:false,}
+  const scopeProps={check:'Angular is registered',flagCompany:false,flagAddress:false, flagName: false,contactMessage:"Interested in learning more?"}
   //$scope.check = 'Angular is registered';
  // $scope.flagCompany = false;
  Object.assign($scope, scopeProps)
-  $scope.flagAddress = false;
-  $scope.flagName = false;
-  $scope.contactMessage = "Interested in learning more?"
+  // $scope.flagAddress = false;
+  // $scope.flagName = false;
+  // $scope.contactMessage = "Interested in learning more?"
   
 
   $scope.$watch('address', function(newValue, oldValue, scope) {
