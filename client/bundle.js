@@ -115,7 +115,7 @@
 	    }
 	  });
 
-	  $scope.$watch('emailCompany', function(newValue, oldValue, scope) {
+	  $scope.$watch('company', function(newValue, oldValue, scope) {
 	    //console.log(newValue);
 	    if (oldValue) {
 	      if (oldValue.length === 3 && !$scope.flagCompany) {
