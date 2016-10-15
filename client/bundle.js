@@ -76,7 +76,7 @@
 	  $scope.$watch('address', function(newValue, oldValue, scope) {
 	    if (oldValue) {
 	      if (oldValue.length === 4 && !$scope.flagAddress) {
-
+	        console.log("BEEN UPDATED!!!")
 	       dummyService.watchAction($scope,"flagAddress","emailName")
 
 	        //  $("#action").css({opacity:1});
