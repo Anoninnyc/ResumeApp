@@ -119,3 +119,14 @@ div#Home {
 textarea {
     resize: none;
 }
+
+#sendInfo>#content {
+    left: 10%;
+    position: relative;
+}
+
+button#action {
+    opacity: 0.6;
+    left: 20%;
+    position: relative;
+}
