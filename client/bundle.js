@@ -67,6 +67,7 @@
 	////git push salty
 	myApp.controller('myCtrl', function($scope, dummyService) {
 	  $scope.check = 'Angular is registered';
+	  $scope.flagCompany = false;
 	  $scope.flagAddress = false;
 	  $scope.flagName = false;
 	  $scope.contactMessage = "Interested in learning more?"
@@ -113,6 +114,37 @@
 	      }
 	    }
 	  });
+
+	  $scope.$watch('emailCompany', function(newValue, oldValue, scope) {
+	    //console.log(newValue);
+	    if (oldValue) {
+	      if (oldValue.length === 3 && !$scope.flagCompany) {
+	         $("#action").css({opacity:1});
+	        $scope.flagCompany = true;
+
+	        let el2 = $('#comment'),
+	          curHeight = el2.height(),
+	          autoHeight = el2.css('height', 'auto').height();
+	        el2.height(curHeight).css({
+	          padding: 0,
+	          display: "inline"
+	        }).animate({
+	          height: autoHeight,
+	          padding: 14
+	        }, 100);
+	      }
+	    }
+	  });
+
+
+
+
+
+
+
+
+
+
 
 
 	  $scope.$watch('company', function(newValue, oldValue, scope) {
