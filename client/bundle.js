@@ -137,16 +137,6 @@
 	  });
 
 
-
-
-
-
-
-
-
-
-
-
 	  $scope.$watch('company', function(newValue, oldValue, scope) {
 	    if (oldValue) {
 	      if (oldValue.length === 3) {
