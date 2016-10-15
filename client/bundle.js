@@ -175,7 +175,7 @@
 	      dummyService.emailAction($scope, false, `<h3>Email has been added- Thanks!${addOn}</h3>`, msg.storyInfo, true);
 	      [$scope.name, $scope.company, $scope.contactMessage] = ["", "", "Wanna Send Again?"];
 	      $("#comment").val("");
-	      $("#contactMessage").css({left:"0px"});
+	      $("#contactMessage").css({left: "13%", position: "relative"});
 	      $scope.$apply();
 	    })
 
