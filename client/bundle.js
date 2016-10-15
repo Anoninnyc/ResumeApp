@@ -106,7 +106,10 @@
 	  });
 
 	$scope.$watchGroup(['address', 'name', 'company'], function(newValues, oldValues, scope) {
-	  console.log(newValues[0],newValues[1],newValues[2])
+
+	  [address,name,company]=[newValues[0],newValues[1],newValues[2]];
+	  console.log(address, name, company);
+
 	});
 
 
