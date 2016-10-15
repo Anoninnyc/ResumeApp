@@ -73,7 +73,7 @@ io.on('connection', function(socket) {
       email.company = msg.company;
       email.comment= msg.comment;
 
-      console.log("************************HERE IS EMAIL",email);
+      console.log("************************HERE IS EMAIL",email, msg);
       Email.findOne({
           $or: [{
             "address": msg.address
