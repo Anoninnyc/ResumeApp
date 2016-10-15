@@ -28,7 +28,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
       }
     }
   });
-
+//
   $scope.$watch('name', function(newValue, oldValue, scope) {
     //console.log(newValue);
     if (oldValue) {

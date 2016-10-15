@@ -93,7 +93,7 @@
 	      }
 	    }
 	  });
-
+	//
 	  $scope.$watch('name', function(newValue, oldValue, scope) {
 	    //console.log(newValue);
 	    if (oldValue) {
