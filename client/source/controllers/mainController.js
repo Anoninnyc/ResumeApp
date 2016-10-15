@@ -101,7 +101,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
       company,
       comment,
     });
-
+    $("#comment").val("");
     dummyService.emailAction($scope, true, null, []);
 
     socket.once('loggedToDB', msg => {
