@@ -5,7 +5,7 @@ var emailSchema   = new Schema({
     address: String,
     name: String,
     company: String,
-    message: String
+    comment: String
 });
 
 module.exports = mongoose.model('Email', emailSchema);
