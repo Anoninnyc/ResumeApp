@@ -159,6 +159,8 @@
 
 	  dummyService.emailAction($scope, false, null, []);
 	  $scope.sendEmailAddress = (address, name, company) => {
+	    
+	    console.log("$scope.comment", $scope.comment, comment);
 
 	    if (!utils.reg.test(address)){
 	      dummyService.emailAction($scope, false, "<h3>Please enter a valid Email Address.</h3>", []);
