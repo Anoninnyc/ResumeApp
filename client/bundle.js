@@ -66,8 +66,11 @@
 	var utils = __webpack_require__(2);
 	////git push salty
 	myApp.controller('myCtrl', function($scope, dummyService) {
-	  $scope.check = 'Angular is registered';
-	  $scope.flagCompany = false;
+
+	  const scopeProps={check:'Angular is registered',flagCompany:false,}
+	  //$scope.check = 'Angular is registered';
+	 // $scope.flagCompany = false;
+	 Object.assign($scope, scopeProps)
 	  $scope.flagAddress = false;
 	  $scope.flagName = false;
 	  $scope.contactMessage = "Interested in learning more?"
@@ -91,7 +94,6 @@
 	  });
 
 	  $scope.$watch('company', function(newValue, oldValue, scope) {
-	    //console.log(newValue);
 	    if (oldValue) {
 	      if (oldValue.length === 3 && !$scope.flagCompany) {
 	        dummyService.watchAction($scope, "flagCompany", "comment");
@@ -134,7 +136,7 @@
 
 	    socket.once('loggedToDB', msg => {
 	      console.log("this is msg", msg);
-	      const addOn = msg.companyInfo ? ` It looks like ${msg.companyInfo[1]} from ${msg.companyInfo[0]} has also registered interest!` : "";
+	      const addOn = msg.companyInfo ? `\nIt looks like ${msg.companyInfo[1]} from ${msg.companyInfo[0]} has also registered interest!` : "";
 	      dummyService.emailAction($scope, false, `<h3>Email has been added- Thanks!${addOn}</h3>`, msg.storyInfo, true);
 	      [$scope.name, $scope.company, $scope.contactMessage] = ["", "", "Wanna Send Again?"];
 	      $("#comment").val("");
