@@ -24,8 +24,9 @@ $scope.$watchGroup(['address', 'name', 'company'], function(newValues, oldValues
   if (name.length === 3 && !$scope.flagName) {
     dummyService.watchAction($scope,"flagName","emailCompany");
   }
-  if (company.length === 3 && !$scope.flagName) {
-    dummyService.watchAction($scope,"flagName","emailCompany");
+  if (company.length === 3 && !$scope.flagCompany) {
+    dummyService.watchAction($scope,"flagCompany","comment");
+    document.getElementById("action").disabled = false;
   }
 
 
