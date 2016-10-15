@@ -70,7 +70,8 @@ io.on('connection', function(socket) {
       var email = new Email();
       email.address = msg.address;
       email.name = msg.name;
-      email.company = msg.company
+      email.company = msg.company;
+      email.comment= msg.comment;
 
 
       Email.findOne({
