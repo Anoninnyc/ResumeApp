@@ -13,15 +13,15 @@ myApp.controller('myCtrl', function($scope, dummyService) {
  Object.assign($scope, scopeProps)
 
 
-  $scope.$watch('address', (newValue, oldValue, scope)=> {
-    if (oldValue) {
-      if (oldValue.length === 4 && !$scope.flagAddress) {
-       dummyService.watchAction($scope,"flagAddress","emailName");
+  // $scope.$watch('address', (newValue, oldValue, scope)=> {
+  //   if (oldValue) {
 
-      }
-    }
-  });
-//
+  //     if (oldValue.length === 4 && !$scope.flagAddress) {
+  //      dummyService.watchAction($scope,"flagAddress","emailName");
+  //     }
+  //   }
+  // });
+
   $scope.$watch('name', (newValue, oldValue, scope)=> {
     if (oldValue) {
       if (oldValue.length === 3 && !$scope.flagName) {
@@ -42,8 +42,12 @@ myApp.controller('myCtrl', function($scope, dummyService) {
 
 $scope.$watchGroup(['address', 'name', 'company'], function(newValues, oldValues, scope) {
 
-  [address,name,company]=[newValues[0],newValues[1],newValues[2]];
+  [address,name,company]=[oldValues[0],oldValues[1],oldValues[2]];
   console.log(address, name, company);
+
+  if (address.length === 4 && !$scope.flagAddress) {
+    dummyService.watchAction($scope,"flagAddress","emailName");
+  }
 
 });
 
