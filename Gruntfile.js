@@ -40,19 +40,17 @@ module.exports = function(grunt) {
 
 
   grunt.loadNpmTasks('grunt-karma');
-  grunt.loadNpmTasks('grunt-mocha')
-  grunt.loadNpmTasks('grunt-shell')
+  grunt.loadNpmTasks('grunt-mocha');
+  grunt.loadNpmTasks('grunt-shell');
 
- 
   grunt.registerTask('test', ['mocha'])
-
 
 
   //grunt shell:addAndDeploy:Message_Here
   //grunt shell:test
 
   grunt.registerTask('testGrunt', () => {
-    console.log('testing grunt!')
+    console.log('testing grunt!');
   })
 
 
