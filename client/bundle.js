@@ -116,7 +116,7 @@
 
 	});
 
-
+	//
 	  dummyService.emailAction($scope, false, null, []);
 	  $scope.sendEmailAddress = (address, name, company, comment) => {
 
