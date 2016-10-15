@@ -76,20 +76,25 @@
 	  $scope.$watch('address', function(newValue, oldValue, scope) {
 	    if (oldValue) {
 	      if (oldValue.length === 4 && !$scope.flagAddress) {
-	         $("#action").css({opacity:1});
-	        $scope.flagAddress = true;
 
-	        let el = $('#emailName'),
-	        curHeight = el.height(),
-	        autoHeight = el.css('height', 'auto').height();
+	       dummyService.watchAction($scope,"flagAddress","emailName")
 
-	        el.height(curHeight).css({
-	          padding: 0,
-	          display: "inline"
-	        }).animate({
-	          height: autoHeight,
-	          padding: 14
-	        }, 100);
+	        //  $("#action").css({opacity:1});
+	        // $scope.flagAddress = true;
+
+	        // let el = $('#emailName'),
+	        // curHeight = el.height(),
+	        // autoHeight = el.css('height', 'auto').height();
+
+	        // el.height(curHeight).css({
+	        //   padding: 0,
+	        //   display: "inline"
+	        // }).animate({
+	        //   height: autoHeight,
+	        //   padding: 14
+	        // }, 100);
+
+
 	      }
 	    }
 	  });
