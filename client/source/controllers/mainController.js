@@ -12,9 +12,8 @@ myApp.controller('myCtrl', function($scope, dummyService) {
 
  Object.assign($scope, scopeProps)
 
-  
 
-  $scope.$watch('address', function(newValue, oldValue, scope) {
+  $scope.$watch('address', (newValue, oldValue, scope)=> {
     if (oldValue) {
       if (oldValue.length === 4 && !$scope.flagAddress) {
        dummyService.watchAction($scope,"flagAddress","emailName");
@@ -23,7 +22,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
     }
   });
 //
-  $scope.$watch('name', function(newValue, oldValue, scope) {
+  $scope.$watch('name', (newValue, oldValue, scope)=> {
     if (oldValue) {
       if (oldValue.length === 3 && !$scope.flagName) {
         dummyService.watchAction($scope,"flagName","emailCompany");
@@ -31,23 +30,19 @@ myApp.controller('myCtrl', function($scope, dummyService) {
     }
   });
 
-  $scope.$watch('company', function(newValue, oldValue, scope) {
+  $scope.$watch('company', (newValue, oldValue, scope)=> {
     if (oldValue) {
       if (oldValue.length === 3 && !$scope.flagCompany) {
         dummyService.watchAction($scope, "flagCompany", "comment");
+        document.getElementById("action").disabled = false;
+
       }
     }
   });
 
-
-  $scope.$watch('company', function(newValue, oldValue, scope) {
-    if (oldValue) {
-      if (oldValue.length === 3) {
-      $("#action").css({opacity:1});
-      document.getElementById("action").disabled = false;
-     }
-    }
-  });
+$scope.$watchGroup(['address', 'name', 'company'], function(newValues, oldValues, scope) {
+  console.log(newValues[0],newValues[1],newValues[2])
+});
 
 
   dummyService.emailAction($scope, false, null, []);
