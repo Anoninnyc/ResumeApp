@@ -67,8 +67,17 @@
 	////git push salty
 	myApp.controller('myCtrl', function($scope, dummyService) {
 
-	const scopeProps=utils.startingScope;
-	Object.assign($scope, scopeProps)
+	  const scopeProps={
+	  check: 'Angular is registered',
+	  flagCompany: false,
+	  flagAddress: false,
+	  flagName: false,
+	  contactMessage: "Interested in learning more?"
+	};
+
+	 Object.assign($scope, scopeProps)
+
+	  
 
 	  $scope.$watch('address', function(newValue, oldValue, scope) {
 	    if (oldValue) {
