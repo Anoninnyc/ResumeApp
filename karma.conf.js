@@ -16,14 +16,14 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
     './node_modules/angular/angular.js',
-    './jqueryRaw.js'
+    'https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js',
     './node_modules/angular-ui-router/release/angular-ui-router.js', 
     './node_modules/angular-route/angular-route.js',
     './node_modules/angular-mocks/angular-mocks.js',
     './node_modules/angular-sanitize/angular-sanitize.js',
-    './node_modules/socketFile.js',
+    'https://krishanmarya.herokuapp.com/socket.io/socket.io.js',
     './client/bundle.js',
-    './tests/dummyTest.js'
+    './tests/jasmineTest.js'
     ],
 
     // list of files to exclude

@@ -66,6 +66,7 @@ cron.schedule('*/10 * * * *', function() {
 
 //sockets
 io.on('connection', function(socket) {
+  console.log("SOMEBODY CONNECTED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
   socket.on('sendEmailAddress', function(msg) {
     
       var email = new Email();
@@ -101,6 +102,7 @@ io.on('connection', function(socket) {
               }).then((entry, err) => {
                 const companyInfo = !entry ? entry : [entry.company, entry.name];
                 if (storyInfo.length === 5) {
+                  console.log("**********************loggedtoDB");
                   io.emit('loggedToDB', {
                     storyInfo,
                     companyInfo
