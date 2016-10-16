@@ -122,7 +122,9 @@ textarea {
 
 #sendInfo>#content {
     left: 10%;
-    position: relative;
+    width: 170%;
+    position: absolute;
+    text-align: center;
 }
 
 button#action {
@@ -130,3 +132,5 @@ button#action {
     left: 20%;
     position: relative;
 }
+
+
