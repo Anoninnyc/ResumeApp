@@ -38,11 +38,11 @@ describe('myCtrl Controller', function() {
 		this.timeout(10000);
 		const salty = [Math.random()].concat([Math.random()]).join("");
 		$scope.sendEmailAddress(salty+'@gmail.com',salty,salty);
-		//setTimeout(function(){
+		setTimeout(function(){
 			expect($scope.error).to.equal('<h3>Email has been added- Thanks!</h3>');
-			// done() 
+			 done() 
 
-			//},5500);
+			},5500);
 	})
 
 })
