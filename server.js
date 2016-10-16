@@ -2,7 +2,7 @@ require('dotenv').config();
 var express = require('express');
 var app = express();
 var http = require('http')
-var cors= require('cors')
+var cors = require('cors');
 var server = http.createServer(app);
 var socketIO = require('socket.io')
 var mongoose = require('mongoose');
