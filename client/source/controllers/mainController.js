@@ -51,7 +51,7 @@ $scope.$watchGroup(['address', 'name', 'company'], function(newValues, oldValues
       [$scope.name, $scope.company, $scope.contactMessage] = ["", "", "Wanna Send Again?"];
       $("#comment").val("");
       $("#contactMessage").css({left: "13%", position: "relative"});
-      $scope.$apply();
+     // $scope.$apply();
     })
 
     socket.once('emailExtant', msg => {
