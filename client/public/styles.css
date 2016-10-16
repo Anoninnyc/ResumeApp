@@ -54,6 +54,7 @@ input {
 
 .form-control {
   width: 55%;
+  display: inline;
 }
 
 
