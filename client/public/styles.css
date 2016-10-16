@@ -130,4 +130,7 @@ textarea {
 }
 
 
-
+h1#contactMessage {
+    left: 30%;
+    position: relative;
+}
