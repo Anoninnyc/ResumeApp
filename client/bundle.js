@@ -125,10 +125,6 @@
 	        const addOn = msg.companyInfo ? `\nIt looks like ${msg.companyInfo[1]} from ${msg.companyInfo[0]} has also registered interest!` : "";
 	        dummyService.emailAction($scope, false, `<h3>Email has been added- Thanks!${addOn}</h3>`, msg.storyInfo, true);
 	        [$scope.comment, $scope.name, $scope.company, $scope.contactMessage] = ["", "", "", "Wanna Send Again?"];
-	        $("#contactMessage").css({
-	          left: "13%",
-	          position: "relative"
-	        });
 	        $(".form-control").css({
 	          width:"70%"
 	        });
