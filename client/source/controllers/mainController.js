@@ -16,8 +16,8 @@ Object.assign($scope, scopeProps);
 $scope.$watchGroup(['address', 'name', 'company'], function(newValues, oldValues, scope) {
 
   [address,name,company]=[oldValues[0],oldValues[1],oldValues[2]];
-  console.log(address, name, company);
 
+if (address||name||company){
   if (address.length === 4 && !$scope.flagAddress) {
     dummyService.watchAction($scope,"flagAddress","emailName");
   }
@@ -28,6 +28,7 @@ $scope.$watchGroup(['address', 'name', 'company'], function(newValues, oldValues
     dummyService.watchAction($scope,"flagCompany","comment");
     document.getElementById("action").disabled = false;
   }
+}
 });
 
 
