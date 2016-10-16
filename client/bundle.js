@@ -129,7 +129,7 @@
 	          left: "13%",
 	          position: "relative"
 	        });
-	        $(".formControl").css({
+	        $(".form-control").css({
 	          width:"70%"
 	        });
 	        $scope.$apply();
