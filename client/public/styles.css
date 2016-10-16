@@ -53,7 +53,7 @@ input {
 }
 
 .form-control {
-  width: 55%;
+  width: 50%;
   display: inline;
 }
 
@@ -131,6 +131,6 @@ textarea {
 
 
 h1#contactMessage {
-    left: 30%;
+    left: 36%;
     position: relative;
 }
