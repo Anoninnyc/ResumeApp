@@ -64,6 +64,9 @@ myApp.controller('myCtrl', function($scope, dummyService) {
           left: "13%",
           position: "relative"
         });
+        $(".formControl").css({
+          width:"70%"
+        });
         $scope.$apply();
       })
 
