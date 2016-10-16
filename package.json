@@ -37,6 +37,7 @@
     "es6-loader": "^0.2.0",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-jasmine-html-spec-runner": "^0.2.5",
     "grunt-karma": "^2.0.0",
     "grunt-mocha": "^1.0.2",
     "grunt-mocha-test": "^0.13.2",

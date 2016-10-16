@@ -34,7 +34,7 @@ module.exports = function(grunt) {
     },
     addAndDeploy: {
       command: mess => ['webpack', 'git add .', 'git commit -m' + mess, 'git push salty master -f'].join('&&')
-    }
+    },
   },
 });
 
@@ -48,6 +48,7 @@ module.exports = function(grunt) {
 
   //grunt shell:addAndDeploy:Message_Here
   //grunt shell:test
+  //grunt shell:addAndDeploy:testMocha
 
   grunt.registerTask('testGrunt', () => {
     console.log('testing grunt!');
@@ -55,3 +56,6 @@ module.exports = function(grunt) {
 
 
 }
+
+
+ 

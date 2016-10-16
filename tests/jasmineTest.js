@@ -21,7 +21,6 @@ describe('myCtrl Controller', function() {
 	   expect($scope.error).toEqual("<h3>Please enter a valid name.</h3>");
 	   $scope.sendEmailAddress('notValidEmail@gmail.com','test','');
 	   expect($scope.error).toEqual("<h3>Please enter a valid company name</h3>");
-	
 	})
 
 })
