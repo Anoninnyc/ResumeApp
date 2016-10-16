@@ -2,6 +2,7 @@ require('dotenv').config();
 var express = require('express');
 var app = express();
 var http = require('http')
+var cors= require('cors')
 var server = http.createServer(app);
 var socketIO = require('socket.io')
 var mongoose = require('mongoose');
@@ -33,7 +34,7 @@ const pathToStaticDir = path.resolve(__dirname, '.', 'client/public');
 mongoose.connect(URL);
 ////
 //MiddleWare
-
+app.use(cors());
 app.use(express.static(__dirname + '/client'));
 
 // Regex checker
@@ -128,6 +129,12 @@ io.on('connection', function(socket) {
         })
   });
 });
+
+
+app.get('/test', (req, res) => {
+  console.log("**********************************************************************************")
+});
+
 
 app.get('*', (req, res) => {
   const pathToIndex = path.join(pathToStaticDir, 'index.html');
