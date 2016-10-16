@@ -44,104 +44,109 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	
-	myApp = angular.module('myApp', ['ngRoute', 'ngSanitize'])
+	'use strict';
+
+	myApp = angular.module('myApp', ['ngRoute', 'ngSanitize']);
 
 	__webpack_require__(1);
 	__webpack_require__(3);
 	__webpack_require__(4);
 
-	myApp.directive('navBar', function() {
-	  return {
-	      restrict: 'AE',
-	      replace: 'true',
-	      templateURL: './source/views/navBar.html'
-	  };
+	myApp.directive('navBar', function () {
+	    return {
+	        restrict: 'AE',
+	        replace: 'true',
+	        templateURL: './source/views/navBar.html'
+	    };
 	});
 
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
 	var utils = __webpack_require__(2);
 
-	myApp.controller('myCtrl', function($scope, dummyService) {
+	myApp.controller('myCtrl', function ($scope, dummyService) {
 
-	const scopeProps = {
-	  check: 'Angular is registered',
-	  flagCompany: false,
-	  flagAddress: false,
-	  flagName: false,
-	  contactMessage: "Interested in learning more?",
-	};
+	  var scopeProps = {
+	    check: 'Angular is registered',
+	    flagCompany: false,
+	    flagAddress: false,
+	    flagName: false,
+	    contactMessage: "Interested in learning more?"
+	  };
 
-	Object.assign($scope, scopeProps);
+	  Object.assign($scope, scopeProps);
+
+	  $scope.$watchGroup(['address', 'name', 'company'], function (newValues, oldValues, scope) {
+	    var _ref = [oldValues[0], oldValues[1], oldValues[2]];
+	    address = _ref[0];
+	    name = _ref[1];
+	    company = _ref[2];
 
 
-	$scope.$watchGroup(['address', 'name', 'company'], function(newValues, oldValues, scope) {
-
-	  [address,name,company]=[oldValues[0],oldValues[1],oldValues[2]];
-
-	if (address||name||company){
-	  if (address.length === 4 && !$scope.flagAddress) {
-	    dummyService.watchAction($scope,"flagAddress","emailName");
-	  }
-	  if (name.length === 3 && !$scope.flagName) {
-	    dummyService.watchAction($scope,"flagName","emailCompany");
-	  }
-	  if (company.length === 3 && !$scope.flagCompany) {
-	    dummyService.watchAction($scope,"flagCompany","comment");
-	    document.getElementById("action").disabled = false;
-	  }
-	}
-	});
-
+	    if (address || name || company) {
+	      if (address.length === 4 && !$scope.flagAddress) {
+	        dummyService.watchAction($scope, "flagAddress", "emailName");
+	      }
+	      if (name.length === 3 && !$scope.flagName) {
+	        dummyService.watchAction($scope, "flagName", "emailCompany");
+	      }
+	      if (company.length === 3 && !$scope.flagCompany) {
+	        dummyService.watchAction($scope, "flagCompany", "comment");
+	        document.getElementById("action").disabled = false;
+	      }
+	    }
+	  });
 
 	  dummyService.emailAction($scope, false, null, []);
-	  $scope.sendEmailAddress = (address, name, company, comment) => {
+	  $scope.sendEmailAddress = function (address, name, company, comment) {
 
-	    if (!utils.reg.test(address)){
+	    if (!utils.reg.test(address)) {
 	      dummyService.emailAction($scope, false, "<h3>Please enter a valid Email Address.</h3>", []);
 	    } else if (!name.length) {
 	      dummyService.emailAction($scope, false, "<h3>Please enter a valid name.</h3>", []);
-	    } else if (!company.length){
+	    } else if (!company.length) {
 	      dummyService.emailAction($scope, false, "<h3>Please enter a valid company name</h3>", []);
 	    } else {
 
-	    socket.emit('sendEmailAddress', {address,name,company,comment,});
-	    dummyService.emailAction($scope, true, null, []);
+	      socket.emit('sendEmailAddress', { address: address, name: name, company: company, comment: comment });
+	      dummyService.emailAction($scope, true, null, []);
 
-	    socket.once('loggedToDB', msg => {
-	      const addOn = msg.companyInfo ? `\nIt looks like ${msg.companyInfo[1]} from ${msg.companyInfo[0]} has also registered interest!` : "";
-	      dummyService.emailAction($scope, false, `<h3>Email has been added- Thanks!${addOn}</h3>`, msg.storyInfo, true);
-	      [$scope.name, $scope.company, $scope.contactMessage] = ["", "", "Wanna Send Again?"];
-	      $("#comment").val("");
-	      $("#contactMessage").css({left: "13%", position: "relative"});
-	      $scope.$apply();
-	    })
+	      socket.once('loggedToDB', function (msg) {
+	        var addOn = msg.companyInfo ? '\nIt looks like ' + msg.companyInfo[1] + ' from ' + msg.companyInfo[0] + ' has also registered interest!' : "";
+	        dummyService.emailAction($scope, false, '<h3>Email has been added- Thanks!' + addOn + '</h3>', msg.storyInfo, true);
+	        var _ref2 = ["", "", "Wanna Send Again?"];
+	        $scope.name = _ref2[0];
+	        $scope.company = _ref2[1];
+	        $scope.contactMessage = _ref2[2];
 
-	    socket.once('emailExtant', msg => {
-	      dummyService.emailAction($scope, false, "<h3>It looks like you've already sent your info</h3>", []);
-	      $scope.$apply();
-	    });
+	        $("#comment").val("");
+	        $("#contactMessage").css({ left: "13%", position: "relative" });
+	        $scope.$apply();
+	      });
 
-	  };
-	 }
-	})
-
-
-	myApp.run(function($rootScope) {
-	  $rootScope.count = 3;
-	   const map = {
-	      "/contact": "Contact Page",
-	      "/techUsed": "Tech Used",
-	      "/resume": "My Resume",
-	      "/": "Welcome!"
+	      socket.once('emailExtant', function (msg) {
+	        dummyService.emailAction($scope, false, "<h3>It looks like you've already sent your info</h3>", []);
+	        $scope.$apply();
+	      });
 	    };
+	  };
+	});
 
+	myApp.run(function ($rootScope) {
+	  $rootScope.count = 3;
+	  var map = {
+	    "/contact": "Contact Page",
+	    "/techUsed": "Tech Used",
+	    "/resume": "My Resume",
+	    "/": "Welcome!"
+	  };
 
-	  $rootScope.countdown = function() {
-	    console.log("coutingDOWN!!!")
+	  $rootScope.countdown = function () {
+	    console.log("coutingDOWN!!!");
 	    if ($rootScope.count > 1) {
 	      $rootScope.count--;
 	    } else if ($rootScope.count === 1) {
@@ -149,129 +154,123 @@
 	    } else {
 	      $rootScope.count = null;
 	    }
-
 	  };
 
-	   $rootScope.$on("$routeChangeStart", (e, current)=>{
-	    console.log(e,current.$$route.originalPath);
-	    $rootScope.currRoute=map[current.$$route.originalPath];
-	   })
+	  $rootScope.$on("$routeChangeStart", function (e, current) {
+	    console.log(e, current.$$route.originalPath);
+	    $rootScope.currRoute = map[current.$$route.originalPath];
+	  });
 
-
-	  $rootScope.$on('$routeChangeSuccess', (e, current) => {
-	    let path = current.$$route.originalPath;
-	    if (path === "/techUsed" && $rootScope.counting!==1) {
+	  $rootScope.$on('$routeChangeSuccess', function (e, current) {
+	    var path = current.$$route.originalPath;
+	    if (path === "/techUsed" && $rootScope.counting !== 1) {
 	      $rootScope.count = 3;
-	      $rootScope.counting=1;
-	      
+	      $rootScope.counting = 1;
+
 	      for (var i = 500; i < 2001; i += 500) {
-	        (function(i) {
-	          setTimeout(function() {
+	        (function (i) {
+	          setTimeout(function () {
 	            $rootScope.countdown();
 	            $rootScope.$apply();
-	            if (i===2000){
-	            $rootScope.counting=2;
-	            $(".tech").css({display:"inline"})
-	            $rootScope.$apply();
+	            if (i === 2000) {
+	              $rootScope.counting = 2;
+	              $(".tech").css({ display: "inline" });
+	              $rootScope.$apply();
 	            }
-	          }, i)
-	        }(i));
+	          }, i);
+	        })(i);
 	      }
 	    }
-	    if (moveIt!==undefined){
+	    if (moveIt !== undefined) {
 	      clearInterval(moveIt);
 	    }
-	   
 
 	    $rootScope.currRoute = map[path];
-	    console.log(path)
+	    console.log(path);
 	  });
 	});
-
-
-
-
-
 
 /***/ },
 /* 2 */
 /***/ function(module, exports) {
 
-	
-	var toDateTime= function(secs) {
+	"use strict";
+
+	var toDateTime = function toDateTime(secs) {
 		var t = new Date(1970, 0, 1); // Epoch
 		t.setSeconds(secs);
 		return t;
-	}
+	};
 
-	var reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
+	var reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
 
-
-	module.exports={
-		toDateTime:toDateTime,
-		reg:reg
-	}
+	module.exports = {
+		toDateTime: toDateTime,
+		reg: reg
+	};
 
 /***/ },
 /* 3 */
 /***/ function(module, exports) {
 
-	myApp.service('dummyService', function(){
+	"use strict";
 
-	  this.emailAction= (scope, loading , error, stories, clear)=>{
-	    [scope.loading, scope.error, scope.stories]=[loading, error, stories];
+	myApp.service('dummyService', function () {
 
-		if (clear){    	
-			$("#emailAddress,#emailName,#emailCompany").val("");
-		 }
-	  }
+	  this.emailAction = function (scope, loading, error, stories, clear) {
+	    var _ref = [loading, error, stories];
+	    scope.loading = _ref[0];
+	    scope.error = _ref[1];
+	    scope.stories = _ref[2];
 
-	  this.watchAction = (scope, watchVar, elem)=>{
-	     $("#action").css({opacity:1});
-	        scope[watchVar] = true;
-	        let el = $(`#${elem}`),
+
+	    if (clear) {
+	      $("#emailAddress,#emailName,#emailCompany").val("");
+	    }
+	  };
+
+	  this.watchAction = function (scope, watchVar, elem) {
+	    $("#action").css({ opacity: 1 });
+	    scope[watchVar] = true;
+	    var el = $("#" + elem),
 	        curHeight = el.height(),
 	        autoHeight = el.css('height', 'auto').height();
 
-	        el.height(curHeight).css({
-	          padding: 0,
-	          display: "inline"
-	        }).animate({
-	          height: autoHeight,
-	          padding: 14
-	        }, 100);
-	  }
-
-	})
+	    el.height(curHeight).css({
+	      padding: 0,
+	      display: "inline"
+	    }).animate({
+	      height: autoHeight,
+	      padding: 14
+	    }, 100);
+	  };
+	});
 
 /***/ },
 /* 4 */
 /***/ function(module, exports) {
 
-	myApp.config(function($routeProvider, $locationProvider) {
-	  $routeProvider.
-	  when('/', {
+	'use strict';
+
+	myApp.config(function ($routeProvider, $locationProvider) {
+	  $routeProvider.when('/', {
 	    templateUrl: '/source/views/home.html',
 	    controller: 'myCtrl'
-	  }).
-	  when('/resume', {
+	  }).when('/resume', {
 	    templateUrl: '/source/views/resume.html',
 	    controller: 'myCtrl'
-	  }).
-	  when('/techUsed', {
+	  }).when('/techUsed', {
 	    templateUrl: '/source/views/techUsed.html',
 	    controller: 'myCtrl'
-	  }).
-	  when('/contact', {
+	  }).when('/contact', {
 	    templateUrl: '/source/views/contact.html',
 	    controller: 'myCtrl'
-	  }).
-	  otherwise({
-	    redirectTo:"/"
-	    })
+	  }).otherwise({
+	    redirectTo: "/"
+	  });
 
 	  $locationProvider.html5Mode(true);
-	})
+	});
 
 /***/ }
 /******/ ]);
