@@ -61,10 +61,10 @@ myApp.controller('myCtrl', function($scope, dummyService) {
       socket.once('loggedToDB', msg => {
         const addOn = msg.companyInfo ? `\nIt looks like ${msg.companyInfo[1]} from ${msg.companyInfo[0]} has also registered interest!` : "";
         dummyService.emailAction($scope, false, `<h3>Email has been added- Thanks!${addOn}</h3>`, msg.storyInfo, true);
-        [$scope.comment, $scope.name, $scope.company, $scope.contactMessage] = ["", "", "", "     Wanna Send Again?      "];
-        $(".form-control").css({
-          width:"50%"
-        });
+        [$scope.comment, $scope.name, $scope.company, $scope.contactMessage] = ["", "", "", "Wanna Send Again?"];
+        // $(".form-control").css({
+        //   width:"70%"
+        // });
 
         // $("#sendInfo>#content").css({left:"20px"})
         $scope.$apply();
