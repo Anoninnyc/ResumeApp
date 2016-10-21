@@ -1,136 +1,128 @@
  /*nav*/
-
-  ul.nav a:hover {
-    background-color: white !important;
-  }
-  
-/*  ul.nav a:focus {
-    background-color: grey !important;
-  }*/
-.form-control {
-  width: 50%;
-}
-
-div#sendInfo {
-  position: relative;
-  left: 30%;
-  text-align: 0;
-}
-
-h2.ng-binding {
-    color: darkblue;
-}
-
-
-div#sendInfo {
-  display: inline-block;
-}
-
-h1 {
-  display: inline;
-}
-
-div#res {
- text-align: center;
-}
-
-input {
-    width: 100%;
-}
-
-#ifHolder {
-  background-image:url('https://cdn.playbuzz.com/cdn/6a5fa9ad-76ba-45df-b2c3-f7e2848f6b37/42451516-0315-4f40-aa1c-a47d7159dda3.gif') no-repeat center center; 
-}
-
-#emailName, #emailCompany, #comment {
-  display:none;
-  height: 0;
-  padding: 0;
-}
-
-.btn {
-  display: block;
-}
-
-.form-control {
-  width: 50%;
-  display: inline;
-}
-
-
-
-button#action {
-  opacity: 0.6;
-  position: relative;
-  margin: auto;
-}
-
-#countdown {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  font-size: 100px;
-}
-
-div#res {
-    text-align: center;
-    opacity: 0.75;
-    position: absolute;
-    left: 25%;
-}
-
-body {
-    background: url(./nightskyline.gif) center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-
-div#Home {
-    text-align: center;
-}
-
-
-
-.tech {
-  width: 200;
-  position: absolute;
-  opacity: 0.5;
-  left: 764px;
-  top: 541px;
-  display:none;
-  -webkit-transition-duration: 0.8s;
-  -moz-transition-duration: 0.8s;
-  -o-transition-duration: 0.8s;
-  transition-duration: 0.8s;
-  -webkit-transition-property: -webkit-transform;
-  -moz-transition-property: -moz-transform;
-  -o-transition-property: -o-transform;
-  transition-property: transform;
-  overflow:hidden;
-}
-
-.tech:hover{
-   opacity:1;
-  -webkit-transform:rotate(360deg);
-  -moz-transform:rotate(360deg);
-  -o-transform:rotate(360deg);
-}
-
-textarea {
-    resize: none;
-}
-
-#sendInfo>#content {
-    width: 170%;
-    position: absolute;
-    text-align: center;
-}
-
-
-h1#contactMessage {
-    left: 36%;
-    position: relative;
-}
+ 
+ ul.nav a:hover {
+   background-color: white !important;
+ }
+ 
+ .form-control {
+   width: 50%;
+ }
+ 
+ div#sendInfo {
+   position: relative;
+   left: 30%;
+   text-align: 0;
+ }
+ 
+ h2.ng-binding {
+   color: darkblue;
+ }
+ 
+ div#sendInfo {
+   display: inline-block;
+ }
+ 
+ h1 {
+   display: inline;
+ }
+ 
+ div#res {
+   text-align: center;
+ }
+ 
+ input {
+   width: 100%;
+ }
+ 
+ #ifHolder {
+   background-image: url('https://cdn.playbuzz.com/cdn/6a5fa9ad-76ba-45df-b2c3-f7e2848f6b37/42451516-0315-4f40-aa1c-a47d7159dda3.gif') no-repeat center center;
+ }
+ 
+ #emailName,
+ #emailCompany,
+ #comment {
+   display: none;
+   height: 0;
+   padding: 0;
+ }
+ 
+ .btn {
+   display: block;
+ }
+ 
+ .form-control {
+   width: 50%;
+   display: inline;
+ }
+ 
+ button#action {
+   opacity: 0.6;
+   position: relative;
+   margin: auto;
+ }
+ 
+ #countdown {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   font-size: 100px;
+ }
+ 
+ div#res {
+   text-align: center;
+   opacity: 0.75;
+   position: absolute;
+   left: 25%;
+ }
+ 
+ body {
+   background: url(./nightskyline.gif) center center;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+ }
+ 
+ div#Home {
+   text-align: center;
+ }
+ 
+ .tech {
+   width: 200;
+   position: absolute;
+   opacity: 0.5;
+   left: 764px;
+   top: 541px;
+   display: none;
+   -webkit-transition-duration: 0.8s;
+   -moz-transition-duration: 0.8s;
+   -o-transition-duration: 0.8s;
+   transition-duration: 0.8s;
+   -webkit-transition-property: -webkit-transform;
+   -moz-transition-property: -moz-transform;
+   -o-transition-property: -o-transform;
+   transition-property: transform;
+   overflow: hidden;
+ }
+ 
+ .tech:hover {
+   opacity: 1;
+   -webkit-transform: rotate(360deg);
+   -moz-transform: rotate(360deg);
+   -o-transform: rotate(360deg);
+ }
+ 
+ textarea {
+   resize: none;
+ }
+ 
+ #sendInfo>#content {
+   width: 170%;
+   position: absolute;
+   text-align: center;
+ }
+ 
+ h1#contactMessage {
+   left: 36%;
+   position: relative;
+ }

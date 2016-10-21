@@ -1,14 +1,17 @@
 <div id="sendInfo">
   <h1 id="contactMessage"> {{contactMessage}}</h1>
-  <br/><br/><br/><br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
   <div id="content">
-  <div id="inputFields">
-    <input id="emailAddress" placeholder="Your Email Address" class="form-control" ng-model="address" type='text' />
-    <input id="emailName" placeholder="Your Name" class="form-control" ng-model="name" type='text' />
-    <input id="emailCompany" placeholder="Your Company Name" class="form-control" ng-model="company" type='text' />
-    <textarea id="comment" rows="5" placeholder="Comment (Optional)" class="form-control" ng-model="comment"></textarea>
+    <div id="inputFields">
+      <input id="emailAddress" placeholder="Your Email Address" class="form-control" ng-model="address" type='text' />
+      <input id="emailName" placeholder="Your Name" class="form-control" ng-model="name" type='text' />
+      <input id="emailCompany" placeholder="Your Company Name" class="form-control" ng-model="company" type='text' />
+      <textarea id="comment" rows="5" placeholder="Comment (Optional)" class="form-control" ng-model="comment"></textarea>
 
-    <button id="action" class="btn btn-secondary" ng-click="sendEmailAddress(address, name, company, comment)">Send</button>
+      <button id="action" class="btn btn-secondary" ng-click="sendEmailAddress(address, name, company, comment)">Send</button>
     </div>
 
     <br/>
@@ -31,4 +34,5 @@
 
 <script>
   document.getElementById("action").disabled = true;
+
 </script>
