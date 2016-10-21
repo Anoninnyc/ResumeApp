@@ -111,6 +111,8 @@
 	      dummyService.emailAction($scope, false, "<h3>Please enter a valid name.</h3>", []);
 	    } else if (!company.length) {
 	      dummyService.emailAction($scope, false, "<h3>Please enter a valid company name</h3>", []);
+	    }  else if (comment.length>256){
+	      dummyService.emailAction($scope, false, "<h3>Max comment length is 256 chars</h3>", []);
 	    } else {
 
 	      socket.emit('sendEmailAddress', {
