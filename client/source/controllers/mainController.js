@@ -66,7 +66,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
         //   width:"70%"
         // });
 
-        $("#sendInfo>#content").css({left:"20px"})
+        // $("#sendInfo>#content").css({left:"20px"})
         $scope.$apply();
       }) 
 
