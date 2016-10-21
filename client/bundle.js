@@ -129,7 +129,7 @@
 	        [$scope.comment, $scope.name, $scope.company, $scope.contactMessage] = ["", "", "", "Wanna Send Again?"];
 	        // $(".form-control").css({
 	        //   width:"70%"
-	        // });
+	        // });//
 
 	        // $("#sendInfo>#content").css({left:"20px"})
 	        $scope.$apply();
