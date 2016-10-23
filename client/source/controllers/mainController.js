@@ -39,6 +39,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
 
   dummyService.emailAction($scope, false, null, []);
   $scope.sendEmailAddress = (address, name, company, comment) => {
+    console.log(address, name, company, comment);
 
     if (!utils.reg.test(address)) {
       dummyService.emailAction($scope, false, "<h3>Please enter a valid Email Address.</h3>", []);
