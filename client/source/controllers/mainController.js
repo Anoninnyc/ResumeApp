@@ -49,7 +49,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
       dummyService.emailAction($scope, false, "<h3>Please enter a valid name.</h3>", []);
     } else if (!company.length) {
       dummyService.emailAction($scope, false, "<h3>Please enter a valid company name</h3>", []);
-    }  else if (comment.length>256){
+    } else if (comment.length > 256) {
       dummyService.emailAction($scope, false, "<h3>Max comment length is 256 chars</h3>", []);
     } else {
 
@@ -71,7 +71,7 @@ myApp.controller('myCtrl', function($scope, dummyService) {
 
         // $("#sendInfo>#content").css({left:"20px"})
         $scope.$apply();
-      }) 
+      })
 
       socket.once('emailExtant', msg => {
         dummyService.emailAction($scope, false, "<h3>It looks like you've already sent your info</h3>", []);

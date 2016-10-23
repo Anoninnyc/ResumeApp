@@ -1,5 +1,5 @@
 
-myApp = angular.module('myApp', ['ngRoute', 'ngSanitize'])
+myApp = angular.module('myApp', ['ngRoute', 'ngSanitize']);
 
 require('./source/controllers/mainController.js');
 require('./source/services/services.js');

@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	myApp = angular.module('myApp', ['ngRoute', 'ngSanitize'])
+	myApp = angular.module('myApp', ['ngRoute', 'ngSanitize']);
 
 	__webpack_require__(1);
 	__webpack_require__(3);
@@ -114,7 +114,7 @@
 	      dummyService.emailAction($scope, false, "<h3>Please enter a valid name.</h3>", []);
 	    } else if (!company.length) {
 	      dummyService.emailAction($scope, false, "<h3>Please enter a valid company name</h3>", []);
-	    }  else if (comment.length>256){
+	    } else if (comment.length > 256) {
 	      dummyService.emailAction($scope, false, "<h3>Max comment length is 256 chars</h3>", []);
 	    } else {
 
@@ -136,7 +136,7 @@
 
 	        // $("#sendInfo>#content").css({left:"20px"})
 	        $scope.$apply();
-	      }) 
+	      })
 
 	      socket.once('emailExtant', msg => {
 	        dummyService.emailAction($scope, false, "<h3>It looks like you've already sent your info</h3>", []);
@@ -213,52 +213,52 @@
 /* 2 */
 /***/ function(module, exports) {
 
-	
-	var toDateTime= function(secs) {
-		var t = new Date(1970, 0, 1); // Epoch
-		t.setSeconds(secs);
-		return t;
+	var toDateTime = function(secs) {
+	  var t = new Date(1970, 0, 1); // Epoch
+	  t.setSeconds(secs);
+	  return t;
 	}
 
 	var reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
 
 
-	module.exports={
-		toDateTime:toDateTime,
-		reg:reg
+	module.exports = {
+	  toDateTime: toDateTime,
+	  reg: reg
 	}
+
 
 /***/ },
 /* 3 */
 /***/ function(module, exports) {
 
-	myApp.service('dummyService', function(){
+	myApp.service('dummyService', function() {
 
-	  this.emailAction= (scope, loading , error, stories, clear)=>{
-	    [scope.loading, scope.error, scope.stories]=[loading, error, stories];
+	  this.emailAction = (scope, loading, error, stories, clear) => {
+	    [scope.loading, scope.error, scope.stories] = [loading, error, stories];
 
-		if (clear){    	
-			$("#emailAddress,#emailName,#emailCompany").val("");
-		 }
+	    if (clear) {
+	      $("#emailAddress,#emailName,#emailCompany").val("");
+	    }
 	  }
-
-	  this.watchAction = (scope, watchVar, elem)=>{
-	     $("#action").css({opacity:1});
-	        scope[watchVar] = true;
-	        let el = $(`#${elem}`),
-	        curHeight = el.height(),
-	        autoHeight = el.css('height', 'auto').height();
-
-	        el.height(curHeight).css({
-	          padding: 0,
-	          display: "inline"
-	        }).animate({
-	          height: autoHeight,
-	          padding: 14
-	        }, 100);
+	  this.watchAction = (scope, watchVar, elem) => {
+	    $("#action").css({
+	      opacity: 1
+	    });
+	    scope[watchVar] = true;
+	    let el = $(`#${elem}`),
+	      curHeight = el.height(),
+	      autoHeight = el.css('height', 'auto').height();
+	    el.height(curHeight).css({
+	      padding: 0,
+	      display: "inline"
+	    }).animate({
+	      height: autoHeight,
+	      padding: 14
+	    }, 100);
 	  }
-
 	})
+
 
 /***/ },
 /* 4 */
