@@ -2,6 +2,8 @@ var utils = require("../utils");
 
 myApp.controller('myCtrl', function($scope, dummyService) {
 
+  $scope.comment = "";
+
   const scopeProps = {
     check: 'Angular is registered',
     flagCompany: false,
