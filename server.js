@@ -20,7 +20,7 @@ setInterval(() => {
 }, 300000);
 
 
-auth.restrict = function(req, res, next){
+restrict = function(req, res, next){
   res.redirect('/login');
 };
 
