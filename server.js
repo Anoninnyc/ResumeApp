@@ -20,7 +20,9 @@ setInterval(() => {
 }, 300000);
 
 
-
+auth.restrict = function(req, res, next){
+  res.redirect('/login');
+};
 
 ///////
 // db Connection
@@ -142,6 +144,9 @@ io.on('connection', function(socket) {
   });
 });
 
+app.get('/resume',(req,res)=>{
+  console.log("trying to access res");
+})
 app.get('*', (req, res) => {
   const pathToIndex = path.join(pathToStaticDir, 'index.html');
   res.status(200).sendFile(pathToIndex);
