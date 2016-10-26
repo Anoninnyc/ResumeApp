@@ -43,11 +43,11 @@ myApp.controller('myCtrl', function($scope, dummyService) {
   $scope.sendEmailAddress = (address, name, company, comment) => {
     console.log(address, name, company, comment);
 
-    if (!utils.reg.test(address)) {
+    if (!utils.reg.test(address) ||(address.length>90) ) {
       dummyService.emailAction($scope, false, "<h3>Please enter a valid Email Address.</h3>", []);
-    } else if (!name.length) {
+    } else if (!name.length ||(name.length>90)) {
       dummyService.emailAction($scope, false, "<h3>Please enter a valid name.</h3>", []);
-    } else if (!company.length) {
+    } else if (!company.length ||(company.length>90)) {
       dummyService.emailAction($scope, false, "<h3>Please enter a valid company name</h3>", []);
     } else if (comment.length > 256) {
       dummyService.emailAction($scope, false, "<h3>Max comment length is 256 chars</h3>", []);
@@ -65,11 +65,6 @@ myApp.controller('myCtrl', function($scope, dummyService) {
         const addOn = msg.companyInfo ? `\nIt looks like ${msg.companyInfo[1]} from ${msg.companyInfo[0]} has also registered interest!` : "";
         dummyService.emailAction($scope, false, `<h3>Email has been added- Thanks!${addOn}</h3>`, msg.storyInfo, true);
         [$scope.comment, $scope.name, $scope.company, $scope.contactMessage] = ["", "", "", "Interested in learning more?"];
-        // $(".form-control").css({
-        //   width:"70%"
-        // });
-
-        // $("#sendInfo>#content").css({left:"20px"})
         $scope.$apply();
       })
 

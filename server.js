@@ -14,6 +14,14 @@ mongoose.Promise = require('bluebird');
 const io = socketIO.listen(server);
 const cron = require('node-cron');
 
+setInterval(() => {
+  http.get("http://krishanmarya.herokuapp.com/");
+  console.log("*************PINGED!!**********");
+}, 300000);
+
+
+
+
 ///////
 // db Connection
 /////
