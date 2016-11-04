@@ -168,4 +168,6 @@ ol.carousel-indicators {
     line-height: 1;
     height: 600px;
     margin:auto;
+    left:10px;
+    position:relative;
 }
