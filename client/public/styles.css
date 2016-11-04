@@ -157,7 +157,7 @@ h1#contactMessage {
 }
 
 .item {
-    height: 700px;
+    height: 600px;
 }
 
 ol.carousel-indicators {
@@ -167,4 +167,5 @@ ol.carousel-indicators {
 .carousel-inner>.item>a>img, .carousel-inner>.item>img {
     line-height: 1;
     height: 600px;
+    margin:auto;
 }
