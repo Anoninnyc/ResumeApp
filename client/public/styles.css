@@ -173,3 +173,7 @@ ol.carousel-indicators {
     position:relative;
     width:auto;
 }
+
+#resumeFrame {
+    text-align: center;
+}
