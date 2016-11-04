@@ -146,14 +146,25 @@ h1#contactMessage {
 
 .glyphicon-chevron-right:before {
     content: "\e080";
-    top: 50px;
+    bottom: 200%;
+    position: absolute;
 }
 
 .glyphicon-chevron-left:before {
     content: "\e079";
-    top: 50px;
+    bottom: 200%;
+    position: absolute;
 }
 
 .item {
     height: 700px;
+}
+
+ol.carousel-indicators {
+    bottom: 10%;
+}
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img {
+    line-height: 1;
+    height: 600px;
 }
