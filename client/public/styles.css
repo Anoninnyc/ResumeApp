@@ -146,14 +146,12 @@ h1#contactMessage {
 
 .glyphicon-chevron-right:before {
     content: "\e080";
-    position: fixed;
-    top: 50%;
+    top: 50px;
 }
 
 .glyphicon-chevron-left:before {
     content: "\e079";
-    position: fixed;
-    top: 50%;
+    top: 50px;
 }
 
 .item {
