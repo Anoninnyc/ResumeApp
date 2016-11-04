@@ -143,3 +143,15 @@ h1#contactMessage {
 .link:hover {
   cursor: pointer
 }
+
+.glyphicon-chevron-right:before {
+    content: "\e080";
+    position: fixed;
+    top: 50%;
+}
+
+.glyphicon-chevron-left:before {
+    content: "\e079";
+    position: fixed;
+    top: 50%;
+}
