@@ -158,6 +158,7 @@ h1#contactMessage {
 
 .item {
     height: 600px;
+    width:auto;
 }
 
 ol.carousel-indicators {
@@ -170,4 +171,5 @@ ol.carousel-indicators {
     margin:auto;
     left:10px;
     position:relative;
+    width:auto;
 }
