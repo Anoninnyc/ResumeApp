@@ -50,9 +50,11 @@
   
  $("a.right.carousel-control").click(function() {
       $("#myCarousel").carousel("next");
+      $("#myCarousel").carousel("pause");
     });
 
  $("a.left.carousel-control").click(function() {
-      $("#myCarousel").carousel("next");
+      $("#myCarousel").carousel("prev");
+      $("#myCarousel").carousel("pause");
     });
 </script>
