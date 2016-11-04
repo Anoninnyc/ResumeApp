@@ -276,6 +276,9 @@
 	  when('/contact', {
 	    templateUrl: '/source/views/contact.html',
 	    controller: 'myCtrl'
+	  }).when('/myCarousel', {
+	    templateUrl: '/source/views/home.html',
+	    controller: 'myCtrl'
 	  }).
 	  otherwise({
 	    redirectTo:"/"
