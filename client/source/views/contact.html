@@ -9,7 +9,7 @@
       <input id="emailAddress" placeholder="Your Email Address" class="form-control" ng-model="address" type='text' />
       <input id="emailName" placeholder="Your Name" class="form-control" ng-model="name" type='text' />
       <input id="emailCompany" placeholder="Your Company Name" class="form-control" ng-model="company" type='text' />
-      <textarea id="comment" rows="5" placeholder="(Optional) Comment- MaxLength is 256 characters " class="form-control" ng-model="comment"></textarea>
+      <textarea maxlength="256" id="comment" rows="5" placeholder="(Optional) Comment- MaxLength is 256 characters " class="form-control" ng-model="comment"></textarea>
 
       <button id="action" class="btn btn-secondary" ng-click="sendEmailAddress(address, name, company, comment)">Send</button>
     </div>
