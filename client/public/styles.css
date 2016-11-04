@@ -177,3 +177,8 @@ ol.carousel-indicators {
 #resumeFrame {
     text-align: center;
 }
+
+iframe {
+    width:718px; 
+    height:900px;
+}
